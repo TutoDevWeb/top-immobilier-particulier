@@ -1,0 +1,49 @@
+div#galerie {
+  width: 448px ;
+  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+ul#galerie_mini {
+  margin: 0 ;
+  padding: 0 ;
+  list-style-type: none ;
+}
+
+ul#galerie_mini li {
+display: inline;
+}
+
+ul#galerie_mini li a:link {
+padding: 3px 6px 3px 6px;
+color: #fff;
+font-weight: bold;
+text-decoration: none;
+border: 1px solid #fff;
+margin-left:10px;
+background-color: #8395a3;
+}
+
+ul#galerie_mini li a:hover {
+background: #993300;
+}
+
+ul#galerie_mini li a:active {
+background: #993300;
+}
+
+div#photo
+{
+  clear: both ;
+  margin: 10px auto ;
+}
+
+div#photo img
+{
+/*  border: 1px solid #dcb ; */
+	border: 1px solid #000 ;
+}
+

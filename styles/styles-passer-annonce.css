@@ -1,0 +1,12 @@
+div#header { height: 90px;  background: url(/images-header/annonces-immobilieres-entre-particuliers.gif) no-repeat top center #9BC0E4 ;}
+div#header img { margin-top: 15px; }
+
+/* List arguments-------------------------------*/
+div#userpan ul#listarg { list-style-image: url(/images/arrow6.gif); margin: 20px 0; }
+div#userpan ul#listarg li { width: 600px; background-color: #FFF; padding-bottom: 3px; padding-top: 3px; text-align: left; margin: 0 auto 2px auto; }
+
+div#userpan ul#depositbox li { width: 700px; background-color: #993300; padding-bottom: 3px; padding-top: 3px; text-align: left; margin: 0 auto 2px auto; }
+div#userpan ul#depositbox li a { color: #FFFFFF; text-decoration: none; margin-left : 30px; padding-left : 15px; background: url(/images/arrow2.gif) no-repeat ; font-weight: bold; }
+div#userpan ul#depositbox li a:hover { text-decoration: underline; }
+
+

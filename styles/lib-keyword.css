@@ -1,0 +1,35 @@
+/* ---------------------------------------------*/
+/* Formulaire de recherche par mots clés        */
+div#keyword {
+  width :158px;
+  border: 1px solid #000;
+  margin: 0 auto 10px auto;
+}
+
+div#keyword h2 {
+  font-size: 1em;
+	color: #FFF;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #000;
+	font-weight: bold;
+    margin:0;
+	background: #930;	
+}
+
+div#keyword .box {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #000;
+}
+div#keyword .boxlast {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+div#keyword a{
+  color: #000000;
+	text-decoration: none;
+}
+div#keyword a:hover {
+	text-decoration: underline;
+}

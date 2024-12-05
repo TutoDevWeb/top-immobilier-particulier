@@ -1,0 +1,15 @@
+#------------------------------------------
+# Répertoire : /actualites-immobilieres
+#------------------------------------------
+
+# Le serveur doit suivre les liens symboliques
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL
+RewriteEngine on
+
+#------------------------------------------
+# Régle pour les actualités
+RewriteRule ^([a-zA-Z0-9\.-]+)\.htm$ /actualites-immobilieres/articles-news.php?news_url=$1 [L]
+
+

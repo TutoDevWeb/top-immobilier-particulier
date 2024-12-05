@@ -1,0 +1,47 @@
+div#header { height: 90px;  background: url(/images-header/annonces-immobilieres-entre-particuliers.gif) no-repeat top center #9BC0E4 ;}
+div#header img { margin-top: 15px; }
+
+h1 { display:block; background: url(/images/hp3.gif) no-repeat transparent 20px center ; padding: 5px 0 5px 50px; width: 450px; font-size: 1em; font-weight: bold; margin: 30px auto; color: #930; border-top: 1px solid #39C; border-bottom: 1px solid #39C; border-left: 5px solid #39C; border-right: 5px solid #39C; }
+h2 { font-size: 1.2em; line-height: 50px; }
+
+
+/* Plan du site-----------------------------------------------------*/
+div#plan {width: 998px; margin: 0px auto; background:  url(/images/fond-tour.jpg) no-repeat bottom right white ;}
+div#plan h1 { width: 750px; font-size: 1.2em;}
+div#plan .niv1 { font-size: 1em; text-align: left; width: 600px; margin: 0 auto;}
+div#plan .niv1 li { margin: 4px 0px; }
+div#plan .niv1 li a { color: #930; text-decoration: none; }
+div#plan .niv1 li a:hover { text-decoration: underline; }
+div#plan .niv1 li p { color: #930; }
+
+div#plan .niv2 { font-size: 1em; margin: 0 0 0 30px; text-align: left; }
+div#plan .niv2 li { margin: 4px 0px; }
+div#plan .niv2 li a { color: #369; text-decoration: none; }
+
+
+
+/* Contact Webmaster-------------------------------------------------*/
+div#contact_web {width: 998px; margin: 0px auto; padding-bottom: 100px; background:  url(/images/fond-tour.jpg) no-repeat bottom right white ;}
+div#contact_web h1 { width: 550px; font-size: 1.2em; line-height: 30px;}
+div#contact_web table#input_mail { margin: 0 auto; border: 1px solid #39C; width: 400px; height: 370px;}
+div#contact_web table#input_mail td { padding: 5px; }
+div#contact_web table#code { width: 100%; }
+
+
+/* FAQ-------------------------------------------------*/
+div#faq {width: 998px; margin: 0px auto; padding: 0 0 50px 0; background:  url(/images/fond-tour.jpg) no-repeat bottom right white ;}
+div#faq h1 { width: 750px; font-size: 1.2em; }
+div#faq ul { text-align : justify; width: 700px; margin: 0px auto; } 
+div#faq .question { color: #930; font-size: 1.2em; line-height: 1.6em; background:  url(/images/arrow1.gif) no-repeat left center; padding-left: 20px;margin-top: 15px;}
+div#faq .answer { color: black; font-size: 1em; line-height: 1.4em; padding-bottom: 5px;}
+div#faq .answer strong { color: #3D81EE;}
+
+
+
+/* Loupe-------------------------------------------------*/
+div#loupe {width: 998px; margin: 20px auto; padding: 0 0 100px 0; background:  url(/images/fond-tour.jpg) no-repeat bottom right white;}
+div#loupe h1 { width: 750px; font-size: 1.2em; }
+div#loupe div#explain { width: 800px; text-align: left; margin: 0 auto;}
+div#loupe ul { width: 800px; text-align: left; margin: 0 auto; list-style-type: disc; list-style-position : inside; padding-left: 30px;}
+div#loupe li { margin: 15px;}
+div#loupe li strong { text-decoration: underline ;}

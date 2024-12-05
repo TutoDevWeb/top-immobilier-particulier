@@ -1,0 +1,330 @@
+div#header {
+  height: 90px;
+  position: relative;
+}
+
+div#centre {
+  /*background-color: #DDD;*/
+  text-align: center;
+}
+
+div#footer {
+  border-bottom: 5px solid #036;
+}
+
+/*---------------------------------------------*/
+
+div#logosag {
+ position: absolute;
+ top: 15px;
+ left: 15px;
+}
+
+div#header h1 {
+  position: absolute;
+  top:  20px;
+  left: 150px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  color: #000;
+  font-weight: bold;
+  margin: 0;
+}
+
+div#header div#onglet {
+ position: absolute;
+ top: 55px;
+ left: 150px;
+}
+
+div#header div#onglet a {
+  color: #336699;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+div#header div#onglet a:hover {
+  text-decoration: underline;
+}
+
+/*-----------------------------------------------------------*/
+/* Conteneur central                                         */
+/*-----------------------------------------------------------*/
+
+/*-----------------------------------------------------------*/
+/* Tableau Haut                                              */
+div#centre table#tab_haut {
+  width: 900px;
+  border-collapse: collapse; 
+  text-align: left;
+	margin: 0 auto;
+}
+
+/*----------------------------------*/
+/* Tableau Haut Cellule de Gauche   */
+div#centre table#tab_haut td.cell_g {
+  width: 468px;
+  vertical-align: top;
+	padding: 10px;
+} 
+
+div#centre table#tab_haut td.cell_g div#resume {
+  background-color: #39C;
+  padding: 5px;
+  color: #FFF;
+  font-weight: bold;
+/*  line-height: 30px; */
+}
+
+div#centre table#tab_haut td.cell_g div#blabla {
+  border: 1px dashed #39C;
+  background-color: #FFF;
+  margin: 10px;
+  padding: 5px;
+  text-align: justify;
+}
+
+div#centre table#tab_haut td.cell_g div#note {
+  background-color: #39C;
+  padding: 5px;
+  color: #FFF;
+  text-align: center;
+}
+
+div#centre table#tab_haut td.cell_g div#note p {
+  background: url(/images/note_dot.gif) left center no-repeat;
+  padding: 0 0 0 15px;
+  margin: 0;
+  color: #FFF;
+  text-align: left;
+}
+
+div#centre table#tab_haut td.cell_g div#note a {
+  background: url(/images/note_chevron.gif) left center no-repeat;
+  padding: 0 0 0 25px;
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+div#centre table#tab_haut td.cell_g div#note a:hover {
+  text-decoration: underline;
+}
+
+div#centre table#tab_haut td.cell_g div#contact {
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 10px;
+  border: 1px solid #39C;
+}
+
+div#centre table#tab_haut td.cell_g div#contact p {
+  margin: 5px;
+}
+
+div#centre table#tab_haut td.cell_g div#contact a img {
+  width: 26px;
+  height: 17px;
+  border: 0;
+}
+
+/*----------------------------------*/
+/* Tableau Haut Cellule de Droite   */
+
+div#centre table#tab_haut td.cell_d {
+  width: 370px;
+  text-align: center;
+  vertical-align: top;
+} 
+
+/*----------*/
+/* La Carte */
+/*----------*/
+
+div#centre table#tab_haut td.cell_d div#map {
+  width: 355px;
+  height: 355px;
+  margin: auto;
+  border: solid 1px #39C;
+}
+
+/*------------*/
+/* La Pub Sag */
+/*------------*/
+div#centre table#tab_haut td.cell_d div#pub {
+  width: 355px;
+  height: 355px;
+}
+
+
+/*-----------------------------------------------------------*/
+/* Tableau Centre                                            */
+div#centre table#tab_centre {
+  width: 900px;
+  border-collapse: collapse;
+	margin: 5px auto;
+
+}
+
+/*----------------------------------*/
+/* Tableau Centre Cellule de Gauche */
+div#centre table#tab_centre td#cell_gauche {
+  width: 468px;
+}
+
+div#centre table#tab_centre td#cell_gauche div#alerte_baisse {
+  width: 448px;
+  border: 1px dashed #39C;
+  text-align: left;
+  margin: 0 10px;
+}
+
+div#alerte_baisse table {
+  background-color: #EEE;
+  color: #000;
+  margin: 10px;
+}
+
+div#alerte_baisse table td.cell_c {
+  padding: 3px;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+div#alerte_baisse .compte_email {
+  text-align: center;
+  color: #930;
+  font-weight: bold; 
+}
+
+/*----------------------------------*/
+/* Tableau Centre Cellule de Droite */
+div#centre table#tab_centre td#cell_droite {
+  width: 370px;
+}
+
+/*-----------------------------------------------------------*/
+/* Tableau Bas                                               */
+div#centre table#tab_bas {
+  width: 900px;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+/*----------------------------------*/
+/* Tableau Bas Cellule de Gauche    */
+div#centre table#tab_bas td.cell_g {
+  width: 468px;
+  vertical-align: top;
+} 
+
+div#centre table#tab_bas td.cell_g div#photo {
+  text-align: center;
+}
+
+/*----------------------------------*/
+/* Tableau Bas Cellule de Droite    */
+div#centre table#tab_bas td.cell_d {
+  width: 370px;
+  text-align: center;
+  vertical-align: top;
+} 
+
+/*---------------*/
+/* La Calculette */
+/*---------------*/
+ div#centre table#tab_bas td.cell_d div#computer {
+  width: 355px;
+  border: solid 1px #39C;
+  margin: 10px auto 0 auto;
+}
+
+/* Le header de présentation */
+div#computer div#presentation {
+  background-color: #39C;
+  color: white;
+}
+
+div#computer div#presentation p {
+  font-size: 1.4em;
+  font-weight: bold;
+  line-height: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Les somme qui sont en jeux */
+div#computer div#somme {
+  border-bottom: 1px dashed #39C
+}
+
+div#computer div#somme table {
+  width: 100%;
+}
+
+div#computer div#somme table td {
+  padding: 5px;
+}
+
+
+/* La zone ou l'on décide du type de calcul */
+div#computer div#switch {
+  border-bottom: 1px dashed #39C
+}
+
+div#computer div#switch table {
+  width: 100%;
+}
+
+div#computer div#switch table td {
+  padding: 5px;
+}
+
+/* La zone de saisie des paramètres du crédit */
+div#computer div#credit {
+  border-bottom: 1px dashed #39C
+}
+
+div#computer div#credit table {
+  width: 100%;
+}
+
+div#computer div#credit table td {
+  padding: 5px;
+}
+
+div#computer div#resultats div#res_mensualite{
+  font-size: 1.2em;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 30px;
+  color: #930;
+}
+
+div#computer div#resultats div#res_apport{
+  font-size: 1.2em;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 30px;
+  color: #930;
+}
+
+div#centre table#tab_bas td.cell_d div#compte_financement{
+  padding: 5px;
+  margin: 10px;
+  border: 1px dashed #39C;
+  text-align: left;
+}
+
+div#compte_financement table {
+  background-color: #EEE;
+  color: #000;
+}
+
+div#compte_financement table td.cell_c {
+  padding: 3px;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+

@@ -1,0 +1,123 @@
+div#header { width:996px; height:120px; background: url(/images-header/immobilier-entre-particuliers.jpg) top center no-repeat; margin: 0 auto;}
+div#header img { margin-top: 10px; }
+
+/* Tableau des comptes recherche et Annonce--------------------------------------------*/
+table#compte { width: 860px; margin: 0 auto;  } 
+
+/* Tableau des comptes cellules des bords gauche et droite----------------------------*/
+table#compte td.cell_b { width: 260px; background-color: #FC3; border: solid 1px black; } 
+table#compte td.cell_b div#acheteurs { width: 260px; height: 30px; background: url(/images-header/particulier-acheteur-1.gif) top center #FC3; text-align: right; padding: 3px 10px 0 0; } 
+table#compte td.cell_b div#vendeurs  { width: 260px; height: 30px; background: url(/images-header/particulier-vendeur-1.gif) top center #FC3; text-align: right; padding:  3px 10px 0 0; } 
+
+
+/* Tableau des comptes Cellule Centre  */
+table#compte td.cell_c { width: 340px; vertical-align: middle; } 
+
+table#compte a { color: #000; text-decoration: underline; }
+table#compte a:hover { text-decoration: none; }
+
+/* Tableau du diaporama-----------------------------------------------------------------*/
+table#diaporama { width: 860px; margin: 10px auto 0 auto; } 
+table#diaporama img { width: 100px; height: 75px; border: solid 1px black; }
+
+/* Tableau des Recherches----------------------------------------------------------------*/
+table#recherche { width: 100%; } 
+
+table#recherche td { vertical-align: top; }
+table#recherche td.cell_g { width: 250px; } 
+table#recherche td.cell_d { width: 250px; } 
+
+/* Cellule de gauche Formulaire de recherche */
+table#recherche td.cell_g div#search { width :180px; border: 1px solid #000; margin: 15px auto; }
+
+div#search h2          { color: #FFF; padding: 4px; border-bottom: 1px solid #000; background: #930; }
+div#search h3          { display: inline; }
+div#search input       { margin: 2px 0;   } /* Pour firefox */
+div#search select      { margin-top: 2px; }
+div#search .box        { padding: 4px; border-bottom: 1px solid #000; }
+div#search .box_dashed { padding: 4px; border-bottom: 1px dashed #000; }
+div#search .box_last   { padding: 4px; }
+
+/* Pour le feed annonces */
+#feed_annonces {
+	margin-left: 3px;
+  padding: 0 0 0 19px;
+  background: url(/images/feed-icon-14x14.png) no-repeat 0 50%;
+  color: black;
+}
+
+/* Cellule de droite - Liens de recherche par ville*/
+table#recherche td.cell_d div#town { width :158px; border-top: 1px solid #000; border-right: 1px solid #000; border-left: 1px solid #000; margin: 15px auto; }
+
+div#town h2 { color: #FFF; padding-top: 4px; padding-bottom: 4px; border-bottom: 1px solid #000; background: #930; }
+div#town a { padding-top: 4px; padding-bottom: 4px; display: block; color: #000; text-decoration: none; border-bottom: 1px solid #000; }
+div#town a:hover { text-decoration: underline; }
+
+/* Cellule de droite -  Recherche par numéro de Téléphone */
+table#recherche td.cell_d div#byphone { width: 158px; border: 1px solid #000; margin: 0 auto; }
+
+div#byphone h2 { color: #FFF; padding: 4px 0; border-bottom: 1px solid #000; font-weight: bold; background: #930; }
+div#byphone .box { padding-top: 4px; padding-bottom: 4px; border-bottom: 1px solid #000; }
+div#byphone .box_last { padding-top: 4px; padding-bottom: 4px; }
+
+/* Cellule du centre - La carte */
+table#recherche td.cell_c h1 { width: 498px; font-family: "Comic Sans MS"; font-size: 1.4em; font-weight: bold; padding: 10px 10px 5px 10px; text-align: justify; }
+
+/* Message la carte GG_maps */
+table#recherche td.cell_c div#message { width: 498px; margin: 0 auto; border-top: solid 1px black; border-left: solid 1px black; border-right: solid 1px black; text-align: left; padding: 1px;}
+
+table#recherche td.cell_c div#map { width: 500px; height: 350px; margin: 0 auto; border: solid 1px black; }
+
+/* Pour l'info window de la carte */
+#saginfo { color: #930; font-weight: bold; }
+
+/* Pour les news */
+div#userpan div#news_header { 
+  width: 900px;
+	height: 45px;
+	background : url(/images-header/header-news4.jpg);
+	margin: 0 auto;
+	position: relative;
+}
+
+#feed_GG_syndic {
+  position:absolute;
+  top: 24px;
+  left: 600px;
+}
+
+/* Pour le feed news*/
+#feed_news {
+  position:absolute;
+  top: 25px;
+  left: 750px;
+	margin-left: 3px;
+  padding: 0 0 0 19px;
+  background: url(/images/feed-icon-14x14.png) no-repeat 0 50%;
+  color: white;
+}
+
+/* Pour le lien vers l'index des news*/
+#link_news { position:absolute; top: 7px; left: 50px; }
+
+
+div#userpan .news_item { 
+  width: 886px;
+	margin: 0 auto;
+	padding: 5px;
+  border-bottom: 2px solid #036; border-right: 2px solid #036; border-left: 2px solid #036;
+  text-align: left;
+}
+
+div#userpan .news_item a  { color: #993300; font-weight: bold; }
+div#userpan .news_item p  { font-size: 1em; margin: 3px; }
+ 
+/* footer------------------------------------------- */
+div#footerpan ul#rules    { margin: 10px 0 30px 0;}
+div#footerpan ul#rules li { display: inline; }
+div#footerpan ul#rules li a { color: white; }
+
+
+div#footerpan ul#partners { width: 600px; color: gray; margin-bottom: 10px ;} 
+div#footerpan ul#partners li { display: inline; }
+div#footerpan ul#partners li a { color:  gray; }

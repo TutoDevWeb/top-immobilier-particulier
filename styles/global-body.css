@@ -1,0 +1,71 @@
+body,h1,h2,h3,form,fieldset,legend,p,table,tr,td,img,ul,li { margin: 0; padding: 0 ;}
+
+body { font-family:Verdana, Arial, Helvetica, sans-serif; color: black; font-size: .70em; background-color: #036; }
+
+h2 { font-size: 1em; font-weight: bold; }
+h3 { font-size: 1em; font-weight: normal; }
+table { border-collapse: collapse; border: 0; }
+table td { text-align: center; }
+
+input  { font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 1em; cursor: pointer; }
+select { font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 1em; }
+ul { list-style-type: none ; margin: 0 auto; }
+p  { font-size: 1em; padding: 2px; margin: 5px; }
+a  { font-size: 1em; }
+a img { border: 0 none; }
+
+#toolspan  { text-align: center; width: 100%; color: white; line-height: 1.8em;}
+#mainpan   { text-align: center; width: 100%; background: url(/images/back-mainpan.jpg) top center repeat-y white;}
+#footerpan { text-align: center; width: 100%; color: white;}
+
+/* tools------------------------------------------- */
+div#toolspan  div#toolscenter { position: relative; width: 1000px; margin:0 auto; color: white; font-weight: bold;}
+
+div#toolspan  div#toolscenter ul#tools { position: absolute; left: 20px ; padding: 0 0 0 0 ; color: white;}
+div#toolspan  div#toolscenter ul#tools li { display: inline; }
+div#toolspan  div#toolscenter ul#tools li a { color: white; text-decoration:none ; font-weight: bold; }
+
+/* --------------------------------------------------*/
+/* userpan                                           */
+#userpan { width: 1000px; margin:0 auto; }
+
+div#clearboth { clear: both; }
+
+/* -------------------------------------------------------------*/
+/* Styles pour les liens de navigation                          */
+a.navsearch12 { font-size: 1.2em; color: #3D81EE; font-weight: bold; }
+a.navsearch11 { font-size: 1em; color: #3D81EE;}
+
+a.nav_ico11 { color: #3D81EE; padding: 5px 0 0 20px; background: url(/images/arrow5.gif) no-repeat transparent left center; }
+a.nav_ico12 { color: #3D81EE; padding: 5px 0 0 20px; background: url(/images/arrow5.gif) no-repeat transparent left center; font-size: 1.2em; font-weight: bold; }
+
+/* -------------------------------------------------------------*/
+/* Styles pour les message à l'utilisateur                      */
+p.allo_reponse { display:block; background: url(/images/hp3.gif) no-repeat transparent 20px center ; padding: 5px 0 5px 50px; width: 450px; font-size: 1em; font-weight: bold; margin: 30px auto; color: #930; border-top: 1px solid #39C; border-bottom: 1px solid #39C; border-left: 5px solid #39C; border-right: 5px solid #39C; }
+p.reponse_commentaire { width: 500px; font-size: .8em; margin: 30px auto; border-top: 1px solid #39C; border-bottom: 1px solid #39C; border-left: 5px solid #39C; border-right: 5px solid #39C; }
+
+.textlwb   { text-align: left; color: #FFF; font-weight: bold; }
+.textj     { text-align: justify; }
+.textc     { text-align: center; }
+.textwb    { font-weight: bold; color: #FFF; }
+.textrwb   { text-align: right; color: #FFF; font-weight: bold; }
+.text12g   { font-size: 1.2em; font-weight: bold; }
+.text12cg  { font-size: 1.2em; font-weight: bold; text-align: center;}
+.text12cgr { font-size: 1.2em; font-weight: bold; text-align: center; color: red; }
+.text12wb  { font-size: 1.2em; font-weight: bold; color: white;}
+.text12    { font-size: 1.2em;}
+.text14    { font-size: 1.4em;}
+
+
+/* Bouton */
+.but_input{ padding: 3px 10px; border: 1px solid #000; }
+
+/*-------------------------*/
+/* Fil Ariane              */
+a.home { color: #336699;text-decoration: underline;margin-left : 0px;padding-left : 10px;background-image: url(/images/arrow7.gif);background-repeat: no-repeat;background-position: left center;font-weight: bold;}
+a.home:hover { text-decoration: underline; }
+
+a.page { color: #336699; text-decoration: underline; font-weight: bold; }
+a.page:hover { text-decoration: underline;}
+
+div#xiti-logo { padding: 20px; }

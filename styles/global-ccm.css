@@ -1,0 +1,24 @@
+div#header { height: 90px;  background: url(/images-header/annonces-immobilieres-entre-particuliers.gif) no-repeat top center #9BC0E4 ;}
+div#header img { margin-top: 15px; }
+
+div#ccm_vendeurs , div#ccm_acheteurs { margin: 0px 100px; }
+
+div#ccm_vendeurs h1 , div#ccm_acheteurs h1 {
+	background: #930;
+	color: white;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1.4em;
+	line-height: 2em;
+	font-weight: bold;
+}
+div#ccm_vendeurs h2 , div#ccm_acheteurs h2 {
+	color: black;
+	font-family: "Comic Sans MS";
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 20px 0 5px 0;
+}
+
+div#ccm_vendeurs p , div#ccm_acheteurs p { text-align: justify; }
+
+div#ccm_vendeurs .compo , div#ccm_acheteurs .compo{ padding: 10px 0 30px 0;}

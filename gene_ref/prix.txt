@@ -1,0 +1,143 @@
+Paris	1	8699
+Paris	2	7254
+Paris	3	7786
+Paris	4	8164
+Paris	5	8490
+Paris	6	10354
+Paris	7	9902
+Paris	8	8807
+Paris	9	6616
+Paris	10	5917
+Paris	11	6411
+Paris	12	6428
+Paris	13	6392
+Paris	14	6968
+Paris	15	6989
+Paris	16	7638
+Paris	17	6732
+Paris	18	5850
+Paris	19	5274
+Paris	20	5605
+Marseille	1	2789
+Marseille	2	3086
+Marseille	3	2333
+Marseille	4	2726
+Marseille	5	2899
+Marseille	6	3168
+Marseille	7	3631
+Marseille	8	3798
+Marseille	9	3230
+Marseille	10	2804
+Marseille	11	2736
+Marseille	12	3232
+Marseille	13	2742
+Marseille	14	2250
+Marseille	15	2178
+Marseille	16	2178
+Lyon	1	3164
+Lyon	2	3766
+Lyon	3	3053
+Lyon	4	3212
+Lyon	5	2909
+Lyon	6	3600
+Lyon	7	2945
+Lyon	8	2718
+Lyon	9	2719
+Toulouse		2750
+Nice		4400
+Strasbourg 		2500
+Nantes 		2700
+Bordeaux 		2850
+Montpellier 		2900
+St Etienne 		1750
+Rennes 		2450
+Le Havre 		2475
+Reims 		2650
+Lille 		2600
+Toulon 		3000
+Grenoble 		2850
+Brest 		1700
+Dijon 		2440
+Le Mans 		1800
+Angers 		2300
+Clermont Ferrand 		2000
+Limoges 		1700
+Amiens 		2450
+Tours 		2200
+Nimes 		2300
+Aix En Provence 		4000
+Metz 		2100
+Villeurbanne 		2750
+Besançon 		2150
+Caen 		2630
+Mulhouse 		1700
+Perpignan 		2200
+Orleans 		2300
+Rouen 		2670
+Boulogne Billancourt 		6200
+Nancy 		2280
+Roubaix 		2190
+Montreuil 		3730
+Tourcoing 		2120
+Argenteuil 		2930
+St Denis 		3340
+Versailles 		5100
+Avignon 		2460
+Nanterre 		4100
+Vitry Sur Seine 		3400
+Aulnay Sous Bois		2680
+Pau		2200
+Creteil 		3420
+Champigny Sur Marne 		3300
+Poitiers		2120
+Colombes		3780
+St Maur Des Fosses		4500
+Bourges		1790
+Calais		1900
+Asnieres Sur Seine		4380
+La Rochelle		3270
+Beziers		1800
+Dunkerque		2000
+Antibes		4780
+Cannes		4900
+Aubervilliers		3300
+Rueil Malmaison		4760
+Courbevoie		5000
+Villeneuve D Ascq		2450
+St Nazaire		2400
+Colmar		2160
+Valence		1902
+Neuilly Sur Seine		8930
+Drancy 		3800
+St Quentin 		1420
+Venissieux 		2350
+La Seyne Sur Mer 		3200
+Quimper 		1660
+Lorient 		1950
+Troyes 		1684
+Antony 		4330
+Merignac 		2372
+Niort 		1780
+Charleville Mezieres 		1450
+Sarcelles 		2170
+Cholet 		1500
+Chalon Sur Saone 		1550
+Beauvais 		1880
+Chambery 		2560
+Noisy Le Grand 		4500
+Ivry Sur Seine 		4000
+Maisons Alfort 		4120
+Arles 		2200
+Fontenay Sous Bois 		4300
+Montauban 		1700
+Pessac 		2400
+Chateauroux 		1790
+Laval 		1440
+Sartrouville 		3200
+Belfort 		1700
+Brive La Gaillarde		1730
+Annecy 		3480
+Blois 		1672
+Evreux 		2100
+Epinay Sur Seine 		2540
+

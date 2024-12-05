@@ -1,0 +1,41 @@
+div#header { height: 90px;  background: url(/images-header/annonces-immobilieres-entre-particuliers.gif) no-repeat top center #9BC0E4 ;}
+div#header img { margin-top: 15px; }
+
+h1 { position: absolute; left: -5000px; }
+
+/*-----------------------------------------------------------------------------*/
+/* CSS issu des tutoriels css.alsacreations.com */
+/*-----------------------------------------------------------------------------*/
+div#gauche { float: left; width: 200px; /*background-color: #EEE;*/ }
+div#centre { margin-left: 200px; margin-right: 200px; /*background-color: #DDD;*/ }
+div#droite { float: right; width: 200px; /*background-color: #CCC;*/ }
+
+/* ---------------------------------------------*/
+/* Liste des links avec les query               */
+div#list { font-family: "Courier New", Courier, mono; font-size: 1em; margin: 30px 0; }
+div#list a { display: block; color: #000; text-decoration: none; margin: 5px 0px; }
+div#list a:hover { text-decoration: underline; }
+
+/* ---------------------------------------------*/
+/* Liste des partenaires                        */
+
+div#partners-onglet {
+  width: 350px;
+	height: 28px;
+	margin: 10px auto 0 auto;
+	background: url(/images/partners-onglet-350x28.gif) no-repeat top center;
+}
+
+div#partners-box {
+  width: 348px;
+  padding: 5px 0;
+	margin: 0 auto 10px auto;
+  border-bottom : 1px solid #999;
+  border-right : 1px solid #999;
+  border-left : 1px solid #999;
+	color: #930;
+	background-color: #F7F7F7;
+}
+
+div#partners-box a       { text-decoration: none; color: #3D81EE;}
+div#partners-box a:hover { text-decoration: underline; }

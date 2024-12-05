@@ -1,0 +1,95 @@
+1|Bas Rhin|bas-rhin|67
+1|Haut Rhin|haut-rhin|68
+2|Dordogne|dordogne|24
+2|Gironde|gironde|33
+2|Landes|landes|40
+2|Lot et Garonne|lot-et-garonne|47
+2|Pyrénées Atlantiques|pyrenees-atlantiques|64
+3|Allier|allier|03
+3|Cantal|cantal|15
+3|Haute Loire|haute-loire|43
+3|Puy de Dôme|puy-de-dome|63
+4|Calvados|calvados|14
+4|Manche|manche|50
+4|Orne|orne|61
+5|Côte d'Or|cote-d-or|21
+5|Nièvre|nievre|58
+5|Saône et Loire|saone-et-loire|71
+5|Yonne|yonne|89
+6|Côtes d'Armor|cotes-d-armor|22
+6|Finistère|finistere|29
+6|Ille et Vilaine|ille-et-vilaine|35
+6|Morbihan|morbihan|56
+7|Cher|cher|18
+7|Eure et Loir|eure-et-loir|28
+7|Indre|Indre|36
+7|Indre et Loire|indre-et-loire|37
+7|Loir et Cher|loir-et-cher|41
+7|Loiret|loiret|45
+8|Ardennes|ardennes|08
+8|Aube|aube|10
+8|Marne|marne|51
+8|Haute Marne|haute-marne|52
+9|Corse|corse|20
+10|Doubs|doubs|25
+10|Jura|jura|39
+10|Haute Saône|haute-saone|70
+10|Territoire de Belfort|territoire-de-belfort|90
+11|Eure|eure|27
+11|Seine Maritime|seine-maritime|76
+12|Paris|paris|75
+12|Seine et Marne|seine-et-marne|77
+12|Yvelines|yvelines|78
+12|Essonne|essonne|91
+12|Hauts de Seine|hauts-de-seine|92
+12|Seine Saint Denis|seine-saint-denis|93
+12|Val de Marne|val-de-marne|94
+12|Val d'Oise|val-d-oise|95
+13|Aude|aude|11
+13|Gard|gard|30
+13|Hérault|herault|34
+13|Lozère|lozere|48
+13|Pyrénées Orientales|pyrenees-orientales|66
+14|Corrèze|correze|19
+14|Creuse|creuse|23
+14|Haute Vienne|haute-vienne|87
+15|Meurthe et Moselle|meurthe-et-moselle|54
+15|Meuse|meuse|55
+15|Moselle|moselle|57
+15|Vosges|vosges|88
+16|Ariège|ariege|09
+16|Aveyron|aveyron|12
+16|Haute Garonne|haute-garonne|31
+16|Gers|gers|32
+16|Lot|lot|46
+16|Hautes Pyrénées|hautes-pyrenees|65
+16|Tarn|tarn|81
+16|Tarn et Garonne|tarn-et-garonne|82
+17|Nord|nord|59
+17|Pas de Calais|pas-de-calais|62
+18|Loire Atlantique|loire-atlantique|44
+18|Maine et Loire|maine-et-loire|49
+18|Mayenne|mayenne|53
+18|Sarthe|sarthe|72
+18|Vendée|vendee|85
+19|Aisne|aisne|02
+19|Oise|oise|60
+19|Somme|somme|80
+20|Charente|charente|16
+20|Charente Maritime|charente-maritime|17
+20|Deux Sèvres|deux-sevres|79
+20|Vienne|vienne|86
+21|Alpes de Haute Provence|alpes-de-haute-provence|04
+21|Hautes Alpes|hautes-alpes|05
+21|Alpes Maritimes|alpes-maritimes|06
+21|Bouches du Rhône|bouches-du-rhone|13
+21|Var|var|83
+21|Vaucluse|vaucluse|84
+22|Ain|ain|01
+22|Ardèche|ardeche|07
+22|Drôme|drome|26
+22|Isère|isere|38
+22|Loire|loire|42
+22|Rhône|rhone|69
+22|Savoie|savoie|73
+22|Haute Savoie|haute-savoie|74

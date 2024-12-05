@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps JavaScript API Example: Map Markers</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTASDNGt1Ah7UMjIzjNf91KosJQYhT2_N2tGBVmUwT_PKT4VUzPoyhomg" type="text/javascript"></script>
+    <script type="text/javascript">
+ 
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map_canvas"));
+        
+				// On se centre sur Toulon et on place 20 marqueur sur une zone plus grande
+				// que celle qui est visible
+				map.setCenter(new GLatLng(43.1326,5.93107), 12);
+        map.addControl(new GSmallMapControl());
+ 
+        // Add markers to the map at random locations
+        var bounds = map.getBounds();
+        var southWest = bounds.getSouthWest();
+        var northEast = bounds.getNorthEast();
+				// On va place des marqueurs en dehors de la zone afficher de la carte
+        var lngSpan = 2.0 * (northEast.lng() - southWest.lng());
+        var latSpan = 2.0 * (northEast.lat() - southWest.lat());
+        for (var i = 0; i < 20; i++) {
+          var point = new GLatLng(southWest.lat() + latSpan * Math.random(),
+                                  southWest.lng() + lngSpan * Math.random());
+          map.addOverlay(new GMarker(point));
+        }
+
+				// On se centre sur Paris et on place aussi 20 marqueurs sur une zone plus grande
+				// que celle qui est visible
+				map.setCenter(new GLatLng(48.8699,2.35107), 12);
+  	
+        // Add markers to the map at random locations
+        var bounds = map.getBounds();
+        var southWest = bounds.getSouthWest();
+        var northEast = bounds.getNorthEast();
+				// On va place des marqueurs en dehors de la zone afficher de la carte
+        var lngSpan = 2.0 * (northEast.lng() - southWest.lng());
+        var latSpan = 2.0 * (northEast.lat() - southWest.lat());
+        for (var i = 0; i < 20; i++) {
+          var point = new GLatLng(southWest.lat() + latSpan * Math.random(),
+                                  southWest.lng() + lngSpan * Math.random());
+          map.addOverlay(new GMarker(point));
+        }
+
+        // CONCLUSION.
+				// Tous les markers restent visibles on peut faire tous les zooms et tous les déplacements
+				// possibles et imaginables ils sont là et font partie de la carte
+				
+				// LIMITES DE CETTE METHODE
+        // Si il y a 10000 marqueurs.
+				// J'essaie sur marker2   
+      }
+    }
+
+    </script>
+  </head>
+
+  <body onload="initialize()" onunload="GUnload()">
+    <div id="map_canvas" style="width: 500px; height: 300px"></div>
+  </body>
+</html>

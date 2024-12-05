@@ -1,0 +1,5 @@
+AuthName "Zone protégée"
+AuthUserFile /usr/local/apache/conf/.htpasswd
+AuthGroupFile /dev/null 
+AuthType Basic 
+require valid-user

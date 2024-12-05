@@ -1,0 +1,213 @@
+form {
+	margin: 0px;
+	padding: 0px;
+}
+td , caption , input , select , p , textarea {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  text-align: center;
+}
+body {
+  SCROLLBAR-FACE-COLOR: #003366; SCROLLBAR-HIGHLIGHT-COLOR: #FFF; SCROLLBAR-SHADOW-COLOR: #FFF; SCROLLBAR-3DLIGHT-COLOR: #FFF; SCROLLBAR-ARROW-COLOR: #FFF; SCROLLBAR-TRACK-COLOR: #CCE0FF; SCROLLBAR-DARKSHADOW-COLOR: #0000FF;
+  background-repeat: no-repeat;
+  background-color: #CFE3E2;
+
+}
+.text12j {
+    font-size: 12px;
+    text-align: justify;
+}
+.text12jm {
+	font-size: 12px;
+	text-align: justify;
+	padding: 10px;
+}
+.text12c {
+    font-size: 12px;
+    text-align: center;
+}
+.text12 {
+    font-size: 12px;
+}
+.text12g {
+    font-size: 12px;
+    font-weight: bold;
+}
+.text12cgr {
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: red;
+}
+
+
+.text10d {
+    font-size: 10px;
+    text-align: right;
+}
+.text10l {
+    font-size: 10px;
+    text-align: left;
+}
+.text10 {
+    font-size: 10px;
+}
+.text12cg {
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+.text18g {
+  font-size: 18px;
+  font-weight: bold;
+}
+.text11 {
+  font-size: 11px;
+  text-align: left;
+}
+.textr {
+  text-align: right;
+}
+
+.textrw {
+  text-align: right;
+  color: #FFF
+}
+
+.textlw {
+  text-align: left;
+  color: #FFF
+}
+
+.textrwb {
+  text-align: right;
+  color: #FFF;
+  font-weight: bold;
+}
+
+.textlwb {
+  text-align: left;
+  color: #FFF;
+  font-weight: bold;
+}
+
+
+.textj {
+  text-align: justify;
+}
+.textl {
+  font-size: 11px;
+  text-align: left;
+
+}
+/* Bannière vep        */
+div#vepban {
+  margin-bottom: 10px;
+}
+
+/* ---------------------------------------------------------*/
+/* Paragraphe avec Marge en haut ou en bas (zone sag)       */
+.texth {
+    font-size: 12px;
+		margin-top: 7px;
+}
+.textb {
+    font-size: 12px;
+		margin-bottom: 7px;
+}
+
+/* ----------------------------------------------------------*/
+.textlb {
+	text-align: left;
+	font-weight: bold;
+}
+.textrb {
+	text-align: right;
+	font-weight: bold;
+}
+
+.textb {
+	font-weight: bold;
+}
+.textwb {
+	font-weight: bold;
+	color: #FFF;
+}
+.textw {
+	color: #FFF;
+}
+.text12wb {
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFF;
+}
+
+.text18wb {
+	font-size: 18px;
+	font-weight: bold;
+	color: #FFF;
+}
+
+/*----------------------------------------------*/
+/* Photo les actions utilisateurs */
+
+.action_user {
+	font-size: 12px;
+	font-weight: bold;
+	color: #369;
+}
+
+/* ---------------------------------------------*/
+/* Bouton zone édition       */
+input.but {
+  border: 1px solid #394280;
+  background: #9ba7bb url(../images/bg_button.png) repeat-x;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 5px 0 0;
+  padding: 3px 5px 1px;
+	display: block;
+}
+
+/* ---------------------------------------------*/
+/* Déconexion        */
+a.dcnx {
+  font-size: 12px;
+	color: #993300;
+	font-weight: bold;
+} 
+
+
+/* -------------------------------------------------------------*/
+/* Styles pour les liens de la navigation de recherche */
+/* Couleurs coordonnées avec la palette Adsense */
+a.navsearch12 {
+  font-size: 12px;
+	color: #3D81EE;
+	font-weight: bold;
+}
+
+a.navsearch11 {
+  font-size: 11px;
+	color: #3D81EE;
+}
+
+/*
+
+/* ----------------------------------------------------------*/
+/* Styles pour les liens à l'intérieur de l'espace d'édition */
+a.sag  {
+	font-size: 12px;
+	color: #003366;
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------------------*/
+/* Styles pour l'affichage d'une annonce                     */
+div#zone_fiche { width: 600px; border: 5px solid #D7D6D6; background-color: #F6F6F6; margin: 20px auto; padding: 20px 0; }
+div#zone_fiche table { border: 1px solid #39C ; background-color: #39C; width: 468px;  margin: 0 auto;}
+div#zone_fiche table td { padding: 5px; }
+div#zone_fiche table#blabla { border: 1px solid #39C ; background-color: white; width: 448px;  margin: 0 auto;}
+
+
+

@@ -1,0 +1,33 @@
+div#header { height: 90px;  background: url(http://www.top-immobilier-particuliers.fr/images-header/annonces-immobilieres-entre-particuliers.gif) no-repeat top center #9BC0E4 ;}
+div#header img { margin-top: 15px; }
+
+h1 { width: 700px; font-size: 1.4em; color: white; text-align: center; background-color: #993300; padding-bottom: 3px; padding-top: 3px; margin: 20px auto 20px auto; }
+
+h2 { font-size: 1.2em;line-height: 1.6em; } 
+
+/* Pages actualités news */
+/* une news */
+div#userpan div#news { border: 1px solid black ; text-align: left; margin: 10px 100px;}
+/* Une image avec une bordure blanche de 10px pour une actualité */
+div#userpan div#news img { float: left;}
+div#userpan div#news_footer { border_bottom : 1px solid black ; clear : both ;}
+div#userpan div#news p { text-align: justify; font-size: 1.2em;line-height: 1.6em;}
+div#userpan div#news ul { list-style-type: disc; list-style-position: inside; padding-left: 50px; font-size: 1.2em;line-height: 1.6em;}
+
+div#userpan div#news_dat { margin: 10px 100px 50px 100px; border-top: solid 1px black; }
+div#userpan div#news_dat div#dat_creation { float: left;}
+
+/* les news connexes */
+div#userpan div#news_connexe { text-align: left; margin: 10px 100px;}
+div#userpan div#news_connexe a { color: black ; }
+
+
+
+
+/* Page index */
+/* Listing des actualités sur l'index*/
+div#userpan div#news_listing   { margin: 10px 100px;}
+div#userpan div#news_listing h2 { text-align: left ; font-size: 1.2em;line-height: 1.6em; padding-top: 30px;}
+div#userpan div#news_listing p { text-align: justify; font-size: 1.2em;line-height: 1.6em;}
+div#userpan div#news_listing h2 a  { color: #993300; font-weight: bold; }
+div#userpan div#news_listing div.month_separate { border-bottom : dashed black 1px ; padding-top: 10px;}

@@ -1,0 +1,33 @@
+div#header { height: 90px;  background: url(/images-header/annonces-immobilieres-entre-particuliers.gif) no-repeat top center #9BC0E4 ;}
+div#header img { margin-top: 15px; }
+
+
+h1 {
+	font-family: "Comic Sans MS";
+	font-size: 1.6em;
+	font-weight: bold;
+	color: black;
+	margin-top: 10px;
+}
+
+/* Le type de dépot d'annonce qu'on peut faire sur cette page */
+div#titre {
+  width: 600px;
+	padding: 5px;
+	margin: 10px auto 0 auto;
+  font-size: 1.2em;
+	font-weight: bold;
+  color: white;
+	background-color: #930;
+}
+
+.tab_ext { width: 621px; margin: 20px auto; }
+
+.tab_int { width: 618px; border : 1px solid #30C ; background: url(/images/fond-h.jpg) top center repeat-y; }
+
+.label { color: #444; }
+
+/* Pour le mail et le téléphone de reprise de rédaction */
+.text_red { color: #993300; }
+
+

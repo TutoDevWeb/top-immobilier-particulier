@@ -1,0 +1,73 @@
+/* ------------------------------------------------*/
+/* Style pour les modules du filtrage              */
+/* ------------------------------------------------*/
+div.filter_box {
+  width :168px;
+  text-align: center;
+  border: 1px solid #000;
+  margin: auto;
+}
+
+div.filter_box h2 {
+  color: #FFF;
+  padding: 4px;
+  border-bottom: 1px solid #000;
+	background: #930;
+}
+
+div.filter_box h3 {
+  display: inline;
+}
+
+/* Pour firefox */
+div.filter_box .numpad {
+  padding: 2px;
+}
+
+/* Pour les liens Tous et aucun */
+div.filter_box div#link_pad {
+  margin: 2px 0px;
+}
+
+div#link_pad a {
+  color: #000;
+}
+
+div.filter_box select {
+  margin-top: 2px;
+}
+
+div.filter_box table {
+  border: 0;
+  margin: auto;
+}
+
+div.filter_box .box {
+  padding: 4px;
+  border-bottom: 1px solid #CCC;
+}
+
+div.filter_box .box_dashed {
+  padding: 4px;
+  border-bottom: 1px dashed #CCC;
+}
+
+div.filter_box .box_last {
+  padding: 4px;
+}
+
+div.filter_box .box_input{
+  padding: 5px 10px;
+  border: 1px solid #CCC;
+}
+
+/* Pour firefox */
+div.filter_box .num_nbpi {
+  margin-top : 2px;
+}
+/* ---------------------------------------------*/
+div.arrow3 {
+  height: 30px;
+  background: url(/images/arrow3.gif) center center no-repeat;
+  margin:  5px 0;
+}

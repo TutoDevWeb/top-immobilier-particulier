@@ -1,0 +1,89 @@
+div#header { height: 90px;  background: url(/images-header/annonces-immobilieres-entre-particuliers.gif) no-repeat top center #9BC0E4 ;}
+div#header img { margin-top: 15px; }
+
+div#interface { width: 70em; margin: 30px auto; }
+
+p.backlink { margin-top: 20px; }
+
+div#interface ol { list-style-position: inside; width: 500px; margin: 0 auto; padding-left: 20px; text-align: justify; }
+div#interface ol li { padding: 5px 0; }
+
+
+/*--------------------------------------------------------*/
+/* Tableau de bord                                        */
+#fragment-1 { border: 1px solid #3C556B; }
+#fragment-1 ul#tdb_retrouver { border: 1px dashed #39C; list-style-image: url(/images/arrow6.gif); list-style-position: inside; margin: 0 150px; text-align: left; }
+#fragment-1 ul#tdb_retrouver li { line-height: 30px; }
+
+#fragment-1 ul#tdb_aider { text-align: justify; margin: 0 40px; border: 1px solid black; background-color: #FC3; padding: 10px; }
+#fragment-1 ul#tdb_aider li { padding-bottom: 10px; }
+#fragment-1 ul#tdb_aider li:first-letter { font-weight: bold; font-size: 1.6em; }
+
+
+/*--------------------------------------------------------*/
+/* Alertes recherche                                      */
+#fragment-2 { border: 1px solid #3C556B; }
+
+#fragment-2 #tab_alerte_recherche {
+  width: 580px;
+	margin: 10px auto;
+	border: 1px solid #30C;
+	background: url(/images/fond-h.jpg) top center repeat-y;
+}
+
+#fragment-2 #tab_alerte_recherche tr .td_left  { padding: 5px; text-align: left; }
+#fragment-2 #tab_alerte_recherche tr .td_right { padding: 5px; width: 40px; }
+
+#fragment-2 #tab_alerte_recherche a {
+  color: black;
+  text-decoration: underline;
+}
+
+
+/*--------------------------------------------------------*/
+/* Alertes à la baisse                                    */
+#fragment-3 { border: 1px solid #3C556B; }
+
+#fragment-3 #tab_alerte_baisse_declencher {
+  width: 550px;
+	margin: 10px auto;
+	border: 1px solid #930;
+	background: url(/images/fond-h.jpg) top center repeat-y;
+}
+
+#fragment-3 #tab_alerte_baisse_declencher tr .td_left  { padding: 5px; text-align: left; }
+#fragment-3 #tab_alerte_baisse_declencher tr .td_right { padding: 5px; width: 40px;  }
+
+#fragment-3 #tab_alerte_baisse_declencher a {
+  color: red;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#fragment-3 #tab_alerte_baisse_positionner {
+  width: 550px;
+	margin: 10px auto;
+	border: 1px solid #30C;
+	background: url(/images/fond-h.jpg) top center repeat-y;
+}
+
+#fragment-3 #tab_alerte_baisse_positionner tr .td_left  { padding: 5px; text-align: left; }
+#fragment-3 #tab_alerte_baisse_positionner tr .td_right { padding: 5px; width: 40px;  }
+
+#fragment-3 #tab_alerte_baisse_positionner a {
+  color: black;
+  text-decoration: underline;
+}
+
+/*--------------------------------------------------------*/
+/* Le financement                                         */
+#fragment-4 { border: 1px solid #3C556B; }
+
+#fragment-4 #tab_finance {
+  width: 500px;
+	margin: 10px auto 30px auto;
+	border: 1px solid #30C;
+	background: url(/images/fond-h.jpg) top center repeat-y;
+}
+
+#fragment-4 #tab_finance td { padding: 5px; text-align: left; }

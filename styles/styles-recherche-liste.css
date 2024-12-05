@@ -1,0 +1,152 @@
+/*-----------------------------------------------------------------------------*/
+/* CSS issu des tutoriels css.alsacreations.com */
+/*-----------------------------------------------------------------------------*/
+div#header { height: 90px; position: relative; }
+
+div#gauche { float: left; width: 230px; /*background-color: #EEE;*/ }
+div#centre { margin-left: 230px; margin-right: 230px; /*background-color: #DDD;*/ }
+div#droite { float: right; width: 230px; /*background-color: #CCC;*/ }
+
+/*-----------------------------------------------------------*/
+div#logosag { position: absolute; top: 15px; left: 15px; }
+
+h1 {
+  position: absolute;
+  top:  20px;
+  left: 150px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 1.2em;
+  color: #000;
+  font-weight: bold;
+}
+
+div#navigation {
+ position: absolute;
+ top: 52px;
+ left: 150px;
+}
+
+/* Pour le fil de localisation */
+div#localization {
+ position: absolute;
+ top: 55px;
+ left: 275px;
+}
+
+div#localization a {
+  color: #336699;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+div#localization a:hover {
+  text-decoration: underline;
+}
+
+div#localization select {
+  color: #336699;
+  font-weight: bold;
+  border: 1px solid #369;
+}
+
+/*-----------------------------------------------------------*/
+/* Conteneur Central
+/*-----------------------------------------------------------*/
+
+div#centre table {
+  background-color: #39C;
+  width: 468px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: 0;
+  margin: 0 auto;
+}
+
+div#centre table tr td { padding: 2px; }
+
+/* Cellule alignée à droite */
+div#centre table tr .td_d { text-align: right; }
+/* Cellule alignée à gauche */
+div#centre table tr .td_g { text-align: left; }
+
+div#centre table a.details { float: right; color: #FFFFFF; background: url(/images/details.gif) right center no-repeat; display: block; height: 17px; width: 110px; }
+
+/*--------------------------------------------------------*/
+/* Zone de l'alerte recherche                             */
+/*--------------------------------------------------------*/
+div#centre div#alerte_recherche {
+  width: 448px;
+  border: 1px dashed #39C;
+  margin: 10px auto; 
+  padding: 10px;
+  text-align: left;
+}
+
+div#centre div#alerte_recherche table {
+  width: 428px;
+  background-color: #EEE;
+  color: #000;
+}
+
+div#centre div#alerte_recherche table .cell_g {
+  padding: 3px;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+div#centre div#alerte_recherche table .cell_d {
+  padding: 3px;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+div#centre div#alerte_recherche table .cell_alerte {
+  padding: 3px;
+  vertical-align: bottom;
+  text-align: center;
+  font-weight: normal;
+  font-style: italic;
+}
+
+div#centre div#alerte_recherche .compte_email {
+  text-align: center;
+  color: #930; 
+}
+
+/* ---------------------------------------------*/
+/* Liste des partenaires                        */
+
+div#droite div#partners-onglet {
+  width: 160px;
+  height: 28px;
+  margin: 10px auto 0 auto;
+  background: url(/images/partners-onglet-350x28.gif) no-repeat top left;
+}
+
+div#droite div#partners-box {
+  width: 158px;
+  padding: 5px 0;
+  margin: 0 auto 10px auto;
+  border-bottom : 1px solid #999;
+  border-right : 1px solid #999;
+  border-left : 1px solid #999;
+  color: #930;
+  background-color: #F7F7F7;
+}
+
+div#droite div#partners-box a {
+  color: #3D81EE;
+  text-decoration: none;
+}
+
+div#droite div#partners-box a:hover {
+  text-decoration: underline;
+}
+
+div#droite img {
+  margin-left: 10px;
+}
+
+
+
+

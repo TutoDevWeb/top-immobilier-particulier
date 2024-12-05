@@ -1,0 +1,26 @@
+Bleu marine bordure #003366
+
+Bleu Pavé pour résultats = #3399CC
+
+Bleu header : #9CC0E4
+
+
+Bleu clair #CCE0FF
+
+Bleu marine Google 336699
+
+Jaune FFCC33
+
+Rouge #993300
+
+// pour liste de biens périphérique
+
+Gris foncé #EDEFEE pour le fond
+Gris Clair #F7F7F7 pour les div intérieur
+
+
+Gris Clair pour les titres des filtres et les boutons F9F9F9
+
+
+ABQIAAAAtggiWJMus6LWKUua04wt_RTASDNGt1Ah7UMjIzjNf91KosJQYhT2_N2tGBVmUwT_PKT4VUzPoyhomg
+

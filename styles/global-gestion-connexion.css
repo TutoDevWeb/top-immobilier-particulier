@@ -1,0 +1,20 @@
+div#header { height: 90px;  background: url(/images-header/annonces-immobilieres-entre-particuliers.gif) no-repeat top center #9BC0E4 ;}
+div#header img { margin-top: 15px; }
+
+div#gauche { float: left; padding-left: 5px; }
+div#droite { float: right; padding-right: 5px; }
+
+fieldset { width: 500px; margin : 20px auto; padding: 5px; border: 1px solid #39C; }
+legend { font-size: 1.2em; margin-left: 20px; padding: 10px; color: #369; font-weight: bold; }
+
+div#creation ul { list-style-image: url(/images/arrow6.gif); list-style-position: inside; margin: 0 0 0 5px; text-align: left; }
+
+div#creation em { font-size: 0.8em; }
+
+div#creation p.info , div#connexion p.info { text-align: justify; padding-bottom: 20px; }
+
+.but_input{ margin: 10px 0; }
+
+div#pub { margin: 20px auto ; } 
+
+
