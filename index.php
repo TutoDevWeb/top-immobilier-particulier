@@ -1,7 +1,7 @@
 <?PHP
 include("data/data.php");
 include("include/inc_base.php");
-// include("include/inc_conf.php");
+include("include/inc_conf.php");
 // include("include/inc_format.php");
 // include("include/inc_diaporama.php");
 // include("include/inc_random.php");
