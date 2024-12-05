@@ -160,3 +160,5 @@ define('DEBUG_RECHERCHE', 0);
 // Photo
 define('DEBUG_DIAPORAMA', 0);
 define('DEBUG_PHOTO', 0);
+
+define('CODE_CTA', 1);
