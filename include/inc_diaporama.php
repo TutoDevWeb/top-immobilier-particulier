@@ -1,15 +1,15 @@
 <?PHP
 
 //-----------------------------------------------------------------------------------------
-// S�lection d'une tranche d'annonce parmi les derni�res mise en ligne.
-// Les annonces doivent �tre dot�es de photos.
-// $first l'index de la premi�re annonce ( 0 pour la toute premi�re )
-function select_annnonce($first, $last) {
+// Sélection d'une tranche d'annonce parmi les dernières mise en ligne.
+// Les annonces doivent être dotées de photos.
+// $first l'index de la première annonce ( 0 pour la toute première )
+function select_annnonce($connexion, $first, $last) {
 
 	$debug = 0;
 
 	$select = "SELECT ida,tel_ins,zone_ville,zone_region,typp,prix,dat_ins FROM ano WHERE etat='ligne' ORDER BY dat_ins DESC";
-	$result = dtb_query($select, __FILE__, __LINE__, DEBUG_DIAPORAMA);
+	$result = dtb_query($connexion, $select, __FILE__, __LINE__, DEBUG_DIAPORAMA);
 
 	$i = 0;
 	$ida_array = array();
@@ -35,13 +35,13 @@ function select_annnonce($first, $last) {
 	return $ida_array;
 }
 //-----------------------------------------------------------------------------------------
-// Teste si un thumb existe pour une annonce de r�f�rence $refa
-// Teste �galement si ce thumb � un format standard THUMB_X et THUMB_Y
+// Teste si un thumb existe pour une annonce de référence $refa
+// Teste également si ce thumb à un format standard THUMB_X et THUMB_Y
 // Ne retourne vrai que si ces deux conditions sont remplies.
 function thumb_exists($ida) {
 
 	// Tester si le thumb existe
-	$src = $_SERVER['DOCUMENT_ROOT'] . "/images_fiches/a${ida}_1_thumb.jpg";
+	$src = $_SERVER['DOCUMENT_ROOT'] . "/images_fiches/{$ida}_1_thumb.jpg";
 
 	if (file_exists($src)) {
 
@@ -80,7 +80,7 @@ function print_selection_annonce($ida_array) {
 	echo "<table id='diaporama'><tr>\n";
 	foreach ($ida_array as $ida_item) {
 
-		// Pr�parer les donn�es
+		// Préparer les données
 		$ida         = $ida_item['ida'];
 		$tel_ins     = $ida_item['tel_ins'];
 		$dat_ins     = to_datm($ida_item['dat_ins']);
@@ -89,8 +89,8 @@ function print_selection_annonce($ida_array) {
 		$prix  = format_prix($ida_item['prix']);
 		$typp  = ucfirst($ida_item['typp']);
 		$site  = $_SERVER['HTTP_HOST'];
-		$src = "http://${site}/images_fiches/a" . $ida . "_1_thumb.jpg";
-		$hrf = "http://${site}/annonce-${tel_ins}.htm";
+		$src = "https://{$site}/images_fiches/a{$ida}_1_thumb.jpg";
+		$hrf = "https://{$site}/annonce-{$tel_ins}.htm";
 
 		if ($zone_ville != $zone_region) {
 			$alt   = "$typp $zone_region $zone_ville";
@@ -104,7 +104,7 @@ function print_selection_annonce($ida_array) {
 		echo "<td>\n";
 		echo "$dat_ins<br />\n";
 		echo "<a href='$hrf' rel='nofollow' title=\"$title\"><img src='$src' alt=\"$alt\" /></a><br />\n";
-		echo "$zone_ville $prix �";
+		echo "$zone_ville $prix €";
 		echo "</td>\n";
 	}
 	echo "</tr></table>\n";
