@@ -10,8 +10,8 @@ include("include/inc_dtb_compte_annonce.php");
 include("include/inc_tools.php");
 include("include/inc_adsense.php");
 include("include/inc_count_cnx.php");
-// include("include/inc_tracking.php");
+include("include/inc_tracking.php");
 
-// dtb_connection();
+$connexion = dtb_connection();
 
 echo "Ca marche";
