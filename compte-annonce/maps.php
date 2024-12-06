@@ -215,7 +215,7 @@ function enregistrer() {
 
     tracking_session_annonce(CODE_CTA,'OK',"Enregistrement de la localisation : $quart",__FILE__,__LINE__);
 
-    goto("/compte-annonce/fiche.php");
+    gotoo("/compte-annonce/fiche.php");
 
   }
 
