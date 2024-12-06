@@ -200,7 +200,7 @@ function get_nb_ano($connexion) {
 	return $nb;
 }
 //------------------------------------------------------------------------------------------------
-function get_dept_region_by_num_dept($connexion, $num_dept, $dept, $region) {
+function get_dept_region_by_num_dept($connexion, $num_dept, &$dept, &$region) {
 
 	$query  = "SELECT d.dept,r.region FROM loc_departement as d, loc_region as r WHERE d.idr=r.idr AND d.dept_num='$num_dept'";
 	$result = dtb_query($connexion, $query, __FILE__, __LINE__, DEBUG_DTB_ANO);
@@ -414,7 +414,7 @@ function demande_connexion_annonce($connexion, $compte_tel_ins, $compte_pass, $c
 		$compte_pass_s    = mysqli_real_escape_string($connexion, $compte_pass);
 		$authentification_type = 'IDENTIFIANT';
 
-		tracking(CODE_CTA, 'OK', "Compte Annonce : Demande Connexion avec identifiant:$compte_tel_ins:$compte_pass", $file, $line);
+		tracking($connexion, CODE_CTA, 'OK', "Compte Annonce : Demande Connexion avec identifiant:$compte_tel_ins:$compte_pass", $file, $line);
 
 
 		// Sinon c'est une demande de connexion avec authentification par cookie
@@ -427,19 +427,19 @@ function demande_connexion_annonce($connexion, $compte_tel_ins, $compte_pass, $c
 		$compte_tel_ins = $cookie[IND_COMPTE_TEL_INS];
 		$compte_pass    = $cookie[IND_COMPTE_PASS];
 
-		tracking(CODE_CTA, 'OK', "Compte Annonce : Demande Connexion Cookie:$compte_tel_ins:$compte_pass", $file, $line);
+		tracking($connexion, CODE_CTA, 'OK', "Compte Annonce : Demande Connexion Cookie:$compte_tel_ins:$compte_pass", $file, $line);
 
 		if ($sag_version == VERSION_SAG) {
 			$compte_tel_ins_s = mysqli_real_escape_string($connexion, $compte_tel_ins);
 			$compte_pass_s    = mysqli_real_escape_string($connexion, $compte_pass);
 		} else {
-			tracking(CODE_CTA, 'KO', "Compte Annonce : Echec Connexion Cookie:$compte_tel_ins:$compte_pass:$sag_version: ECHEC_VERSION", $file, $line);
+			tracking($connexion, CODE_CTA, 'KO', "Compte Annonce : Echec Connexion Cookie:$compte_tel_ins:$compte_pass:$sag_version: ECHEC_VERSION", $file, $line);
 			return COMPTE_ANNONCE_CONNEXION_ECHEC_AUTHENTIFICATION;
 		}
 		// Dans ce cas il n'y a pas d'identifiants
 	} else {
 
-		tracking(CODE_CTA, 'KO', "Compte Annonce : Echec Connexion: pas identifiant : ECHEC_AUTHENTIFICATION", $file, $line);
+		tracking($connexion, CODE_CTA, 'KO', "Compte Annonce : Echec Connexion: pas identifiant : ECHEC_AUTHENTIFICATION", $file, $line);
 		$code_refus = COMPTE_ANNONCE_CONNEXION_ECHEC_AUTHENTIFICATION;
 		return false;
 	}
@@ -465,7 +465,7 @@ function demande_connexion_annonce($connexion, $compte_tel_ins, $compte_pass, $c
 		if (isset($_REQUEST['user']) && ($_REQUEST['user'] == 'adminsag')) {
 
 			$_SESSION['user'] = 'adminsag';
-			tracking(CODE_CTA, 'OK', "CONNEXION ADMIN: Compte Annonce : Connexion Accept�e<br/>$compte_tel_ins:$compte_pass:$ida", $file, $line);
+			tracking($connexion, CODE_CTA, 'OK', "CONNEXION ADMIN: Compte Annonce : Connexion Accept�e<br/>$compte_tel_ins:$compte_pass:$ida", $file, $line);
 		} else {
 
 			$sag_version = VERSION_SAG;
@@ -478,7 +478,7 @@ function demande_connexion_annonce($connexion, $compte_tel_ins, $compte_pass, $c
       $query  = "UPDATE compte_recherche SET compte_date_connexion=now() WHERE idc='$idc' LIMIT 1";
       dtb_query($query,$file,$line,DEBUG_DTB_COMPTE);
       */
-			tracking(CODE_CTA, 'OK', "CONNEXION USER: Compte Annonce : Connexion Acceptée<br/>$compte_tel_ins:$compte_pass:$ida", $file, $line);
+			tracking($connexion, CODE_CTA, 'OK', "CONNEXION USER: Compte Annonce : Connexion Acceptée<br/>$compte_tel_ins:$compte_pass:$ida", $file, $line);
 		}
 		return $ida;
 
@@ -496,16 +496,16 @@ function demande_connexion_annonce($connexion, $compte_tel_ins, $compte_pass, $c
 
 			if ($bloquage == 'yes') {
 				$code_refus = COMPTE_ANNONCE_CONNEXION_ECHEC_BLOQUAGE;
-				tracking(CODE_CTA, 'KO', "Compte Annonce : Echec Connexion:$compte_tel_ins:$compte_pass: ECHEC_BLOQUAGE", $file, $line);
+				tracking($connexion, CODE_CTA, 'KO', "Compte Annonce : Echec Connexion:$compte_tel_ins:$compte_pass: ECHEC_BLOQUAGE", $file, $line);
 				return false;
 			}
 		} else {
 			if ($authentification_type == 'IDENTIFIANT') {
-				tracking(CODE_CTA, 'KO', "Compte Annonce : Echec Connexion:$compte_tel_ins:$compte_pass: ECHEC_AUTHENTIFICATION_IDENTIFIANT", $file, $line);
+				tracking($connexion, CODE_CTA, 'KO', "Compte Annonce : Echec Connexion:$compte_tel_ins:$compte_pass: ECHEC_AUTHENTIFICATION_IDENTIFIANT", $file, $line);
 				$code_refus = COMPTE_ANNONCE_CONNEXION_ECHEC_AUTHENTIFICATION_IDENTIFIANT;
 				return false;
 			} else {
-				tracking(CODE_CTA, 'KO', "Compte Annonce : Echec Connexion:$compte_tel_ins:$compte_pass: ECHEC_AUTHENTIFICATION", $file, $line);
+				tracking($connexion, CODE_CTA, 'KO', "Compte Annonce : Echec Connexion:$compte_tel_ins:$compte_pass: ECHEC_AUTHENTIFICATION", $file, $line);
 				$code_refus = COMPTE_ANNONCE_CONNEXION_ECHEC_AUTHENTIFICATION;
 				return false;
 			}

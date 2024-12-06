@@ -14,7 +14,6 @@ include("../include/inc_random.php");
 include("../include/inc_dtb_compte_annonce.php");
 include("../include/inc_count_cnx.php");
 include("../include/inc_tracking.php");
-include("../include/inc_xiti.php");
 
 filtrer_les_entrees_post(__FILE__, __LINE__);
 filtrer_les_entrees_request(__FILE__, __LINE__);
@@ -22,13 +21,13 @@ filtrer_les_entrees_request(__FILE__, __LINE__);
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : die;
 
 //----------------------------------------------------------------------------
-// R�ponse � la requ�te Ajax qui fait le select des d�partements
+// Réponse à la requête Ajax qui fait le select des départements
 //----------------------------------------------------------------------------
 if ($action == 'get_liste_num_dept') {
-	dtb_connection();
+	$connexion = dtb_connection();
 	$query  = "SELECT dept_num,dept FROM loc_departement ORDER BY dept_num ASC";
-	$result = dtb_query($query, __FILE__, __LINE__, 0);
-	tracking_dtb($query, __FILE__, __LINE__);
+	$result = dtb_query($connexion, $query, __FILE__, __LINE__, 0);
+	tracking_dtb($connexion, $query, __FILE__, __LINE__);
 	$liste = '[';
 	while (list($dept_num, $dept) = mysqli_fetch_row($result)) {
 		$dept = addslashes($dept);
@@ -40,14 +39,14 @@ if ($action == 'get_liste_num_dept') {
 	die;
 }
 //----------------------------------------------------------------------------
-// R�ponse � la requ�te Ajax qui fait le select des villes
+// Réponse à la requête Ajax qui fait le select des villes
 //----------------------------------------------------------------------------
 if ($action == 'get_ville_in_dept') {
 	isset($_POST['dept_num']) ? $dept_num = trim($_POST['dept_num']) : die;
-	dtb_connection();
+	$connexion = dtb_connection();
 	$query  = "SELECT v.ville,v.nb_ard FROM loc_ville as v,loc_departement as d WHERE v.maps_code=1 AND v.idd = d.idd AND d.dept_num='$dept_num' ORDER BY v.ville ASC";
-	$result = dtb_query($query, __FILE__, __LINE__, 0);
-	tracking_dtb($query, __FILE__, __LINE__);
+	$result = dtb_query($connexion, $query, __FILE__, __LINE__, 0);
+	tracking_dtb($connexion, $query, __FILE__, __LINE__);
 	$liste = '[';
 	while (list($ville, $nb_ard) = mysqli_fetch_row($result)) {
 		$ville = addslashes($ville);
@@ -61,19 +60,18 @@ if ($action == 'get_ville_in_dept') {
 
 
 
-dtb_connection();
-count_cnx();
+$connexion = dtb_connection();
+count_cnx($connexion);
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
-	<title>Vendre de particulier � particulier en France</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Vendre de particulier à particulier en France</title>
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-vente.css" rel="stylesheet" type="text/css" />
-	<meta name="Description" content="Vendre en france de particuliers � particuliers avec TOP-IMMOBILIERS-PARTICULIERS.FR" />
+	<meta name="Description" content="Vendre en france de particuliers à particuliers avec TOP-IMMOBILIERS-PARTICULIERS.FR" />
 	<script type="text/javascript" src="/jvscript/browser.js"></script>
 	<script type="text/javascript" src="/compte-annonce/jvscript/valid_field.js"></script>
 	<script type="text/javascript" src="/compte-annonce/jvscript/nbcar.js"></script>
@@ -115,7 +113,7 @@ count_cnx();
 			<?PHP make_ariane_passer_annonce('france'); ?>
 			<div id='vente' style='background:  url(/images/fond-tour.jpg) no-repeat bottom right'>
 				<h1>Vendre de particulier &agrave; Particulier en France</h1>
-				<div id='titre'>D�poser une offre de vente de studio, appartement, maison en France</div>
+				<div id='titre'>Déposer une offre de vente de studio, appartement, maison en France</div>
 				<?PHP
 				/*
 								print_r($_POST);
@@ -124,23 +122,21 @@ count_cnx();
                 echo "<p>&nbsp;</p>\n";*/
 				if ($action == 'print_form') {
 					print_ano_form('france');
-					tracking(CODE_CTA, 'OK', "Entr�e sur formulaire cr�ation vente france", __FILE__, __LINE__);
+					tracking($connexion, CODE_CTA, 'OK', "Entrée sur formulaire création vente france", __FILE__, __LINE__);
 					restore_session();
 				}
 				if ($action == 'store_session') {
-					if (!compte_annonce_existe($_POST['tel_ins'], __FILE__, __LINE__) || is_modif()) {
+					if (!compte_annonce_existe($connexion, $_POST['tel_ins'], __FILE__, __LINE__) || is_modif()) {
 
-						// V�rifier les codes
+						// Vérifier les codes
 						if ($_POST['code_set'] == $_POST['code_get']) {
 							store_session();
 							gotoo('fiche.php');
 						}
 					} else deja_annonce();
 				}
-				print_xiti_code('form-vente-france');
 				?>
 
-				<p><a href="http://www.parcsdelagdal.com/" title="Agence Immobili�re � Marrakech" target="_blank">Immobilier Marrakech</a></p>
 			</div><!-- end vente -->
 		</div><!-- end userpan -->
 	</div><!-- end mainpan -->
