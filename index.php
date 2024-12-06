@@ -354,8 +354,9 @@ function print_select_dept($connexion) {
 	echo "Recherche France<br/> \n";
 	echo "<select title=\"Choisir le numéro du département de france métropole\" id='zone_dept' name='zone_dept' onchange='on_zone_dept();'>\n";
 	echo "<option value=''>Choisir&nbsp;&nbsp;</option>\n";
-	$query = "SELECT num_dept,zone_dept FROM ano WHERE etat='ligne' AND zone='france' GROUP BY num_dept";
-	$result = dtb_query($connexion, $query, __FILE__, __LINE__, DEBUG_INDEX);
+	// $query = "SELECT num_dept,zone_dept FROM ano WHERE etat='ligne' AND zone='france' GROUP BY num_dept";
+	$query = "SELECT num_dept,zone_dept FROM ano WHERE etat='ligne' AND zone='france'";
+	$result = dtb_query($connexion, $query, __FILE__, __LINE__, 1);
 	if (mysqli_num_rows($result)) {
 		while (list($num_dept, $zone_dept) = mysqli_fetch_row($result)) {
 			echo "<option value=\"$zone_dept\">$num_dept</option>\n";
