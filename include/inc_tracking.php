@@ -9,7 +9,8 @@ define('CODE_RCC', 'RCC'); // Code pour une recherche carte
 define('CODE_RED', 'RED'); // Code pour une recherche avec accès à la fiche détaillée.
 define('CODE_DTB', 'DTB'); // Code pour une recherche trace d'un appel à la database
 
-define('CODE_CTA', 'CTA'); // Code pour la tracabilité des comptes annonce
+// Déjà déclarer dans inc_conf
+// define('CODE_CTA', 'CTA'); // Code pour la tracabilité des comptes annonce
 define('CODE_CTR', 'CTR'); // Code pour la tracabilité des comptes recherche
 
 define('CODE_CRA', 'CRA'); // Code pour la tache cron des comptes annonces
