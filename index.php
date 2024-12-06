@@ -164,7 +164,7 @@ $connexion = dtb_connection();
 						<?PHP
 						print_town_search();
 						print_byphone_search();
-						print_xiti_code('index');
+
 						?>
 					</td>
 				</tr>
@@ -174,72 +174,14 @@ $connexion = dtb_connection();
 			?>
 			<div id='news_header'><a href="/actualites-immobilieres/" id="link_news"><img src='/images-header/titre-new-2.gif'></a><a id='feed_GG_syndic' href="http://www.google.com/ig/adde?moduleurl=http://www.top-immobilier-particuliers.fr/actualites-immobilieres/xml-flux-news.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" style="width:104px; height:17px;border:0px;" alt="Add to Google" /></a><a href="/actualites-immobilieres/xml-flux-news.xml" id="feed_news">Flux
 					Actualités</a></div>
-			<?PHP print_news(); ?>
+			<?PHP print_news($connexion); ?>
 		</div> <!-- end userpan -->
-		<div id='userpan'>
-			<div id='header'><img src="/images-pub/juste-le-prix-468x60.gif" title="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est de l'immobilier strictement entre particuliers" /></div>
-			<table id='compte'>
-				<tr>
-					<td class='cell_b'>
-						<div id='acheteurs'><a href='/compte-recherche/compte-recherche-ccm.php' title="Accéder à plus d'informations concernant les services à disposition des acheteurs" rel='nofollow'>+ d'infos</a></div>
-						<div><img src="/images-header/particulier-acheteur-21.gif" alt="Servives d'aide à la Recherche - Compte de recherche" /></div>
-						<p><a href='/compte-recherche/gestion-connexion-recherche.php?action=accueil_compte_recherche' title='Accéder à votre compte de recherche'>Votre
-								Compte</a>&nbsp;<em> (* Gratuit)</em></p>
-					</td>
-					<td class='cell_c'>
-						<?PHP //print_virtual_cnx(count_cnx()); 
-						?><br />
-						<img src="images/top-immobilier-particuliers-240x60.jpg" title='Achetez et Vendez facilement avec TOP-IMMOBILIER-PARTICULIERS.FR' alt='Achetez et Vendez facilement avec TOP-IMMOBILIER-PARTICULIERS.FR' width="240" height="60" /><br />
-					</td>
-					<td class='cell_b'>
-						<div id='vendeurs'><a href='/compte-annonce/compte-annonce-ccm.php' title="Accéder à plus d'informations concernant les services à disposition des vendeurs" rel='nofollow'>+ d'infos</a></div>
-						<div><img src="/images-header/particulier-vendeur-21.gif" alt='Passer une annonces 6 mois pour 20 Euros' /></div>
-						<p><a href='/compte-annonce/passer-annonce.php' title='Passer une annonce'>Passer une annonce</a>&nbsp;&nbsp;&nbsp;<a href='/compte-annonce/gestion-connexion-annonce.php?action=accueil_compte_annonce' title='Accéder à votre compte annonce'>Votre Compte</a></p>
-					</td>
-				</tr>
-			</table>
-			<?PHP
-			$ida_array = select_annnonce($connexion, $first = 0, $last = 3);
-			if (count($ida_array)) print_selection_annonce($ida_array);
-			?>
-			<table id='recherche'>
-				<tr>
-					<td class='cell_g'>
-						<?PHP
-						print_search_form($connexion);
-						//print_vep_logo();
-						//tracking(CODE_NAV, 'OK', "index", __FILE__, __LINE__);
-						?>
-						<p><a href="/annonces-immobilieres/xml-flux-annonces.xml" id='feed_annonces'>Flux Annonces</a></p>
-						<p><a href="http://www.google.com/ig/adde?moduleurl=http://www.top-immobilier-particuliers.fr/annonces-immobilieres/xml-flux-annonces.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" style="width:104px; height:17px;border:0px;" alt="Add to Google" /></a></p>
-					</td>
-					<td class='cell_c'>
-						<h1>Immobilier entre Particuliers. Annonces Immobilières entre Particuliers à Paris, en Ile de France, en France et à l'étranger. Appartement, Maison, Pavillon, Loft à la Vente</h1>
-						<div id="message">Recherche sur les cartes. Double click sur la zone pour voir d'autres villes</div>
-						<div id="map"></div>
-					</td>
-					<td class='cell_d'>
-						<?PHP
-						print_town_search();
-						print_byphone_search();
-						print_xiti_code('index');
-						?>
-					</td>
-				</tr>
-			</table>
-			<br />
-			<?PHP //print_laderborder_728_90(); 
-			?>
-			<div id='news_header'><a href="/actualites-immobilieres/" id="link_news"><img src='/images-header/titre-new-2.gif'></a><a id='feed_GG_syndic' href="http://www.google.com/ig/adde?moduleurl=http://www.top-immobilier-particuliers.fr/actualites-immobilieres/xml-flux-news.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" style="width:104px; height:17px;border:0px;" alt="Add to Google" /></a><a href="/actualites-immobilieres/xml-flux-news.xml" id="feed_news">Flux
-					Actualités</a></div>
-			<?PHP print_news(); ?>
-		</div> <!-- end userpan -->
-
-
 
 	</div> <!-- end mainpan -->
-	<div id='footerpan'><?PHP print_rules(); //print_link(); 
-						?></div><!-- end footerpan -->
+	<div id='footerpan'>
+		<?PHP print_rules(); //print_link(); 
+		?>
+	</div><!-- end footerpan -->
 </body>
 
 </html>
