@@ -152,8 +152,7 @@ $connexion = dtb_connection();
 						//print_vep_logo();
 						//tracking(CODE_NAV, 'OK', "index", __FILE__, __LINE__);
 						?>
-						<p><a href="/annonces-immobilieres/xml-flux-annonces.xml" id='feed_annonces'>Flux Annonces</a></p>
-						<p><a href="http://www.google.com/ig/adde?moduleurl=http://www.top-immobilier-particuliers.fr/annonces-immobilieres/xml-flux-annonces.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" style="width:104px; height:17px;border:0px;" alt="Add to Google" /></a></p>
+
 					</td>
 					<td class='cell_c'>
 						<h1>Immobilier entre Particuliers. Annonces Immobilières entre Particuliers à Paris, en Ile de France, en France et à l'étranger. Appartement, Maison, Pavillon, Loft à la Vente</h1>
@@ -170,11 +169,7 @@ $connexion = dtb_connection();
 				</tr>
 			</table>
 			<br />
-			<?PHP //print_laderborder_728_90(); 
 			?>
-			<div id='news_header'><a href="/actualites-immobilieres/" id="link_news"><img src='/images-header/titre-new-2.gif'></a><a id='feed_GG_syndic' href="http://www.google.com/ig/adde?moduleurl=http://www.top-immobilier-particuliers.fr/actualites-immobilieres/xml-flux-news.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" style="width:104px; height:17px;border:0px;" alt="Add to Google" /></a><a href="/actualites-immobilieres/xml-flux-news.xml" id="feed_news">Flux
-					Actualités</a></div>
-			<?PHP print_news($connexion); ?>
 		</div> <!-- end userpan -->
 
 	</div> <!-- end mainpan -->
@@ -298,7 +293,7 @@ function print_select_dept($connexion) {
 	echo "<option value=''>Choisir&nbsp;&nbsp;</option>\n";
 	// $query = "SELECT num_dept,zone_dept FROM ano WHERE etat='ligne' AND zone='france' GROUP BY num_dept";
 	$query = "SELECT num_dept,zone_dept FROM ano WHERE etat='ligne' AND zone='france'";
-	$result = dtb_query($connexion, $query, __FILE__, __LINE__, 1);
+	$result = dtb_query($connexion, $query, __FILE__, __LINE__, 0);
 	if (mysqli_num_rows($result)) {
 		while (list($num_dept, $zone_dept) = mysqli_fetch_row($result)) {
 			echo "<option value=\"$zone_dept\">$num_dept</option>\n";
