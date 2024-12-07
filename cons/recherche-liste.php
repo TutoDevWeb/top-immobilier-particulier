@@ -1081,8 +1081,8 @@ function print_bouton_alerte_recherche($connexion, $zone, $zone_pays, $zone_dom,
 	echo "<div id='alerte_recherche'>\n";
 	echo "<table>\n";
 	// Ligne 1
-	if ($idc !== false) echo "<tr><td colspan='2'>Soyez inform� d�s la parution d'annonces sur les crit�res qui ont donn� ces r�sultats <em>(*service Email gratuit)</em></td></tr>\n";
-	else  echo "<tr><td>Soyez inform� d�s la parution d'annonces sur les crit�res qui ont donn� ces r�sultats <em>(*service Email gratuit)</em></td></tr>\n";
+	if ($idc !== false) echo "<tr><td colspan='2'>Soyez informé dès la parution d'annonces sur les critères qui ont donné ces résultats <em>(*service Email gratuit)</em></td></tr>\n";
+	else  echo "<tr><td>Soyez informé dès la parution d'annonces sur les critères qui ont donné ces résultats <em>(*service Email gratuit)</em></td></tr>\n";
 
 	// Ligne 2
 	echo "<tr>\n";
