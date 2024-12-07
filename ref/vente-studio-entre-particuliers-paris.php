@@ -12,19 +12,19 @@ include("../include/inc_count_cnx.php");
 include("../include/inc_xiti.php");
 include("../include/inc_tools.php");
 
-$title        = "Vente studio entre particuliers � Paris";
-$description  = "Vente de studio entre particuliers � Paris. Listes des arrondissements avec nombre de studio dans chaque arrondissement et liens direct sur la s�lection de produit.";
-$h1           = "Vente studio entre particuliers � Paris";
-$keywords     = "Vente studio � Paris";
+$title        = "Vente studio entre particuliers à Paris";
+$description  = "Vente de studio entre particuliers à Paris. Listes des arrondissements avec nombre de studio dans chaque arrondissement et liens direct sur la sélection de produit.";
+$h1           = "Vente studio entre particuliers à Paris";
+$keywords     = "Vente studio à Paris";
 $keywords_url = "vente-studio-paris";
 $query        = "&typt=vente&typp=1&P1=1";
 
-dtb_connection();
-count_cnx();
+$connexion = dtb_connection();
+count_cnx($connexion);
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<!DOCTYPE html>
+<html lang='fr'>
 
 <head>
 	<title><?PHP echo "$title"; ?></title>
@@ -59,13 +59,10 @@ count_cnx();
 				</div>
 				<div id='partners-onglet'></div>
 				<div id='partners-box'>
-					<a href="http://www.ski-locations.fr/" title="location ski">Location Ski</a> |
-					<a href="http://www.locations-en-bretagne.fr/" title="location bretagne">Location Bretagne</a><br />
-					<a href="http://www.tekimmo.com/">Tekimmo.com</a> |
-					<a href="http://www.locations-vacances-en-france.com/" title="Location vacances, location saisonniere en France et Outre Mer. Annonces de location vacances de particulier a particulier.">Locations Vacances en France</a>
+
 				</div>
 				<?PHP print_vep_ban();
-				tracking(CODE_NAV, 'OK', "$keywords_url", __FILE__, __LINE__);
+				tracking($connexion, CODE_NAV, 'OK', "$keywords_url", __FILE__, __LINE__);
 				?>
 				<div id='clearboth'>&nbsp;</div>
 			</div> <!-- end centre -->

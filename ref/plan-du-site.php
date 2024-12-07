@@ -6,11 +6,11 @@ include("../include/inc_count_cnx.php");
 include("../include/inc_xiti.php");
 include("../include/inc_tools.php");
 
-dtb_connection();
-count_cnx();
+$connexion = dtb_connection();
+count_cnx($connexion);
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -31,13 +31,13 @@ count_cnx();
 			<div id='plan'>
 				<h1>Plan du site</h1>
 				<ul class='niv1'>
-					<li><a href='/noref/faq.php' title='R�ponses aux questions fr�quemment pos�es' rel="nofollow">FAQ : R�ponses aux questions fr�quemment pos�es</a></li>
+					<li><a href='/noref/faq.php' title='Réponses aux questions fréquemment posées' rel="nofollow">FAQ : Réponses aux questions fréquemment posées</a></li>
 					<li><a href='/noref/contact-equipe.php?action=print_form' title='Contacter nous' rel="nofollow">Contacter Nous</a></li>
 					<li><a href='/noref/loupe.php' title='Augmenter ou diminuer la taille du texte' rel="nofollow">+ Loupe - : Augmenter ou diminuer la taille du texte</a></li>
 					<li><a href='/noref/condition.php' rel='nofollow'>Conditions d'utilisations</a></li>
 					<li><a href='/noref/mention.php' rel='nofollow'>Mentions l&eacute;gales</a></li>
 					<li>
-						<p><a href='/compte-recherche/gestion-connexion-recherche.php?action=accueil_compte_recherche'>Acheteurs : Cr�er votre compte recherche</a></p>
+						<p><a href='/compte-recherche/gestion-connexion-recherche.php?action=accueil_compte_recherche'>Acheteurs : Créer votre compte recherche</a></p>
 					</li>
 					<li>
 						<p><a href='/compte-annonce/passer-annonce.php'>Vendeurs : D&eacute;poser des offres de vente</a></p>
@@ -71,7 +71,7 @@ count_cnx();
 						</ul>
 					</li>
 					<li>
-						<p>Produits en pr�sentation</p>
+						<p>Produits en présentation</p>
 						<ul class='niv2'>
 							<?PHP print_produit(); ?>
 						</ul>
@@ -86,19 +86,19 @@ count_cnx();
 
 </html>
 <?PHP
-function print_produit() {
+function print_produit($connexion) {
 
 	$query = "SELECT ville FROM ref_ville";
-	$result_list_ville   = dtb_query($query, __FILE__, __LINE__, 0);
+	$result_list_ville   = dtb_query($connexion, $query, __FILE__, __LINE__, 0);
 	while (list($ville) = mysqli_fetch_row($result_list_ville)) {
 
 		$ville_s = addslashes($ville);
 		$query = "SELECT tel_ins,typp,COUNT(*) as nb FROM ano WHERE etat='ligne' AND zone_ville='$ville_s' AND zone_ville != 'Paris' GROUP BY typp";
-		$result_list_product = dtb_query($query, __FILE__, __LINE__, 0);
+		$result_list_product = dtb_query($connexion, $query, __FILE__, __LINE__, 0);
 		while (list($tel_ins, $typp, $nb) = mysqli_fetch_row($result_list_product)) {
 
 			$query = "SELECT ville_url,ville_lieu,dept_url FROM ref_ville WHERE ville='$ville_s'";
-			$result_spec_ville = dtb_query($query, __FILE__, __LINE__, 0);
+			$result_spec_ville = dtb_query($connexion, $query, __FILE__, __LINE__, 0);
 			list($ville_url, $ville_lieu, $dept_url) = mysqli_fetch_row($result_spec_ville);
 
 			if ($nb == 1) echo "<li><a href='/$typp,$ville_url,$dept_url.htm'>$nb $typp $ville_lieu</a></li>\n";

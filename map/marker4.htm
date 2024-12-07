@@ -1,56 +1,60 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Google Maps JavaScript API Example: Map Markers</title>
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTASDNGt1Ah7UMjIzjNf91KosJQYhT2_N2tGBVmUwT_PKT4VUzPoyhomg" type="text/javascript"></script>
-    <script type="text/javascript">
-    /* Utilisation du nouveau manager de marker
-		
-		   1000 markers créer autour de Paris visible à paris du niveau 11
-			 
-			 AU NIVEAU 10 il disparaissent
-		   
-			 C'est intéressant au niveau de la caret française.
-			 A ce niveau c'est pas forcement terrible.
+<!DOCTYPE html>
+<html lang='fr'>
 
-		*/
-			 
-    function initialize() {
-      if (GBrowserIsCompatible()) {
-        var map = new GMap2(document.getElementById("map_canvas"));       
-				map.setCenter(new GLatLng(48.8699,2.35107), 11);
-        map.addControl(new GSmallMapControl());
-				
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Google Maps JavaScript API Example: Map Markers</title>
+	<script
+		src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTASDNGt1Ah7UMjIzjNf91KosJQYhT2_N2tGBVmUwT_PKT4VUzPoyhomg"
+		type="text/javascript"></script>
+	<script type="text/javascript">
+		/* Utilisation du nouveau manager de marker
+			
+			   1000 markers créer autour de Paris visible à paris du niveau 11
+				 
+				 AU NIVEAU 10 il disparaissent
+			   
+				 C'est intéressant au niveau de la caret française.
+				 A ce niveau c'est pas forcement terrible.
+	
+			*/
+
+		function initialize() {
+			if (GBrowserIsCompatible()) {
+				var map = new GMap2(document.getElementById("map_canvas"));
+				map.setCenter(new GLatLng(48.8699, 2.35107), 11);
+				map.addControl(new GSmallMapControl());
+
 				var manager = new GMarkerManager(map);
- 
-        var markerList = new Array();
-				
-        var bounds = map.getBounds();
-        var southWest = bounds.getSouthWest();
-        var northEast = bounds.getNorthEast();
-        var lngSpan = 5.0 * (northEast.lng() - southWest.lng());
-        var latSpan = 5.0 * (northEast.lat() - southWest.lat());
 
-        for (var i = 0; i < 5000; i++) {
-          var point = new GLatLng(southWest.lat() + latSpan * Math.random(),
-                                  southWest.lng() + lngSpan * Math.random());
-           markerList[i] = new GMarker(point);
-        }
-				
-				manager.addMarkers(markerList,11);
-        manager.refresh();
-				
+				var markerList = new Array();
+
+				var bounds = map.getBounds();
+				var southWest = bounds.getSouthWest();
+				var northEast = bounds.getNorthEast();
+				var lngSpan = 5.0 * (northEast.lng() - southWest.lng());
+				var latSpan = 5.0 * (northEast.lat() - southWest.lat());
+
+				for (var i = 0; i < 5000; i++) {
+					var point = new GLatLng(southWest.lat() + latSpan * Math.random(),
+						southWest.lng() + lngSpan * Math.random());
+					markerList[i] = new GMarker(point);
+				}
+
+				manager.addMarkers(markerList, 11);
+				manager.refresh();
+
 				var nb_marker = manager.getMarkerCount(11);
 
-        console.log('nb_marker => '+nb_marker);
-      }
-    }
+				console.log('nb_marker => ' + nb_marker);
+			}
+		}
 
-    </script>
-  </head>
+	</script>
+</head>
 
-  <body onload="initialize()" onunload="GUnload()">
-    <div id="map_canvas" style="width: 500px; height: 300px"></div>
-  </body>
+<body onload="initialize()" onunload="GUnload()">
+	<div id="map_canvas" style="width: 500px; height: 300px"></div>
+</body>
+
 </html>

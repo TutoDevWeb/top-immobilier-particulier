@@ -1,55 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <title>Google Maps JavaScript API Example: Map Markers</title>
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTASDNGt1Ah7UMjIzjNf91KosJQYhT2_N2tGBVmUwT_PKT4VUzPoyhomg" type="text/javascript"></script>
-    <script type="text/javascript">
-    /* 1000 markers créer autour de Toulon dans un tableau
-		   Seulement 10 qui sont ajoutés à la carte
-			 
-			 CONCLUSION : Le temps de chargement est quasi instantanée.
-       Les déplacements sont normaux.
+<!DOCTYPE html>
+<html lang='fr'>
 
-       LES RALENTISSEMENTS SONT BIEN DUES AU NOMBRE D'OVERLAYS SUR LA CARTE 
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Google Maps JavaScript API Example: Map Markers</title>
+	<script
+		src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTASDNGt1Ah7UMjIzjNf91KosJQYhT2_N2tGBVmUwT_PKT4VUzPoyhomg"
+		type="text/javascript"></script>
+	<script type="text/javascript">
+		/* 1000 markers créer autour de Toulon dans un tableau
+			   Seulement 10 qui sont ajoutés à la carte
+				 
+				 CONCLUSION : Le temps de chargement est quasi instantanée.
+		   Les déplacements sont normaux.
+	
+		   LES RALENTISSEMENTS SONT BIEN DUES AU NOMBRE D'OVERLAYS SUR LA CARTE 
+	
+		   Test avec 100000. Même chose. Ce n'est pas significatifs.
+	
+			*/
 
-       Test avec 100000. Même chose. Ce n'est pas significatifs.
+		function initialize() {
+			if (GBrowserIsCompatible()) {
+				var map = new GMap2(document.getElementById("map_canvas"));
+				map.setCenter(new GLatLng(43.1326, 5.93107), 12);
+				map.addControl(new GSmallMapControl());
 
-		*/
-			 
-    function initialize() {
-      if (GBrowserIsCompatible()) {
-        var map = new GMap2(document.getElementById("map_canvas"));       
-				map.setCenter(new GLatLng(43.1326,5.93107), 12);
-        map.addControl(new GSmallMapControl());
- 
-        var markerList = new Array();
-				
-        var bounds = map.getBounds();
-        var southWest = bounds.getSouthWest();
-        var northEast = bounds.getNorthEast();
-        var lngSpan = 5.0 * (northEast.lng() - southWest.lng());
-        var latSpan = 5.0 * (northEast.lat() - southWest.lat());
+				var markerList = new Array();
 
-        for (var i = 0; i < 10000; i++) {
-          var point = new GLatLng(southWest.lat() + latSpan * Math.random(),
-                                  southWest.lng() + lngSpan * Math.random());
-           markerList[i] = new GMarker(point);
-        }
+				var bounds = map.getBounds();
+				var southWest = bounds.getSouthWest();
+				var northEast = bounds.getNorthEast();
+				var lngSpan = 5.0 * (northEast.lng() - southWest.lng());
+				var latSpan = 5.0 * (northEast.lat() - southWest.lat());
 
-
-        for (var i = 0; i < 10; i++) {
-          map.addOverlay(markerList[i]);
-        }
+				for (var i = 0; i < 10000; i++) {
+					var point = new GLatLng(southWest.lat() + latSpan * Math.random(),
+						southWest.lng() + lngSpan * Math.random());
+					markerList[i] = new GMarker(point);
+				}
 
 
-      }
-    }
+				for (var i = 0; i < 10; i++) {
+					map.addOverlay(markerList[i]);
+				}
 
-    </script>
-  </head>
 
-  <body onload="initialize()" onunload="GUnload()">
-    <div id="map_canvas" style="width: 500px; height: 300px"></div>
-  </body>
+			}
+		}
+
+	</script>
+</head>
+
+<body onload="initialize()" onunload="GUnload()">
+	<div id="map_canvas" style="width: 500px; height: 300px"></div>
+</body>
+
 </html>

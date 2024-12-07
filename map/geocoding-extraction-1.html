@@ -1,80 +1,81 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>Google Maps JavaScript API Example: 	Extraction of Geocoding Data</title>
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTMWPxCPq5RvY5_kHvjtn_Nx0AqdhQ133zHk-88S4-qNVRbymA2lk417A" type="text/javascript"></script>
-    <script type="text/javascript">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='fr'>
 
-    var map;
-    var geocoder;
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>Google Maps JavaScript API Example: Extraction of Geocoding Data</title>
+	<script
+		src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTMWPxCPq5RvY5_kHvjtn_Nx0AqdhQ133zHk-88S4-qNVRbymA2lk417A"
+		type="text/javascript"></script>
+	<script type="text/javascript">
 
-    function initialize() {
-      map = new GMap2(document.getElementById("map_canvas"));
-      map.setCenter(new GLatLng(46.225453,2.197266), 5);
+		var map;
+		var geocoder;
+
+		function initialize() {
+			map = new GMap2(document.getElementById("map_canvas"));
+			map.setCenter(new GLatLng(46.225453, 2.197266), 5);
 			map.addControl(new GLargeMapControl());
-      geocoder = new GClientGeocoder();
-    }
+			geocoder = new GClientGeocoder();
+		}
 
-    // addAddressToMap() is called when the geocoder returns an
-    // answer.  It adds a marker to the map with an open info window
-    // showing the nicely formatted version of the address and the country code.
-    function addAddressToMap(response) {
-      map.clearOverlays();
-      if (!response || response.Status.code != 200) {
-        alert("Sorry, we were unable to geocode that address");
-      } else {
-        place = response.Placemark[0];
-        point = new GLatLng(place.Point.coordinates[1],
-                            place.Point.coordinates[0]);
-				document.forms[0].lat.value = point.lat();										
+		// addAddressToMap() is called when the geocoder returns an
+		// answer.  It adds a marker to the map with an open info window
+		// showing the nicely formatted version of the address and the country code.
+		function addAddressToMap(response) {
+			map.clearOverlays();
+			if (!response || response.Status.code != 200) {
+				alert("Sorry, we were unable to geocode that address");
+			} else {
+				place = response.Placemark[0];
+				point = new GLatLng(place.Point.coordinates[1],
+					place.Point.coordinates[0]);
+				document.forms[0].lat.value = point.lat();
 				document.forms[0].lng.value = point.lng();
 				map.setCenter(point, 12);
-										
-        marker = new GMarker(point);
-        map.addOverlay(marker);
-        marker.openInfoWindowHtml(place.address + '<br>' +
-          '<b>Country code:</b> ' + place.AddressDetails.Country.CountryNameCode);
-      }
-    }
 
-    // showLocation() is called when you click on the Search button
-    // in the form.  It geocodes the address entered into the form
-    // and adds a marker to the map at that location.
-    function showLocation() {
-      var address = document.forms[0].q.value;
-      geocoder.getLocations(address, addAddressToMap);
-    }
+				marker = new GMarker(point);
+				map.addOverlay(marker);
+				marker.openInfoWindowHtml(place.address + '<br>' +
+					'<b>Country code:</b> ' + place.AddressDetails.Country.CountryNameCode);
+			}
+		}
 
-   // findLocation() is used to enter the sample addresses into the form.
-    function findLocation(address) {
-      document.forms[0].q.value = address;
-      showLocation();
-    }
-    </script>
-  </head>
+		// showLocation() is called when you click on the Search button
+		// in the form.  It geocodes the address entered into the form
+		// and adds a marker to the map at that location.
+		function showLocation() {
+			var address = document.forms[0].q.value;
+			geocoder.getLocations(address, addAddressToMap);
+		}
 
-  <body onload="initialize()">
+		// findLocation() is used to enter the sample addresses into the form.
+		function findLocation(address) {
+			document.forms[0].q.value = address;
+			showLocation();
+		}
+	</script>
+</head>
 
-    <!-- Creates a simple input box where you can enter an address
+<body onload="initialize()">
+
+	<!-- Creates a simple input box where you can enter an address
          and a Search button that submits the form. //-->
-    <form action="#" onsubmit="showLocation(); return false;">
+	<form action="#" onsubmit="showLocation(); return false;">
 
 
-      <p>
-        <b>Search for an address:</b><br>
-          
-        <input type="text" name="q" value="" class="address_input" size="40" /><br>
-        <input type="text" name="lat" size="15" />
-        <input type="text" name="lng" size="15" />
+		<p>
+			<b>Search for an address:</b><br>
 
-        <input type="submit" name="find" value="Search" />
-      </p>
-    </form>
-    <div id="map_canvas" style="width: 500px; height: 300px"></div>
+			<input type="text" name="q" value="" class="address_input" size="40" /><br>
+			<input type="text" name="lat" size="15" />
+			<input type="text" name="lng" size="15" />
 
-  </body>
+			<input type="submit" name="find" value="Search" />
+		</p>
+	</form>
+	<div id="map_canvas" style="width: 500px; height: 300px"></div>
+
+</body>
+
 </html>
-
-

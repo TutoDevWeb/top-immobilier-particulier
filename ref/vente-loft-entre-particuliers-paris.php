@@ -13,19 +13,19 @@ include("../include/inc_xiti.php");
 include("../include/inc_tools.php");
 
 
-$title        = "Vente loft entre particuliers � Paris";
-$description  = "Vente de loft entre particuliers � Paris. Listes des arrondissements avec nombre de loft dans chaque arrondissement et liens direct sur la s�lection de produit.";
-$h1           = "Vente loft entre particuliers � Paris";
-$keywords     = "Vente loft � Paris";
+$title        = "Vente loft entre particuliers à Paris";
+$description  = "Vente de loft entre particuliers à Paris. Listes des arrondissements avec nombre de loft dans chaque arrondissement et liens direct sur la sélection de produit.";
+$h1           = "Vente loft entre particuliers à Paris";
+$keywords     = "Vente loft à Paris";
 $keywords_url = "vente-loft-paris";
 $query        = "&typt=vente&typp=3&P1=1&P2=2&P3=3&P4=4&P5=5";
 
-dtb_connection();
-count_cnx();
+$connexion = dtb_connection();
+count_cnx($connexion);
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<!DOCTYPE html>
+<html lang='fr'>
 
 <head>
 	<title><?PHP echo "$title"; ?></title>
@@ -60,11 +60,10 @@ count_cnx();
 				</div>
 				<div id='partners-onglet'></div>
 				<div id='partners-box'>
-					<a href="http://www.drome-ardeche.org/drome_immobilier.html" title="Drome immobilier entre particuliers sans agences immobilieres">Immobilier Drome</a> |
-					<a href='http://www.a-louer-vente.com/ppg-louer-terroirs.htm' title='Louer, vendre'>Louer, Vendre</a>
+
 				</div>
 				<?PHP print_vep_ban();
-				tracking(CODE_NAV, 'OK', "$keywords_url", __FILE__, __LINE__);
+				tracking($connexion, CODE_NAV, 'OK', "$keywords_url", __FILE__, __LINE__);
 				?>
 				<div id='clearboth'>&nbsp;</div>
 			</div> <!-- end centre -->

@@ -15,7 +15,7 @@ check_arg(&$action,&$tel_pro,&$dialogue_pro,&$etat_pro);
 
 dtb_connection(__FILE__,__LINE__);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <title>Prospection</title>
