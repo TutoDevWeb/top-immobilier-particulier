@@ -334,7 +334,7 @@ function get_nb_ano_by_typp_ville($connexion, $zone_ville, &$nb_appartement, &$n
 	$nb_loft        = 0;
 	$nb_chalet      = 0;
 
-	$zone_ville = addslashes($connexion, $zone_ville);
+	$zone_ville = addslashes($zone_ville);
 
 	$select = "SELECT typp,COUNT(*) FROM ano WHERE etat='ligne' AND zone_ville='$zone_ville' GROUP BY typp";
 	$result = dtb_query($connexion, $select, __FILE__, __LINE__, DEBUG_DTB_ANO);

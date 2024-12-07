@@ -76,7 +76,7 @@ function get_cookie_recherche(&$compte_email, &$compte_pass) {
 /*----------------------------------------------------------------------------------------------------*/
 // Lit les identifiants dans le cookie et renvoie l'idc
 // Renvoi faux si rien touver
-function get_idc($connexion, $compte_email, $compte_pass) {
+function get_idc($connexion, &$compte_email, &$compte_pass) {
 
 	if (isset($_COOKIE["connexion_compte_recherche"])) {
 
@@ -92,11 +92,11 @@ function get_idc($connexion, $compte_email, $compte_pass) {
 			$compte_email_s = mysqli_real_escape_string($connexion, $compte_email);
 			$compte_pass_s  = mysqli_real_escape_string($connexion, $compte_pass);
 
-			// Requ�te pour connexion
+			// Requête pour connexion
 			$query  = "SELECT idc FROM compte_recherche WHERE compte_email='$compte_email_s' AND compte_pass='$compte_pass_s' AND compte_bloquage='no' AND ( (compte_etat = 'actif') OR (UNIX_TIMESTAMP(now()) - UNIX_TIMESTAMP(compte_date)) < 86400 )";
 			$result = dtb_query($connexion, $query, __FILE__, __LINE__, DEBUG_DTB_COMPTE);
 
-			// Si il y a un r�sultat
+			// Si il y a un résultat
 			if (mysqli_num_rows($result)) {
 				list($idc) = mysqli_fetch_row($result);
 				return $idc;
