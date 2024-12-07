@@ -53,7 +53,7 @@ if ($action == 'demande_connexion') {
 <head>
 	<title>Créer ou Accéder à votre compte de recherche</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<meta name="Description" content="Accéder à votre compte recherche pour bénéficier des services gratuit d'aide à votre recherche immobilière sur TOP-IMMOBILIER-PARTICULIERS.FR" />
+	<meta name="Description" content="Accéder à votre compte recherche pour bénéficier des services gratuit d'aide à votre recherche immobilière sur TOP-IMMOBILIER-PARTICULIER.FR" />
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-gestion-connexion.css" rel="stylesheet" type="text/css" />
 	<script type='text/javascript' src='/compte-recherche/jvscript/valid_field.js'></script>
@@ -63,7 +63,7 @@ if ($action == 'demande_connexion') {
 <body>
 	<div id='toolspan'><?PHP print_tools('tools'); ?></div>
 	<div id='mainpan'>
-		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" /></div>
+		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers" /></div>
 		<div id='userpan'>
 			<div id='gauche'></div>
 			<div id='droite'></div>

@@ -15,111 +15,103 @@ include("../include/inc_filter.php");
 include("../include/inc_tools.php");
 
 
-filtrer_les_entrees_request(__FILE__,__LINE__);
+filtrer_les_entrees_request(__FILE__, __LINE__);
 
-dtb_connection();
-count_cnx();
-isset($_REQUEST['action']) ? $action = trim($_REQUEST['action']) : die ; 
+$connexion = dtb_connection();
+count_cnx($connexion);
+isset($_REQUEST['action']) ? $action = trim($_REQUEST['action']) : die;
 
-if ( $action == 'demande_connexion' ) {
+if ($action == 'demande_connexion') {
 
-  if ( demande_connexion_annonce(trim($_REQUEST['compte_tel_ins']),trim($_REQUEST['compte_pass']),&$code_refus,__FILE__,__LINE__) !== false ) {
+	if (demande_connexion_annonce($connexion, trim($_REQUEST['compte_tel_ins']), trim($_REQUEST['compte_pass']), $code_refus, __FILE__, __LINE__) !== false) {
 
-    // Aller ‡ l'interface utilisateur
-    header('Location: /compte-annonce/tableau-de-bord.php');  
-
-  }
-
+		// Aller √† l'interface utilisateur
+		header('Location: /compte-annonce/tableau-de-bord.php');
+	}
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
+
 <head>
-<title>AccÈder ‡ votre compte annonce</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="Description" content="AccÈder ‡ votre compte annonce pour gÈrer vous mÍme votre annonce immobiliËre sur TOP-IMMOBILIER-PARTICULIERS.FR" />
-<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
-<link href="/styles/global-gestion-connexion.css" rel="stylesheet" type="text/css" />
-<script type='text/javascript'  src='/compte-annonce/jvscript/valid_field.js'></script>
-<script type='text/javascript'  src='/compte-annonce/jvscript/valid_form_connexion.js'></script>
+	<title>Acc√©der √† votre compte annonce</title>
+	<meta charset="UTF-8">
+	<meta name="Description" content="Acc√©der √† votre compte annonce pour g√©rer vous m√™me votre annonce immobili√®re sur TOP-IMMOBILIER-PARTICULIER.FR" />
+	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/global-gestion-connexion.css" rel="stylesheet" type="text/css" />
+	<script type='text/javascript' src='/compte-annonce/jvscript/valid_field.js'></script>
+	<script type='text/javascript' src='/compte-annonce/jvscript/valid_form_connexion.js'></script>
 </head>
+
 <body>
-  <div id='toolspan'><?PHP print_tools('tools'); ?></div>
-  <div id='mainpan'>
-    <div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" /></div>
-    <div id='userpan'>
-      <div id='gauche'><?PHP print_cibleclick_120_600();  ?></div> 
-      <div id='droite'><?PHP print_cibleclick_120_600();  ?></div>
-        <?PHP make_ariane_page('Votre Compte Annonce'); ?>
-        <?PHP
-        /* Les demandes de connexion qui arrivent ici sont des echecs */
-        if      ( $action == 'demande_connexion' ) gestion_echec_connexion($code_refus);
+	<div id='toolspan'><?PHP print_tools('tools'); ?></div>
+	<div id='mainpan'>
+		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers" /></div>
+		<div id='userpan'>
+			<?PHP make_ariane_page('Votre Compte Annonce'); ?>
+			<?PHP
+			/* Les demandes de connexion qui arrivent ici sont des echecs */
+			if ($action == 'demande_connexion') gestion_echec_connexion($code_refus);
 
-        /* Traitement d'une demande compte annonce depuis l'accueil */
-        /* On ne sait pas si l'internaute ‡ dÈj‡ un compte */
-        else if ( $action == 'accueil_compte_annonce' ) {
+			/* Traitement d'une demande compte annonce depuis l'accueil */
+			/* On ne sait pas si l'internaute √† d√©j√† un compte */
+			else if ($action == 'accueil_compte_annonce') {
 
-          // Est ce qu'on peut rÈcupÈrer un cookie.
-          if ( get_cookie_annonce(&$compte_tel_ins,&$compte_pass) === true ) {
-          
-            print_connexion_compte_annonce($compte_tel_ins,$compte_pass);
-						print_cible_unifinance_300_250();
-            tracking(CODE_CTA,'OK',"EntrÈe sur Accueil compte annonce<br />on a trouvÈ un cookie:$compte_tel_ins",__FILE__,__LINE__);
-          
-          } else {
+				// Est ce qu'on peut r√©cup√©rer un cookie.
+				if (get_cookie_annonce($compte_tel_ins, $compte_pass) === true) {
 
-            print_connexion_compte_annonce($compte_tel_ins='',$compte_pass='',$message=true);
-            print_lien_password_oublier();
-						print_cible_unifinance_300_250();
-            tracking(CODE_CTA,'OK',"EntrÈe sur Accueil compte annonce<br />ce visiteur n'a pas de cookie",__FILE__,__LINE__);
-          
-          }
+					print_connexion_compte_annonce($compte_tel_ins, $compte_pass);
+					tracking($connexion, CODE_CTA, 'OK', "Entr√©e sur Accueil compte annonce<br />on a trouv√© un cookie:$compte_tel_ins", __FILE__, __LINE__);
+				} else {
 
-        }        
+					print_connexion_compte_annonce($compte_tel_ins = '', $compte_pass = '', $message = true);
+					print_lien_password_oublier();
+					tracking($connexion, CODE_CTA, 'OK', "Entr√©e sur Accueil compte annonce<br />ce visiteur n'a pas de cookie", __FILE__, __LINE__);
+				}
+			}
 
-        print_xiti_code("gestion-connexion-annonce");
-        ?>
+			?>
 			<div id='clearboth'>&nbsp;</div>
-    </div><!-- end userpan -->
-  </div><!-- end mainpan -->
-  <div id='footerpan'></div>
+		</div><!-- end userpan -->
+	</div><!-- end mainpan -->
+	<div id='footerpan'></div>
 </body>
+
 </html>
 <?PHP
 /*--------------------------------------------------------------------------------------------------------*/
-function print_connexion_compte_annonce($compte_tel_ins='',$compte_pass='',$message=false) {
+function print_connexion_compte_annonce($compte_tel_ins = '', $compte_pass = '', $message = false) {
 ?>
-  <div id='connexion'>
-    <form action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method='get' onsubmit="return valid_form_connexion();" autocomplete="off"> 
-      <fieldset><legend>AccÈder ‡ votre compte annonce</legend>
-      <?PHP if ( $message === true ) echo "<p class='info'>Pour accÈder ‡ votre compte annonce il faut d'abord avoir <a href='http://www.top-immobilier-particuliers.fr/compte-annonce/passer-annonce.php'>crÈÈ votre annonce</a></p>\n"; ?>
-      <p><label for='compte_tel_ins'>Votre tÈlÈphone</label>&nbsp;&nbsp;<input id='connexion_compte_tel_ins' name='compte_tel_ins' type='text' size="25" maxlength="128" value="<?PHP echo "$compte_tel_ins"; ?>" /></p>
-      <p><label for='connexion_compte_pass'>Votre mot de passe</label>&nbsp;&nbsp;<input id='connexion_compte_pass' name='compte_pass' type='password' value='<?PHP echo $compte_pass; ?>'  size="15" maxlength="15" /></p>
-      <input type='hidden' name='action' value='demande_connexion' />
-      <input  class='but_input' type='submit' value='AccÈder'/>
-      </fieldset>
-    </form>
-  </div>
+	<div id='connexion'>
+		<form action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method='get' onsubmit="return valid_form_connexion();" autocomplete="off">
+			<fieldset>
+				<legend>Acc√©der √† votre compte annonce</legend>
+				<?PHP if ($message === true) echo "<p class='info'>Pour acc√©der √† votre compte annonce il faut d'abord avoir <a href='http://www.top-immobilier-particulier.fr/compte-annonce/passer-annonce.php'>cr√©√© votre annonce</a></p>\n"; ?>
+				<p><label for='compte_tel_ins'>Votre t√©l√©phone</label>&nbsp;&nbsp;<input id='connexion_compte_tel_ins' name='compte_tel_ins' type='text' size="25" maxlength="128" value="<?PHP echo "$compte_tel_ins"; ?>" /></p>
+				<p><label for='connexion_compte_pass'>Votre mot de passe</label>&nbsp;&nbsp;<input id='connexion_compte_pass' name='compte_pass' type='password' value='<?PHP echo $compte_pass; ?>' size="15" maxlength="15" /></p>
+				<input type='hidden' name='action' value='demande_connexion' />
+				<input class='but_input' type='submit' value='Acc√©der' />
+			</fieldset>
+		</form>
+	</div>
 <?PHP
 }
 /*--------------------------------------------------------------------------------------------------------*/
 function gestion_echec_connexion($code_refus) {
 
-  if ( $code_refus == COMPTE_ANNONCE_CONNEXION_ECHEC_AUTHENTIFICATION_IDENTIFIANT ) {
-    echo "<p class='allo_reponse'>AccËs rÈfusÈ<br/>Veuillez vÈrifier vos identifiants</p>";
-    print_connexion_compte_annonce();    
-    print_lien_password_oublier();
-  } else if ( $code_refus == COMPTE_ANNONCE_CONNEXION_ECHEC_AUTHENTIFICATION ) {
-    print_connexion_compte_annonce();    
-    print_lien_password_oublier();
-  }
-
+	if ($code_refus == COMPTE_ANNONCE_CONNEXION_ECHEC_AUTHENTIFICATION_IDENTIFIANT) {
+		echo "<p class='allo_reponse'>Acc√®s refus√©<br/>Veuillez v√©rifier vos identifiants</p>";
+		print_connexion_compte_annonce();
+		print_lien_password_oublier();
+	} else if ($code_refus == COMPTE_ANNONCE_CONNEXION_ECHEC_AUTHENTIFICATION) {
+		print_connexion_compte_annonce();
+		print_lien_password_oublier();
+	}
 }
 /*--------------------------------------------------------------------------------------------------------*/
 function print_lien_password_oublier() {
 ?>
-  <p><a href='/compte-annonce/gestion-password-annonce.php?action=print_form_password_oublier' class='nav_ico11' title='Cliquer ici si vous avez oubliÈ votre mot de passe.'>Vous avez oubliÈ votre mot de passe ?</a></p>
+	<p><a href='/compte-annonce/gestion-password-annonce.php?action=print_form_password_oublier' class='nav_ico11' title='Cliquer ici si vous avez oubli√© votre mot de passe.'>Vous avez oubli√© votre mot de passe ?</a></p>
 <?PHP
 }
 ?>
-

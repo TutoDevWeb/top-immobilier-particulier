@@ -5,7 +5,7 @@ include("../include/inc_conf.php");
 include("../include/inc_ariane.php");
 
 /*
-http://www.top-immobilier-particuliers.fr/admin/admin-news.php?action=start
+http://www.top-immobilier-particulier.fr/admin/admin-news.php?action=start
 */
 
 dtb_connection();
@@ -414,7 +414,7 @@ function generer_le_flux() {
     $xml .= "<guid isPermaLink='false'>".$news_url."</guid>";
     $xml .= '<description>'.$news_description.'</description>';
     $xml .= '<pubDate>'.$flux_pub_date.'</pubDate>';
-		$xml .= '<author>Equipe de www.top-immobilier-particuliers.fr</author>';
+		$xml .= '<author>Equipe de www.top-immobilier-particulier.fr</author>';
 		$xml .= '</item>';
 	
   }

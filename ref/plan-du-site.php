@@ -25,7 +25,7 @@ count_cnx();
 <body>
 	<div id='toolspan'><?PHP print_tools('tools'); ?></div>
 	<div id='mainpan'>
-		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" /></div>
+		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers" /></div>
 		<div id='userpan'>
 			<?PHP make_ariane_page("Plan du Site") ?>
 			<div id='plan'>

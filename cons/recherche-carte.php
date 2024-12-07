@@ -129,7 +129,7 @@ function update() {
   <div id='mainpan'>
     <div id='userpan'>
     <div id='header'> 
-      <div id='logosag'><a href='/' title='WWW.TOP-IMMOBILIER-PARTICULIERS.FR'><img src="/images/pdm-120x60.gif" alt="WWW.TOP-IMMOBILIER-PARTICULIERS.FR"/></a></div>
+      <div id='logosag'><a href='/' title='WWW.TOP-IMMOBILIER-PARTICULIER.FR'><img src="/images/pdm-120x60.gif" alt="WWW.TOP-IMMOBILIER-PARTICULIER.FR"/></a></div>
       <h1>R�sultats des recherches sous formes de cartes</h1>
       <div id='navigation'><img src='/images/btn-navigation-120x20.gif' alt='Naviguer dans les zones g�ographiques'/></div>
       <div id='localization'></div>

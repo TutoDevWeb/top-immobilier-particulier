@@ -46,7 +46,7 @@ var browser = new Browser();
   <div id='mainpan'>
     <div id='userpan'>
     <div id='header'> 
-      <div id='logosag'><a href='/' title='WWW.TOP-IMMOBILIER-PARTICULIERS.FR'><img src="/images/pdm-120x60.gif" alt="WWW.TOP-IMMOBILIER-PARTICULIERS.FR"/></a></div>
+      <div id='logosag'><a href='/' title='WWW.TOP-IMMOBILIER-PARTICULIER.FR'><img src="/images/pdm-120x60.gif" alt="WWW.TOP-IMMOBILIER-PARTICULIER.FR"/></a></div>
       <h1> 
         <?PHP make_H1($ref_type,$keywords,$ville_url,$ard_url); ?>
       </h1>
@@ -1055,7 +1055,7 @@ function make_title($ref_type,$keywords,$ville_url,$ard_url) {
       echo "Immobilier entre particuliers � $ville_url. Vente Appartement Maison Loft � $ville_url";
 
     if ( $ref_type == 'product' )
-      echo "$keywords � $ville_url � vendre entre Particuliers sur TOP-IMMOBILIER-PARTICULIERS.FR";
+      echo "$keywords � $ville_url � vendre entre Particuliers sur TOP-IMMOBILIER-PARTICULIER.FR";
     
   }  else echo "Immobilier entre Particuliers - Annonces Immobili�res entre Particuliers";
 
@@ -1087,13 +1087,13 @@ function make_meta_description($ref_type,$keywords,$ville_url,$ard_url) {
   if ( $ref_type != '' ) {
   
     if ( $ref_type == 'paris' )
-      echo "<meta name=\"Description\" content=\"$keywords $ard_url : Immobilier entre Particuliers sur TOP-IMMOBILIER-PARTICULIERS.FR\" />\n";
+      echo "<meta name=\"Description\" content=\"$keywords $ard_url : Immobilier entre Particuliers sur TOP-IMMOBILIER-PARTICULIER.FR\" />\n";
     
     if ( $ref_type == 'town' )
       echo "<meta name=\"Description\" content=\"Immobilier entre particuliers � $ville_url. Annonces immobili�res entre particuliers � $ville_url. Vente Appartement Maison Loft � $ville_url\" />\n";
      
     if ( $ref_type == 'product' )
-      echo "<meta name=\"Description\" content=\"$keywords � $ville_url � vendre uniquement entre Particuliers. Sur TOP-IMMOBILIER-PARTICULIERS.FR ne payer strictement que le prix !!\" />\n";
+      echo "<meta name=\"Description\" content=\"$keywords � $ville_url � vendre uniquement entre Particuliers. Sur TOP-IMMOBILIER-PARTICULIER.FR ne payer strictement que le prix !!\" />\n";
 
   } else echo "<meta name=\"Description\" content=\"R�sulats de recherche de produit immobilier\" />\n";
 

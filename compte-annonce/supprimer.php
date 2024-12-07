@@ -1,6 +1,6 @@
 <?PHP
-session_start(); 
-if ( !isset($_SESSION['tel_ins']) ) die;
+session_start();
+if (!isset($_SESSION['tel_ins'])) die;
 include("../data/data.php");
 include("../include/inc_base.php");
 include("../include/inc_conf.php");
@@ -15,69 +15,58 @@ include("../include/inc_cibleclick.php");
 
 dtb_connection();
 
-filtrer_les_entrees_post(__FILE__,__LINE__);
+filtrer_les_entrees_post(__FILE__, __LINE__);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
 <head>
-<title>Immobilier Particuliers Paris - Annonces Immobilières entre Particuliers Paris</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
-<link href="/styles/global-compte-annonce.css" rel="stylesheet" type="text/css" />
+	<title>Immobilier Particuliers Paris - Annonces Immobiliï¿½res entre Particuliers Paris</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/global-compte-annonce.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
-  <div id='toolspan'><?PHP print_tools('tools'); ?></div>
-  <div id='mainpan'>
-    <div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" /></div>
-    <div id='userpan'>
-      <table id='annonce'>
-        <tr>
-          <td class='cell_b'><?PHP print_cibleclick_120_600();  ?></td>
-          <td class='cell_c'>
-          <?PHP
-					print_deconnexion();
-          $tel_ins = $_SESSION['tel_ins'];
-          if ( compte_annonce_existe($tel_ins,__FILE__,__LINE__) ) {
-					  $ida = get_ida($tel_ins,__FILE__,__LINE__);  
-            if ( $ida == $_SESSION['ida'] ) {
-              echo "<p>&nbsp;</p>"; 
-              echo "<p class='allo_reponse'>Votre annonce référence $tel_ins a été supprimée<br/>Nous vous remercions d'avoir utilisé notre site</p>"; 
+	<div id='toolspan'><?PHP print_tools('tools'); ?></div>
+	<div id='mainpan'>
+		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers" /></div>
+		<div id='userpan'>
+			<table id='annonce'>
+				<tr>
+					<td class='cell_b'><?PHP print_cibleclick_120_600();  ?></td>
+					<td class='cell_c'>
+						<?PHP
+						print_deconnexion();
+						$tel_ins = $_SESSION['tel_ins'];
+						if (compte_annonce_existe($tel_ins, __FILE__, __LINE__)) {
+							$ida = get_ida($tel_ins, __FILE__, __LINE__);
+							if ($ida == $_SESSION['ida']) {
+								echo "<p>&nbsp;</p>";
+								echo "<p class='allo_reponse'>Votre annonce rï¿½fï¿½rence $tel_ins a ï¿½tï¿½ supprimï¿½e<br/>Nous vous remercions d'avoir utilisï¿½ notre site</p>";
 
-			        tracking_session_annonce(CODE_CTA,'OK',"Suppression de l'annonce $tel_ins",__FILE__,__LINE__);
-          
-					    ano_sup($tel_ins,__FILE__,__LINE__,$trace=false);
+								tracking_session_annonce(CODE_CTA, 'OK', "Suppression de l'annonce $tel_ins", __FILE__, __LINE__);
 
-            } else tracking_session_annonce(CODE_CTA,'OK',"Tentative de suppression de $tel_ins par ida::$ida alors que $ida n'est pas le propriétaire",__FILE__,__LINE__);
+								ano_sup($tel_ins, __FILE__, __LINE__, $trace = false);
+							} else tracking_session_annonce(CODE_CTA, 'OK', "Tentative de suppression de $tel_ins par ida::$ida alors que $ida n'est pas le propriï¿½taire", __FILE__, __LINE__);
+						} else {
 
-          } else {
-									
-            echo "<p>&nbsp;</p>"; 
-            echo "<p class='allo_reponse'>L'annonce référence $tel_ins a déjà été supprimée</p>"; 
+							echo "<p>&nbsp;</p>";
+							echo "<p class='allo_reponse'>L'annonce rï¿½fï¿½rence $tel_ins a dï¿½jï¿½ ï¿½tï¿½ supprimï¿½e</p>";
 
-			      tracking_session_annonce(CODE_CTA,'OK',"L'annonce $tel_ins a déjà été supprimée",__FILE__,__LINE__);
-					
-          }
-          echo "<p>&nbsp;</p>"; 
-								
-				  print_cible_unifinance_300_250();
-								
-		      ?>
-          </td>
-          <td class='cell_b'><?PHP print_cibleclick_120_600();  ?></td>
-        </tr>
-      </table>
-    </div><!-- end userpan -->
-  </div><!-- end mainpan -->
-  <div id='footerpan'></div>
+							tracking_session_annonce(CODE_CTA, 'OK', "L'annonce $tel_ins a dï¿½jï¿½ ï¿½tï¿½ supprimï¿½e", __FILE__, __LINE__);
+						}
+						echo "<p>&nbsp;</p>";
+
+						print_cible_unifinance_300_250();
+
+						?>
+					</td>
+					<td class='cell_b'><?PHP print_cibleclick_120_600();  ?></td>
+				</tr>
+			</table>
+		</div><!-- end userpan -->
+	</div><!-- end mainpan -->
+	<div id='footerpan'></div>
 </body>
-
-
-
-
-
-
-
-
-
-

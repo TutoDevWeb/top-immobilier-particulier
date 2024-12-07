@@ -34,7 +34,7 @@ count_cnx();
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-vente.css" rel="stylesheet" type="text/css" />
-	<meta name="Description" content="Vendre entre particulier � l'�tranger avec TOP-IMMOBILIER-PARTICULIERS.FR" />
+	<meta name="Description" content="Vendre entre particulier � l'�tranger avec TOP-IMMOBILIER-PARTICULIER.FR" />
 	<script type="text/javascript" src="/compte-annonce/jvscript/valid_field.js"></script>
 	<script type="text/javascript" src="/compte-annonce/jvscript/nbcar.js"></script>
 	<script type="text/javascript" src="/compte-annonce/jvscript/valid_form_ano.js"></script>
@@ -43,7 +43,7 @@ count_cnx();
 <body>
 	<div id='toolspan'><?PHP print_tools('tools'); ?></div>
 	<div id='mainpan'>
-		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" /></div>
+		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers" /></div>
 		<div id="userpan">
 			<?PHP make_ariane_passer_annonce('etranger'); ?>
 			<div id='vente' style='background:  url(/images/fond-statue-liberte.jpg) no-repeat bottom right'>

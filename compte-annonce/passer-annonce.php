@@ -26,9 +26,9 @@ $duree_annonce = DUREE_ANNONCE;
 <html lang="fr">
 
 <head>
-	<title>Passer une annonce sur TOP-IMMOBILIER-PARTICULIERS.FR</title>
+	<title>Passer une annonce sur TOP-IMMOBILIER-PARTICULIER.FR</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<meta name="Description" content="Pour votre vente immobilière passez une annonce sur TOP-IMMOBILIER-PARTICULIERS.FR. 20 Euros pour 6 mois de parution." />
+	<meta name="Description" content="Pour votre vente immobilière passez une annonce sur TOP-IMMOBILIER-PARTICULIER.FR. 20 Euros pour 6 mois de parution." />
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/styles-passer-annonce.css" rel="stylesheet" type="text/css" />
 	<meta name="robots" content="index,follow" />
@@ -37,20 +37,20 @@ $duree_annonce = DUREE_ANNONCE;
 <body>
 	<div id='toolspan'><?PHP print_tools('tools'); ?></div>
 	<div id='mainpan'>
-		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" /></div>
+		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers" /></div>
 		<div id='userpan'>
 			<?PHP make_ariane_page("Passer une annonce"); ?>
-			<img src="/images-pub/vendre-top-immobilier-particuliers-700x120.gif" title='20 Euros pour 6 mois sur TOP-IMMOBILIER-PARTICULIERS.FR' alt='20 Euros pour 6 mois sur TOP-IMMOBILIER-PARTICULIERS.FR' />
+			<img src="/images-pub/vendre-top-immobilier-particuliers-700x120.gif" title='20 Euros pour 6 mois sur TOP-IMMOBILIER-PARTICULIER.FR' alt='20 Euros pour 6 mois sur TOP-IMMOBILIER-PARTICULIER.FR' />
 			<ul id='listarg'>
 				<li>512 caractères pour rédiger en détails votre annonce</li>
 				<li>5 photos</li>
 				<li>Votre bien facilement localisable sur une carte</li>
 				<li>Un compteur des visiteurs de votre fiche détaillée</li>
 				<li>Un lien vers votre Blog <em>(* vos vidéos de visites virtuelles sur votre blog c'est gratuit )</em></li>
-				<li>Un compteur des visiteurs envoyés par TOP-IMMOBILIER-PARTICULIERS.FR vers votre blog</li>
+				<li>Un compteur des visiteurs envoyés par TOP-IMMOBILIER-PARTICULIER.FR vers votre blog</li>
 			</ul>
 
-			<p><img src="/images/arrow5.gif" alt="" /><strong>Passer une annonce sur TOP-IMMOBILIER-PARTICULIERS.FR</strong></p>
+			<p><img src="/images/arrow5.gif" alt="" /><strong>Passer une annonce sur TOP-IMMOBILIER-PARTICULIER.FR</strong></p>
 
 			<ul id='depositbox'>
 				<li><a href="/vendre-de-particulier-a-particulier-en-france.htm" title="Passer une annonce pour un logement situ� en France">Passer une annonce pour un logement situé en France</a></li>

@@ -23,7 +23,7 @@ dtb_connection();
 	<!-- <?PHP echo VERSION_SITE;
 			echo " | ";
 			echo VERSION_DATE; ?> -->
-	<meta name="Description" content="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers. Appartement, Maison, Pavillon, Loft à la Vente. 20 Euros pour 6 mois de parution." />
+	<meta name="Description" content="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers. Appartement, Maison, Pavillon, Loft à la Vente. 20 Euros pour 6 mois de parution." />
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/styles-index.css" rel="stylesheet" type="text/css" />
@@ -102,7 +102,7 @@ dtb_connection();
 
 		function show_data(town) {
 			var arg = "zone=france" + "&zone_region=" + escape(town.region) + "&zone_dept=" + escape(town.dept) + "&zone_ville=" + escape(town.ville);
-			var info = "<div id='saginfo'>top-immobilier-particuliers.fr</div>";
+			var info = "<div id='saginfo'>top-immobilier-particulier.fr</div>";
 			if (town.nb_appartement) info += town.nb_appartement + ((town.nb_appartement == 1) ? " Appartement<br/>" : " Appartements<br/>");
 			if (town.nb_maison) info += town.nb_maison + ((town.nb_maison == 1) ? " Maison<br/>" : " Maisons<br/>");
 			if (town.nb_chalet) info += town.nb_nb_chalet + ((town.nb_chalet == 1) ? " Chalet<br/>" : " Chalets<br/>");
@@ -119,7 +119,7 @@ dtb_connection();
 	<div id='toolspan'><?PHP print_tools('tools'); ?></div>
 	<div id='mainpan'>
 		<div id='userpan'>
-			<div id='header'><img src="/images-pub/juste-le-prix-468x60.gif" title="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est de l'immobilier strictement entre particuliers" /></div>
+			<div id='header'><img src="/images-pub/juste-le-prix-468x60.gif" title="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers" alt="TOP-IMMOBILIER-PARTICULIER.FR c'est de l'immobilier strictement entre particuliers" /></div>
 			<table id='compte'>
 				<tr>
 					<td class='cell_b'>
@@ -131,7 +131,7 @@ dtb_connection();
 					<td class='cell_c'>
 						<?PHP //print_virtual_cnx(count_cnx()); 
 						?><br />
-						<img src="images/top-immobilier-particuliers-240x60.jpg" title='Achetez et Vendez facilement avec TOP-IMMOBILIER-PARTICULIERS.FR' alt='Achetez et Vendez facilement avec TOP-IMMOBILIER-PARTICULIERS.FR' width="240" height="60" /><br />
+						<img src="images/top-immobilier-particuliers-240x60.jpg" title='Achetez et Vendez facilement avec TOP-IMMOBILIER-PARTICULIER.FR' alt='Achetez et Vendez facilement avec TOP-IMMOBILIER-PARTICULIER.FR' width="240" height="60" /><br />
 					</td>
 					<td class='cell_b'>
 						<div id='vendeurs'><a href='/compte-annonce/compte-annonce-ccm.php' title="Accéder à plus d'informations concernant les services à disposition des vendeurs" rel='nofollow'>+ d'infos</a></div>
@@ -153,7 +153,7 @@ dtb_connection();
 						//tracking(CODE_NAV, 'OK', "index", __FILE__, __LINE__);
 						?>
 						<p><a href="/annonces-immobilieres/xml-flux-annonces.xml" id='feed_annonces'>Flux Annonces</a></p>
-						<p><a href="http://www.google.com/ig/adde?moduleurl=http://www.top-immobilier-particuliers.fr/annonces-immobilieres/xml-flux-annonces.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" style="width:104px; height:17px;border:0px;" alt="Add to Google" /></a></p>
+						<p><a href="http://www.google.com/ig/adde?moduleurl=http://www.top-immobilier-particulier.fr/annonces-immobilieres/xml-flux-annonces.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" style="width:104px; height:17px;border:0px;" alt="Add to Google" /></a></p>
 					</td>
 					<td class='cell_c'>
 						<h1>Immobilier entre Particuliers. Annonces Immobilières entre Particuliers à Paris, en Ile de France, en France et à l'étranger. Appartement, Maison, Pavillon, Loft à la Vente</h1>
@@ -172,7 +172,7 @@ dtb_connection();
 			<br />
 			<?PHP //print_laderborder_728_90(); 
 			?>
-			<div id='news_header'><a href="/actualites-immobilieres/" id="link_news"><img src='/images-header/titre-new-2.gif'></a><a id='feed_GG_syndic' href="http://www.google.com/ig/adde?moduleurl=http://www.top-immobilier-particuliers.fr/actualites-immobilieres/xml-flux-news.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" style="width:104px; height:17px;border:0px;" alt="Add to Google" /></a><a href="/actualites-immobilieres/xml-flux-news.xml" id="feed_news">Flux
+			<div id='news_header'><a href="/actualites-immobilieres/" id="link_news"><img src='/images-header/titre-new-2.gif'></a><a id='feed_GG_syndic' href="http://www.google.com/ig/adde?moduleurl=http://www.top-immobilier-particulier.fr/actualites-immobilieres/xml-flux-news.xml"><img src="http://buttons.googlesyndication.com/fusion/add.gif" style="width:104px; height:17px;border:0px;" alt="Add to Google" /></a><a href="/actualites-immobilieres/xml-flux-news.xml" id="feed_news">Flux
 					Actualités</a></div>
 			<?PHP print_news(); ?>
 		</div> <!-- end userpan -->

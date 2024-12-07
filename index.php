@@ -99,7 +99,7 @@ $connexion = dtb_connection();
 
 		function show_data(town) {
 			var arg = "zone=france" + "&zone_region=" + escape(town.region) + "&zone_dept=" + escape(town.dept) + "&zone_ville=" + escape(town.ville);
-			var info = "<div id='saginfo'>top-immobilier-particuliers.fr</div>";
+			var info = "<div id='saginfo'>top-immobilier-particulier.fr</div>";
 			if (town.nb_appartement) info += town.nb_appartement + ((town.nb_appartement == 1) ? " Appartement<br/>" : " Appartements<br/>");
 			if (town.nb_maison) info += town.nb_maison + ((town.nb_maison == 1) ? " Maison<br/>" : " Maisons<br/>");
 			if (town.nb_chalet) info += town.nb_nb_chalet + ((town.nb_chalet == 1) ? " Chalet<br/>" : " Chalets<br/>");
@@ -119,7 +119,7 @@ $connexion = dtb_connection();
 
 
 		<div id='userpan'>
-			<div id='header'><img src="/images-pub/juste-le-prix-468x60.gif" title="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est de l'immobilier strictement entre particuliers" /></div>
+			<div id='header'><img src="/images-pub/juste-le-prix-468x60.gif" title="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers" alt="TOP-IMMOBILIER-PARTICULIER.FR c'est de l'immobilier strictement entre particuliers" /></div>
 			<table id='compte'>
 				<tr>
 					<td class='cell_b'>
@@ -131,7 +131,7 @@ $connexion = dtb_connection();
 					<td class='cell_c'>
 						<?PHP //print_virtual_cnx(count_cnx()); 
 						?><br />
-						<img src="images/top-immobilier-particuliers-240x60.jpg" title='Achetez et Vendez facilement avec TOP-IMMOBILIER-PARTICULIERS.FR' alt='Achetez et Vendez facilement avec TOP-IMMOBILIER-PARTICULIERS.FR' width="240" height="60" /><br />
+						<img src="images/top-immobilier-particuliers-240x60.jpg" title='Achetez et Vendez facilement avec TOP-IMMOBILIER-PARTICULIER.FR' alt='Achetez et Vendez facilement avec TOP-IMMOBILIER-PARTICULIER.FR' width="240" height="60" /><br />
 					</td>
 					<td class='cell_b'>
 						<div id='vendeurs'><a href='/compte-annonce/compte-annonce-ccm.php' title="Accéder à plus d'informations concernant les services à disposition des vendeurs" rel='nofollow'>+ d'infos</a></div>

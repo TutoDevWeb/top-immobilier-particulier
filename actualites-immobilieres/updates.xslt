@@ -42,10 +42,10 @@ td {
             	<td style="border: none !important">
             	<b><big><xsl:value-of select="description" /></big></b><br/>
             	<br />
-            	<a href="http://validator.w3.org/feed/check.cgi?url=http://www.top-immobilier-particuliers.fr/actualites-immobilieres/xml-flux-news.xml"><img src="/images/feed-icon-14x14.png" alt="[Valid RSS]" title="Validation du fil RSS" width="14" height="14" /></a><br />
+            	<a href="http://validator.w3.org/feed/check.cgi?url=http://www.top-immobilier-particulier.fr/actualites-immobilieres/xml-flux-news.xml"><img src="/images/feed-icon-14x14.png" alt="[Valid RSS]" title="Validation du fil RSS" width="14" height="14" /></a><br />
             	Cette page est au format RSS 2.0. <br />
 
-            	Elle est conçue pour être lue par des aggrégateurs de flux RSS.<br />
+            	Elle est conï¿½ue pour ï¿½tre lue par des aggrï¿½gateurs de flux RSS.<br />
             	<br /> 
             	</td>
           	</tr>

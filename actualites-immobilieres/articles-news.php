@@ -28,7 +28,7 @@ if ( get_data_news_by_url(&$news_titre,&$news_description,$news_url) === false )
 <body>
   <div id='toolspan'><?PHP print_tools('tools'); ?></div>
   <div id='mainpan'>
-    <div id='header'><img src="http://www.top-immobilier-particuliers.fr/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" /></div>
+    <div id='header'><img src="http://www.top-immobilier-particulier.fr/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers" /></div>
     <div id='userpan'>
       <?PHP
       make_ariane_news_articles($news_titre);
@@ -52,7 +52,7 @@ function print_news_by_url($news_url) {
   if ( mysqli_num_rows($result) ) {
     list($dat_creation,$news_titre,$news_description,$news_contenu) = mysqli_fetch_row($result); 
     echo "<h1>$news_titre</h1>\n";
-		echo "<a href='/compte-annonce/passer-annonce.php'><img src='/images-pub/vendre-top-immobilier-particuliers-savoir-700x120.gif' title='20 Euros pour 6 mois sur TOP-IMMOBILIER-PARTICULIERS.FR' alt='Cliquez pour en savoir plus...' /></a>";
+		echo "<a href='/compte-annonce/passer-annonce.php'><img src='/images-pub/vendre-top-immobilier-particuliers-savoir-700x120.gif' title='20 Euros pour 6 mois sur TOP-IMMOBILIER-PARTICULIER.FR' alt='Cliquez pour en savoir plus...' /></a>";
 		echo "<div id='news'><p><strong>${news_description}</strong></p>${news_contenu}<div id='news_footer'>&nbsp;</div></div>\n";
   }
 }

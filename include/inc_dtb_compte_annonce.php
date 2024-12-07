@@ -207,7 +207,7 @@ function get_dept_region_by_num_dept($connexion, $num_dept, &$dept, &$region) {
 	list($dept, $region) = mysqli_fetch_row($result);
 }
 //------------------------------------------------------------------------------------------------
-function get_ip_dat($connexion, $tel_ins, $ip_ins, $dat_ins) {
+function get_ip_dat($connexion, $tel_ins, &$ip_ins, &$dat_ins) {
 
 	$query  = "SELECT ip_ins,dat_ins FROM ano WHERE tel_ins='$tel_ins'";
 	$result = dtb_query($connexion, $query, __FILE__, __LINE__, DEBUG_DTB_ANO);
@@ -405,9 +405,9 @@ function get_cookie_annonce(&$compte_tel_ins, &$compte_pass) {
 	return false;
 }
 /*----------------------------------------------------------------------------------------------------*/
-function demande_connexion_annonce($connexion, $compte_tel_ins, $compte_pass, $code_refus, $file, $line) {
+function demande_connexion_annonce($connexion, $compte_tel_ins, $compte_pass, &$code_refus, $file, $line) {
 
-	// Si les identifiants sont l�, on s'en sert pour faire l'authentification
+	// Si les identifiants sont là, on s'en sert pour faire l'authentification
 	if ($compte_tel_ins != '' && $compte_pass != '') {
 
 		$compte_tel_ins_s = mysqli_real_escape_string($connexion, $compte_tel_ins);

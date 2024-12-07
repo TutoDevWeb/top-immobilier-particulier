@@ -19,7 +19,7 @@ RewriteEngine on
 
 #------------------------------------------
 #RewriteCond %{HTTP_HOST} !^www\.top-immobilier-particuliers [NC]
-#RewriteRule (.*) http://www.top-immobilier-particuliers.fr/$1 [QSA,R=301,L]
+#RewriteRule (.*) http://www.top-immobilier-particulier.fr/$1 [QSA,R=301,L]
 
 
 

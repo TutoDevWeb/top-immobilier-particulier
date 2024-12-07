@@ -8,7 +8,7 @@ include("../include/inc_tools.php");
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 
 <head>
-	<title>Informations L�gales du site top-immobilier-particuliers.fr</title>
+	<title>Informations L�gales du site top-immobilier-particulier.fr</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-dialog.css" rel="stylesheet" type="text/css" />
@@ -19,7 +19,7 @@ include("../include/inc_tools.php");
 <body>
 	<div id='toolspan'><?PHP print_tools('tools'); ?></div>
 	<div id='mainpan'>
-		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIERS.FR c'est le top de l'immobilier entre particuliers" /></div>
+		<div id='header'><img src="/images-pub/header-message-1.jpg" alt="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers" /></div>
 		<div id='userpan'>
 			<?PHP make_ariane_page("Mentions légales") ?>
 			<div id='mention'>
@@ -30,7 +30,7 @@ include("../include/inc_tools.php");
 					<p>Num&eacute;ro de d&eacute;claration : 1303433</p>
 					<p>Vous disposez d'un droit d'acc&egrave;s, de modification, de rectification et de suppression des donn&eacute;es qui vous concernent
 						( art. 34 de la loi 'Informatique et Libert&eacute;s' ).</p>
-					<p>Pour l'exercer, <a href='http://www.top-immobilier-particuliers.fr/noref/contact-equipe.php?action=print_form' rel='nofollow'><strong>Vous pouvez envoyer un courriel</strong></a><br />
+					<p>Pour l'exercer, <a href='http://www.top-immobilier-particulier.fr/noref/contact-equipe.php?action=print_form' rel='nofollow'><strong>Vous pouvez envoyer un courriel</strong></a><br />
 						ou nous adresser un courrier postal &agrave; l'adresse ci-dessous</p>
 				</div>
 				<div class='legal_box'>

@@ -186,7 +186,7 @@
 	//
 	function is_referer($referer) {
 
-		if ($referer != "" && !ereg('http://www.top-immobilier-particuliers.fr', $referer)) return true;
+		if ($referer != "" && !ereg('http://www.top-immobilier-particulier.fr', $referer)) return true;
 		else return false;
 	}
 	//-------------------------------------------------------------------------------------------------

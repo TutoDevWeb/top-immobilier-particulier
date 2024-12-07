@@ -111,7 +111,7 @@ var nb_annee = <?PHP echo "$nb_annee"; ?>;
   <div id='mainpan'>
     <div id='userpan'>
     <div id='header'> 
-      <div id='logosag'><a href='/' title='WWW.TOP-IMMOBILIER-PARTICULIERS.FR'><img src="/images/pdm-120x60.gif" alt="WWW.TOP-IMMOBILIER-PARTICULIERS.FR"/></a></div>
+      <div id='logosag'><a href='/' title='WWW.TOP-IMMOBILIER-PARTICULIER.FR'><img src="/images/pdm-120x60.gif" alt="WWW.TOP-IMMOBILIER-PARTICULIER.FR"/></a></div>
       <h1><?PHP print_titre($prix,$typp,$nbpi,$surf); ?></h1>
       <div id='onglet'> 
         <?PHP make_ariane_details($rec_from,$rec_zone,$rec_zone_pays,$rec_zone_dom,$rec_zone_region,$rec_zone_dept,$rec_zone_ville,$rec_zone_ard,$rec_dept_voisin,$rec_typp,$rec_P1,$rec_P2,$rec_P3,$rec_P4,$rec_P5,$rec_sur_min,$rec_prix_max,$rec_ids); ?>
@@ -128,7 +128,7 @@ var nb_annee = <?PHP echo "$nb_annee"; ?>;
             <td class='cell_d'>
               <?PHP
               if ( $maps_actif == 1 ) echo "<div id='map'></div>";
-              else echo "<img src='/images-pub/vendre-sans-agences-300x250.jpg' title='20 Euros pour 6 mois sur WWW.TOP-IMMOBILIER-PARTICULIERS.FR' alt='20 Euros pour 6 mois sur WWW.TOP-IMMOBILIER-PARTICULIERS.FR' />";
+              else echo "<img src='/images-pub/vendre-sans-agences-300x250.jpg' title='20 Euros pour 6 mois sur WWW.TOP-IMMOBILIER-PARTICULIER.FR' alt='20 Euros pour 6 mois sur WWW.TOP-IMMOBILIER-PARTICULIER.FR' />";
               ?>
             </td>
           </tr>
