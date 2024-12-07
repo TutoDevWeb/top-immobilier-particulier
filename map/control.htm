@@ -1,128 +1,134 @@
 <html>
+
 <head>
-<title>Controle de la zone de déplacement</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTASDNGt1Ah7UMjIzjNf91KosJQYhT2_N2tGBVmUwT_PKT4VUzPoyhomg" type="text/javascript"></script>
-<script type="text/javascript">
-//<![CDATA[
-var map;
+	<title>Controle de la zone de dï¿½placement</title>
+	<meta charset="UTF-8">
+	<script
+		src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTASDNGt1Ah7UMjIzjNf91KosJQYhT2_N2tGBVmUwT_PKT4VUzPoyhomg"
+		type="text/javascript"></script>
+	<script type="text/javascript">
+		//<![CDATA[
+		var map;
 
-// Valeurs courantes
-var lat = 43.1326;
-var lng = 5.93107;
-var zoom = 13;
+		// Valeurs courantes
+		var lat = 43.1326;
+		var lng = 5.93107;
+		var zoom = 13;
 
-// Valeurs limites
-var the_lat_max = 43.27020619076863  ; 
-var the_lat_min = 42.994603451901305 ; 
-var the_lng_max = 6.1571502685546875 ;
-var the_lng_min = 5.7053375244140625 ;
+		// Valeurs limites
+		var the_lat_max = 43.27020619076863;
+		var the_lat_min = 42.994603451901305;
+		var the_lng_max = 6.1571502685546875;
+		var the_lng_min = 5.7053375244140625;
 
-var ne_max = new GLatLng(the_lat_max,the_lng_max);
-var sw_min = new GLatLng(the_lat_min,the_lng_min);
+		var ne_max = new GLatLng(the_lat_max, the_lng_max);
+		var sw_min = new GLatLng(the_lat_min, the_lng_min);
 
 
-var the_bounds = new GLatLngBounds(sw_min,ne_max);
+		var the_bounds = new GLatLngBounds(sw_min, ne_max);
 
-//------------------------------------------------------------------------------------------------
-function load_map() {
+		//------------------------------------------------------------------------------------------------
+		function load_map() {
 
-  if (GBrowserIsCompatible()) {
-    map = new GMap2(document.getElementById("map"));
-    map.setCenter(new GLatLng(lat,lng),zoom);
-    map.addControl(new GLargeMapControl());
-		GEvent.addListener(map,'moveend',move_end); 
-		GEvent.addListener(map,'movestart',move_start); 
-		GEvent.addListener(map,'zoomend',zoom_end);
-		
-		map.savePosition(); 
-		
-  } // Fin if GBrowser
-} // Fin load_map
-//------------------------------------------------------------------------------------------------
-function zoom_end(oldLevel,newLevel) {
-  console.log("Zoom End => oldLevel : "+oldLevel+" newLevel : "+newLevel);
-	//if ( newLevel > zoom_max ) map.setZoom(zoom_max); 
+			if (GBrowserIsCompatible()) {
+				map = new GMap2(document.getElementById("map"));
+				map.setCenter(new GLatLng(lat, lng), zoom);
+				map.addControl(new GLargeMapControl());
+				GEvent.addListener(map, 'moveend', move_end);
+				GEvent.addListener(map, 'movestart', move_start);
+				GEvent.addListener(map, 'zoomend', zoom_end);
 
-  // Position de la carte
-  var bounds = map.getBounds();
-  ne_lat = bounds.getNorthEast().lat();
-  ne_lng = bounds.getNorthEast().lng();
-  sw_lat = bounds.getSouthWest().lat();
-  sw_lng = bounds.getSouthWest().lng();
+				map.savePosition();
 
-	console.log("ne_lat : "+ne_lat+" ne_lng : "+ne_lng+" sw_lat : "+sw_lat+" sw_lng : "+sw_lng);
+			} // Fin if GBrowser
+		} // Fin load_map
+		//------------------------------------------------------------------------------------------------
+		function zoom_end(oldLevel, newLevel) {
+			console.log("Zoom End => oldLevel : " + oldLevel + " newLevel : " + newLevel);
+			//if ( newLevel > zoom_max ) map.setZoom(zoom_max); 
 
-  // On vérifie qu'avec le nouveau zoom on ne sort pas des limites
-	if ( ne_lat > the_lat_max ) {
-    console.log("Zoom End => on dépasse vers le haut");
-	} else if ( sw_lat < the_lat_min ) {
-    console.log("Zoom End => on dépasse vers le bas");
-	} else if ( ne_lng < the_lng_min ) {
-    console.log("Zoom End => on dépasse vers la gauche");
-	} else if ( sw_lng > the_lng_max ) {
-    console.log("Zoom End => on dépasse vers la droite");
-  }
-	
-	if ( the_bounds.containsBounds(bounds) == false ) {
-	  console.log("Zoom End => containsBounds => on sort => returnToSavedPosition");
-    map.returnToSavedPosition();
-  } else {
-	  console.log("Zoom End => savePosition");
-		map.savePosition(); 
-  }
+			// Position de la carte
+			var bounds = map.getBounds();
+			ne_lat = bounds.getNorthEast().lat();
+			ne_lng = bounds.getNorthEast().lng();
+			sw_lat = bounds.getSouthWest().lat();
+			sw_lng = bounds.getSouthWest().lng();
 
-}
-//------------------------------------------------------------------------------------------------
-function move_start() {
-  console.log("Move Start");
+			console.log("ne_lat : " + ne_lat + " ne_lng : " + ne_lng + " sw_lat : " + sw_lat + " sw_lng : " + sw_lng);
 
-}
-//------------------------------------------------------------------------------------------------
-function move_end() {
+			// On vï¿½rifie qu'avec le nouveau zoom on ne sort pas des limites
+			if (ne_lat > the_lat_max) {
+				console.log("Zoom End => on dï¿½passe vers le haut");
+			} else if (sw_lat < the_lat_min) {
+				console.log("Zoom End => on dï¿½passe vers le bas");
+			} else if (ne_lng < the_lng_min) {
+				console.log("Zoom End => on dï¿½passe vers la gauche");
+			} else if (sw_lng > the_lng_max) {
+				console.log("Zoom End => on dï¿½passe vers la droite");
+			}
 
-	console.log("moveend");
+			if (the_bounds.containsBounds(bounds) == false) {
+				console.log("Zoom End => containsBounds => on sort => returnToSavedPosition");
+				map.returnToSavedPosition();
+			} else {
+				console.log("Zoom End => savePosition");
+				map.savePosition();
+			}
 
-  // Position de la carte
-  var bounds = map.getBounds();
-  ne_lat = bounds.getNorthEast().lat();
-  ne_lng = bounds.getNorthEast().lng();
-  sw_lat = bounds.getSouthWest().lat();
-  sw_lng = bounds.getSouthWest().lng();
+		}
+		//------------------------------------------------------------------------------------------------
+		function move_start() {
+			console.log("Move Start");
 
-	console.log("ne_lat : "+ne_lat+" ne_lng : "+ne_lng+" sw_lat : "+sw_lat+" sw_lng : "+sw_lng);
+		}
+		//------------------------------------------------------------------------------------------------
+		function move_end() {
 
-  // On vérifie que la nouvelle position ne sort pas des limites
-	if ( ne_lat > the_lat_max ) {
-    console.log("Move End => on dépasse vers le haut");
-	} else if ( sw_lat < the_lat_min ) {
-    console.log("Move End => on dépasse vers le bas");
-	} else if ( ne_lng < the_lng_min ) {
-    console.log("Move End => on dépasse vers la gauche");
-	} else if ( sw_lng > the_lng_max ) {
-    console.log("Move End => on dépasse vers la droite");
-  }
+			console.log("moveend");
 
-	if ( the_bounds.containsBounds(bounds) == false ) {
-	  console.log("Move End => containsBounds => on sort => returnToSavedPosition");
-    map.returnToSavedPosition();
-  } else {
-	  console.log("Move End => savePosition");
-		map.savePosition(); 
-  }
+			// Position de la carte
+			var bounds = map.getBounds();
+			ne_lat = bounds.getNorthEast().lat();
+			ne_lng = bounds.getNorthEast().lng();
+			sw_lat = bounds.getSouthWest().lat();
+			sw_lng = bounds.getSouthWest().lng();
 
-}
-//------------------------------------------------------------------------------------------------
-//]]>
-</script>
+			console.log("ne_lat : " + ne_lat + " ne_lng : " + ne_lng + " sw_lat : " + sw_lat + " sw_lng : " + sw_lng);
+
+			// On vï¿½rifie que la nouvelle position ne sort pas des limites
+			if (ne_lat > the_lat_max) {
+				console.log("Move End => on dï¿½passe vers le haut");
+			} else if (sw_lat < the_lat_min) {
+				console.log("Move End => on dï¿½passe vers le bas");
+			} else if (ne_lng < the_lng_min) {
+				console.log("Move End => on dï¿½passe vers la gauche");
+			} else if (sw_lng > the_lng_max) {
+				console.log("Move End => on dï¿½passe vers la droite");
+			}
+
+			if (the_bounds.containsBounds(bounds) == false) {
+				console.log("Move End => containsBounds => on sort => returnToSavedPosition");
+				map.returnToSavedPosition();
+			} else {
+				console.log("Move End => savePosition");
+				map.savePosition();
+			}
+
+		}
+		//------------------------------------------------------------------------------------------------
+		//]]>
+	</script>
 </head>
-<body background="../images/paris.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="load_map();" onunload="GUnload()">
-<table width="844" border="3" align=center cellpadding="0" cellspacing="0" bordercolor="#003366" bgcolor="#FFFFFF">
-  <tr> 
-    <td>
-    <div id="map" style="width: 658px; height: 550px"></div>
-    </td>
-  </tr>
-</table>
+
+<body background="../images/paris.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"
+	onLoad="load_map();" onunload="GUnload()">
+	<table width="844" border="3" align=center cellpadding="0" cellspacing="0" bordercolor="#003366" bgcolor="#FFFFFF">
+		<tr>
+			<td>
+				<div id="map" style="width: 658px; height: 550px"></div>
+			</td>
+		</tr>
+	</table>
 </body>
+
 </html>

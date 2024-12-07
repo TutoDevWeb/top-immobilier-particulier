@@ -51,7 +51,7 @@ if ($action == 'get_data_next_search') {
 
 <head>
 	<title>Geocodage des d�partements</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta charset="UTF-8">
 	<style type='text/css'>
 		div#map {
 			width: 658px;

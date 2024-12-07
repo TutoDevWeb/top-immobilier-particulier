@@ -9,7 +9,7 @@ dtb_connection();
 
 <head>
 	<title>Look Town</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta charset="UTF-8">
 </head>
 
 <body>

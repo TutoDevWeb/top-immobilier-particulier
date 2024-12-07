@@ -7,7 +7,7 @@ include("../include/inc_base.php");
 
 <head>
 	<title>R�cup�rer la longueur max des champs r�gion / d�partement / ville</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta charset="UTF-8">
 </head>
 
 <body>

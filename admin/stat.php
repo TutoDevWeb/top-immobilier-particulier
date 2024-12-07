@@ -3,7 +3,7 @@
 
 <head>
 	<title>Stat du site</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta charset="UTF-8">
 	<link href="/styles/styles.css" rel="stylesheet" type="text/css">
 	<STYLE type="text/css">
 		<!--

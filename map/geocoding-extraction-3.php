@@ -12,7 +12,7 @@ isset($_GET['action']) ? $action = $_GET['action'] : $action = 'chargement_sessi
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta charset="UTF-8">
 	<title>Tools for Geocoding Data</title>
 	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTMWPxCPq5RvY5_kHvjtn_Nx0AqdhQ133zHk-88S4-qNVRbymA2lk417A" type="text/javascript"></script>
 	<script type="text/javascript">

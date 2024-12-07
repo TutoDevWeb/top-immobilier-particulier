@@ -4,12 +4,12 @@ include("../include/inc_base.php");
 include("../include/inc_conf.php");
 include("../include/inc_format.php");
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 
 <head>
 	<title>Monitoring des annonces</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta charset="UTF-8">
 	<link href="/styles/styles.css" rel="stylesheet" type="text/css">
 	<STYLE type="text/css">
 		<!--

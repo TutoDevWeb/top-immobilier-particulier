@@ -7,7 +7,7 @@ include("../include/inc_base.php");
 
 <head>
 	<title>R�cup�rer et traiter la ville contenu dans Address_GG</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta charset="UTF-8">
 </head>
 
 <body>

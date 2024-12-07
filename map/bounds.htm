@@ -1,101 +1,107 @@
 <html>
+
 <head>
-<title>Valeurs des Bounds sur les villes référencées</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<script language="Javascript" src="/jvscript/browser.js"></script>
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTASDNGt1Ah7UMjIzjNf91KosJQYhT2_N2tGBVmUwT_PKT4VUzPoyhomg" type="text/javascript"></script>
-<script type="text/javascript">
-//<![CDATA[
-var browser = new Browser();
-var map;
-var it=0;
-//------------------------------------------------------------------------------------------------
-function load_map() {
+	<title>Valeurs des Bounds sur les villes rï¿½fï¿½rencï¿½es</title>
+	<meta charset="UTF-8">
+	<script language="Javascript" src="/jvscript/browser.js"></script>
+	<script
+		src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtggiWJMus6LWKUua04wt_RTASDNGt1Ah7UMjIzjNf91KosJQYhT2_N2tGBVmUwT_PKT4VUzPoyhomg"
+		type="text/javascript"></script>
+	<script type="text/javascript">
+		//<![CDATA[
+		var browser = new Browser();
+		var map;
+		var it = 0;
+		//------------------------------------------------------------------------------------------------
+		function load_map() {
 
-  if (GBrowserIsCompatible()) {
+			if (GBrowserIsCompatible()) {
 
-    map = new GMap2(document.getElementById("map"));
+				map = new GMap2(document.getElementById("map"));
 
-    // On récupère la liste des villes à traiter avec leurs paramètres	
-	  get_town_list();
+				// On rï¿½cupï¿½re la liste des villes ï¿½ traiter avec leurs paramï¿½tres	
+				get_town_list();
 
-    // On enclanche le traitement d'une ville
-    timeInterval = window.setInterval(process_town,10000); 
-		//process_town();
-		
-  } // Fin if GBrowser
-} // Fin load_map
-//-----------------------------------------------------------------------------------
-// Retourne le bounds d'une carte sur une ville
-function get_town_list() {
+				// On enclanche le traitement d'une ville
+				timeInterval = window.setInterval(process_town, 10000);
+				//process_town();
 
-    var xhr = browser.getHttpObject() ; 
-    xhr.onreadystatechange  = function() { 
-      if ( xhr.readyState  == 4 ) {
-        if ( xhr.status  == 200 ) {
+			} // Fin if GBrowser
+		} // Fin load_map
+		//-----------------------------------------------------------------------------------
+		// Retourne le bounds d'une carte sur une ville
+		function get_town_list() {
 
-          //console.log(xhr.responseText);
-          townList = eval ('('+xhr.responseText+')');
+			var xhr = browser.getHttpObject();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
 
-          for ( var i = 0 ; i < townList.length ; i++ ) { 
-            console.log(townList[i].ville);
-          }        
-          
-        } else window.alert(xhr.status); 
-      }
-    }
+						//console.log(xhr.responseText);
+						townList = eval('(' + xhr.responseText + ')');
 
-    xhr.open("POST","/map/bounds-ajax.php",false); 
-    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
-    xhr.send('action=get_town_list'); 
-}
-//-----------------------------------------------------------------------------------
-// Traitement d'une ville
-function process_town() {
+						for (var i = 0; i < townList.length; i++) {
+							console.log(townList[i].ville);
+						}
 
-  console.log(townList[it].maps_lat+' : '+townList[it].maps_lng+' : '+townList[it].maps_scale);
+					} else window.alert(xhr.status);
+				}
+			}
 
-  map.setCenter(new GLatLng(parseFloat(townList[it].maps_lat),parseFloat(townList[it].maps_lng)),11);
+			xhr.open("POST", "/map/bounds-ajax.php", false);
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.send('action=get_town_list');
+		}
+		//-----------------------------------------------------------------------------------
+		// Traitement d'une ville
+		function process_town() {
 
-  // Position de la carte
-  var bounds = map.getBounds();
-  var max_ne_lat = bounds.getNorthEast().lat();
-  var max_ne_lng = bounds.getNorthEast().lng();
-  var max_sw_lat = bounds.getSouthWest().lat();
-  var max_sw_lng = bounds.getSouthWest().lng();
+			console.log(townList[it].maps_lat + ' : ' + townList[it].maps_lng + ' : ' + townList[it].maps_scale);
 
-	console.log("max_ne_lat : "+max_ne_lat+" max_ne_lng : "+max_ne_lng+" max_sw_lat : "+max_sw_lat+" max_sw_lng : "+max_sw_lng);
+			map.setCenter(new GLatLng(parseFloat(townList[it].maps_lat), parseFloat(townList[it].maps_lng)), 11);
 
-  var coord  = '&max_ne_lat='+max_ne_lat+'&max_ne_lng='+max_ne_lng+'&max_sw_lat='+max_sw_lat+'&max_sw_lng='+max_sw_lng;
-  var ville  = '&ville='+townList[it].ville;
+			// Position de la carte
+			var bounds = map.getBounds();
+			var max_ne_lat = bounds.getNorthEast().lat();
+			var max_ne_lng = bounds.getNorthEast().lng();
+			var max_sw_lat = bounds.getSouthWest().lat();
+			var max_sw_lng = bounds.getSouthWest().lng();
 
-  var xhr = browser.getHttpObject() ; 
-  xhr.onreadystatechange  = function() { 
-    if ( xhr.readyState  == 4 ) {
-      if ( xhr.status  == 200 ) {
-			  console.log(xhr.responseText); 
-      } else window.alert(xhr.status);
-    }
-	}
+			console.log("max_ne_lat : " + max_ne_lat + " max_ne_lng : " + max_ne_lng + " max_sw_lat : " + max_sw_lat + " max_sw_lng : " + max_sw_lng);
 
-  xhr.open("POST","/map/bounds-ajax.php",false); 
-  xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded"); 
-  xhr.send('action=set_town'+ville+coord); 
+			var coord = '&max_ne_lat=' + max_ne_lat + '&max_ne_lng=' + max_ne_lng + '&max_sw_lat=' + max_sw_lat + '&max_sw_lng=' + max_sw_lng;
+			var ville = '&ville=' + townList[it].ville;
 
-	it++;
-  if ( it == townList.length ) window.clearInterval(timeInterval);
-}
-//------------------------------------------------------------------------------------------------
-//]]>
-</script>
+			var xhr = browser.getHttpObject();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+						console.log(xhr.responseText);
+					} else window.alert(xhr.status);
+				}
+			}
+
+			xhr.open("POST", "/map/bounds-ajax.php", false);
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.send('action=set_town' + ville + coord);
+
+			it++;
+			if (it == townList.length) window.clearInterval(timeInterval);
+		}
+		//------------------------------------------------------------------------------------------------
+		//]]>
+	</script>
 </head>
-<body background="../images/paris.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="load_map();" onunload="GUnload()">
-<table width="844" border="3" align=center cellpadding="0" cellspacing="0" bordercolor="#003366" bgcolor="#FFFFFF">
-  <tr> 
-    <td>
-    <div id="map" style="width: 658px; height: 550px"></div>
-    </td>
-  </tr>
-</table>
+
+<body background="../images/paris.jpg" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"
+	onLoad="load_map();" onunload="GUnload()">
+	<table width="844" border="3" align=center cellpadding="0" cellspacing="0" bordercolor="#003366" bgcolor="#FFFFFF">
+		<tr>
+			<td>
+				<div id="map" style="width: 658px; height: 550px"></div>
+			</td>
+		</tr>
+	</table>
 </body>
+
 </html>

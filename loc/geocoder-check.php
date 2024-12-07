@@ -131,7 +131,7 @@ if ($action == 'get_map_ville') {
 
 <head>
 	<title>Check en lecture du geocodage des tables loc_ville / loc_dept / loc_region</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta charset="UTF-8">
 	<style type='text/css'>
 		div#map {
 			width: 658px;

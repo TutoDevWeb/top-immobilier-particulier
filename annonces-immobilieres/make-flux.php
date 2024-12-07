@@ -14,7 +14,7 @@ define('DEBUG_FLUX_ANNONCE', 0);
 
 <head>
 	<title>Make Flux Annonce</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta charset="UTF-8">
 </head>
 
 <body>
