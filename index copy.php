@@ -24,7 +24,7 @@ dtb_connection();
 			echo " | ";
 			echo VERSION_DATE; ?> -->
 	<meta name="Description" content="TOP-IMMOBILIER-PARTICULIER.FR c'est le top de l'immobilier entre particuliers. Appartement, Maison, Pavillon, Loft à la Vente. 20 Euros pour 6 mois de parution." />
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta charset="UTF-8">
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/styles-index.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src='/jvscript/popup.js'></script>

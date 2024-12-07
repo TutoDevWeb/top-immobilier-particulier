@@ -29,7 +29,7 @@ count_cnx();
 
 <head>
 	<title><?PHP echo "$title"; ?></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta charset="UTF-8">
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-produit-paris.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/lib-keyword.css" rel="stylesheet" type="text/css" />

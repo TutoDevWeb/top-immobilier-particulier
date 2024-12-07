@@ -52,7 +52,7 @@ if ($action == 'demande_connexion') {
 
 <head>
 	<title>Créer ou Accéder à votre compte de recherche</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta charset="UTF-8">
 	<meta name="Description" content="Accéder à votre compte recherche pour bénéficier des services gratuit d'aide à votre recherche immobilière sur TOP-IMMOBILIER-PARTICULIER.FR" />
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-gestion-connexion.css" rel="stylesheet" type="text/css" />

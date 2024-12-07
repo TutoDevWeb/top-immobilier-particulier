@@ -27,7 +27,7 @@ check_arg($connexion, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $z
 <head>
 	<title><?PHP make_title($ref_type, $keywords, $ville_url, $ard_url); ?></title>
 	<?PHP make_meta_description($ref_type, $keywords, $ville_url, $ard_url); ?>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta charset="UTF-8">
 	<?PHP make_meta_robot($ref_type, $ids); ?>
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/styles-recherche-liste.css" rel="stylesheet" type="text/css" />

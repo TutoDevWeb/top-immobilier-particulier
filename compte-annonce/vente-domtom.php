@@ -29,12 +29,12 @@ count_cnx();
 if (is_reprise()) $link_index = false;
 else $link_index = true;
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
 	<title>Entre particuliers dans les Dom-Tom</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta charset="UTF-8">
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-vente.css" rel="stylesheet" type="text/css" />
 	<meta name="Description" content="Vendre entre particuliers dans les Dom-Tom avec TOP-IMMOBILIER-PARTICULIER.FR" />

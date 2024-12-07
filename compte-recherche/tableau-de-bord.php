@@ -43,11 +43,11 @@ if ($action == 'supprimer_alerte_recherche') {
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<html lang="fr">
 
 <head>
 	<title>Votre compte recherche :: tableau de bord</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta charset="UTF-8">
 	<script type='text/javascript' src='/jvscript/popup.js'></script>
 	<script src="/jquery-lib/jquery-1.2.3.pack.js" type="text/javascript"></script>
 	<script src="/jquery-lib/jquery.history_remote.pack.js" type="text/javascript"></script>

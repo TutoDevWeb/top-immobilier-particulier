@@ -15,12 +15,12 @@ define('DEBUG_NEWS',0);
 if ( get_data_news_by_url(&$news_titre,&$news_description,$news_url) === false ) die;
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
 <title><?PHP echo "$news_titre"; ?></title>
 <meta name="Description" content="<?PHP echo "$news_description"; ?>" />
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta charset="UTF-8">
 <link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 <link href="/styles/news.css" rel="stylesheet" type="text/css" />
 <meta name="robots" content="index,follow" />

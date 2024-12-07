@@ -10,7 +10,7 @@ include("../include/inc_tools.php");
 
 <head>
 	<title>Les services proposés aux acheteurs</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta charset="UTF-8">
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-ccm.css" rel="stylesheet" type="text/css" />
 	<meta name="robots" content="noindex,nofollow" />

@@ -72,12 +72,12 @@ $titre = get_titre($zone_ville,$zone_ard,$typp,$nbpi,$surf,$prix);
 $description = substr($blabla,0,140)."...";
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
 <title><?PHP echo $titre ?></title>
 <meta name="Description" content="<?PHP echo $description ?>" />
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta charset="UTF-8">
 <meta name="robots" content="<?PHP  echo_content($rec_from); ?>" />
 <link href="/styles/global-body.css" rel="stylesheet" type="text/css"/>
 <link href="/styles/styles-details.css" rel="stylesheet" type="text/css" />

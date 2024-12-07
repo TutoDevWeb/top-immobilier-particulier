@@ -10,12 +10,12 @@ dtb_connection();
 define('DEBUG_NEWS', 0);
 $title = SITE_NAME . " : Actualit�s Immobili�res";
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 
 <head>
 	<title><?PHP echo "$title"; ?></title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta charset="UTF-8">
 	<meta name="Description" content="<?PHP echo "$title "; ?> Nationales et Internationales. Br�ves sur les tendances des march�s immobiliers et les �v�nements importants." />
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/news.css" rel="stylesheet" type="text/css" />

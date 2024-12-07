@@ -81,7 +81,7 @@ if ( $zone == 'france' ) {
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
 <head>
 <title><?PHP echo "$title"  ?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta charset="UTF-8">
 <meta name="robots" content="noindex,nofollow" />
 <link href="/styles/global-body.css" rel="stylesheet" type="text/css"/>
 <link href="/styles/styles-recherche-carte.css" rel="stylesheet" type="text/css" />

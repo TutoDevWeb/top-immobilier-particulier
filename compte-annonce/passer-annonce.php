@@ -27,7 +27,7 @@ $duree_annonce = DUREE_ANNONCE;
 
 <head>
 	<title>Passer une annonce sur TOP-IMMOBILIER-PARTICULIER.FR</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta charset="UTF-8">
 	<meta name="Description" content="Pour votre vente immobilière passez une annonce sur TOP-IMMOBILIER-PARTICULIER.FR. 20 Euros pour 6 mois de parution." />
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/styles-passer-annonce.css" rel="stylesheet" type="text/css" />
