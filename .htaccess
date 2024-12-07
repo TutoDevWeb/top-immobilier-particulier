@@ -1,18 +1,18 @@
 #------------------------------------------
-# R�pertoire : /
+# Répertoire : /
 #------------------------------------------
 
 # Le serveur doit suivre les liens symboliques
 Options +FollowSymlinks
 
-# Activation du module de r��criture d'URL
+# Activation du module de reécriture d'URL
 RewriteEngine on
 
 
 #------------------------------------------
 # Redirection temporaire pour la maintenance
 #RewriteCond %{REQUEST_URI} !/close.htm$
-# Laisse l'acc�s � votre adresse IP
+# Laisse l'accès à votre adresse IP
 #RewriteCond %{REMOTE_ADDR} !^86\.71\.2\.174
 #RewriteRule $ /close.htm [R=302,L]
 
@@ -24,14 +24,14 @@ RewriteEngine on
 
 
 #------------------------------------------
-# R�gle : connexion depuis le mail.
+# Règle : connexion depuis le mail.
 
 RewriteRule ^connexion-([0-9]+)-([A-Z0-9]+)\.htm$ /compte-annonce/gestion-connexion-annonce.php?action=demande_connexion&compte_tel_ins=$1&compte_pass=$2 [L]
 RewriteRule ^annonce-([0-9]+)\.htm$ /cons/details.php?tel_ins=$1 [L]
 RewriteRule ^contact-([0-9]+)\.htm$ /noref/contact_ano.php?tel_ins=$1 [L]
 
 #------------------------------------------
-# Pour d�poser une annonce
+# Pour déposer une annonce
 RewriteRule ^vendre-de-particulier-a-particulier-en-france.htm$ /compte-annonce/vente-france.php?action=print_form [L]
 RewriteRule ^vendre-entre-particulier-a-etranger.htm$ /compte-annonce/vente-etranger.php?action=print_form [L]
 RewriteRule ^entre-particuliers-dom-tom.htm$ /compte-annonce/vente-domtom.php?action=print_form [L]
@@ -42,21 +42,21 @@ RewriteRule ^derniere-vente.htm$ /noref/derniere-vente.php [L]
 
 
 #------------------------------------------
-# R�gle pour le r�f�rencement Paris niveau 1
+# Règle pour le référencement Paris niveau 1
 
 RewriteRule ^vente-appartement-entre-particuliers-paris.htm$ /ref/vente-appartement-entre-particuliers-paris.php [L]
 RewriteRule ^vente-studio-entre-particuliers-paris.htm$ /ref/vente-studio-entre-particuliers-paris.php [L]
 RewriteRule ^vente-loft-entre-particuliers-paris.htm$ /ref/vente-loft-entre-particuliers-paris.php [L]
 
 #------------------------------------------
-# R�gle pour le r�f�rencement Paris niveau 2
+# R�gle pour le référencement Paris niveau 2
 
 RewriteRule ^vente-appartement-paris-([0-9]+).htm$ /cons/recherche-liste.php?typp=1&P1=1&P2=2&P3=3&P4=4&P5=5&ref_type=paris&keywords=vente-appartement-paris&dept_url=paris&ville_url=paris&ard_url=$1& [L]
 RewriteRule ^vente-studio-paris-([0-9]+).htm$ /cons/recherche-liste.php?typp=1&P1=1&ref_type=paris&keywords=vente-studio-paris&dept_url=paris&ville_url=paris&ard_url=$1& [L]
 RewriteRule ^vente-loft-paris-([0-9]+).htm$ /cons/recherche-liste.php?typp=3&P1=1&P2=2&P3=3&P4=4&P5=5&ref_type=paris&keywords=vente-loft-paris&dept_url=paris&ville_url=paris&ard_url=$1& [L]
 
 #------------------------------------------
-# R�gle pour le r�f�rencement par villes.
+# Règle pour le référencement par villes.
 RewriteRule ^immobilier-entre-particuliers-paris.htm$ /cons/recherche-liste.php?ref_type=town&dept_url=paris&ville_url=paris [L]
 RewriteRule ^immobilier-entre-particuliers-marseille.htm$ /cons/recherche-liste.php?ref_type=town&dept_url=bouches-du-rhone&ville_url=marseille [L]
 RewriteRule ^immobilier-entre-particuliers-lyon.htm$ /cons/recherche-liste.php?ref_type=town&dept_url=rhone&ville_url=lyon [L]
@@ -71,7 +71,7 @@ RewriteRule ^immobilier-entre-particuliers-cannes.htm$ /cons/recherche-liste.php
 RewriteRule ^immobilier-entre-particuliers-lille.htm$ /cons/recherche-liste.php?ref_type=town&dept_url=nord&ville_url=lille [L]
 
 #------------------------------------------
-# R�gle pour le r�f�rencement des produits par villes.
+# Règle pour le référencement des produits par villes.
 
 RewriteRule ^maison,([a-z\-]+),([a-z\-]+).htm$ /cons/recherche-liste.php?ref_type=product&ville_url=$1&dept_url=$2&typp=8&keywords=Maison [L]
 RewriteRule ^appartement,([a-z\-]+),([a-z\-]+).htm$ /cons/recherche-liste.php?ref_type=product&ville_url=$1&dept_url=$2&typp=1&keywords=Appartement [L]
@@ -79,7 +79,7 @@ RewriteRule ^loft,([a-z\-]+),([a-z\-]+).htm$ /cons/recherche-liste.php?ref_type=
 
 
 #------------------------------------------
-# R�gle pour les cartes.
+# Règle pour les cartes.
 
 RewriteRule ^carte,([a-z\s]+),([a-z\s]+),([a-z\s]+).htm$ /cons/recherche-carte.php?zone=france&zone_region=$1&zone_dept=$2&zone_ville=$3 [L]
 
@@ -90,7 +90,7 @@ RewriteRule ^revue-sites.htm$ /ref/revue-sites.php [L]
 
 
 #------------------------------------------
-# R�gle : connexion au compte de recherche par url.
+# Règle : connexion au compte de recherche par url.
 
 RewriteRule ^connexion-compte-recherche,([a-zA-Z0-9\.@_-]+),([a-zA-Z0-9]+)\.htm$ /compte-recherche/gestion-connexion-recherche.php?action=demande_connexion&compte_email=$1&compte_pass=$2 [L]
 RewriteRule ^activer-compte-recherche,([a-zA-Z0-9\.@_-]+),([a-zA-Z0-9]+)\.htm$ /compte-recherche/gestion-connexion-recherche.php?action=demande_activation&compte_email=$1&compte_pass=$2 [L]
