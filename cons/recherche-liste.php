@@ -53,7 +53,7 @@ check_arg($connexion, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $z
 					<?PHP make_H1($ref_type, $keywords, $ville_url, $ard_url); ?>
 				</h1>
 				<div id='navigation'>
-					<?PHP if ($zone == 'france') echo "<img src='/images/btn-navigation-120x20.gif' alt='Naviguer dans la zone g�ographique' />"; ?>
+					<?PHP if ($zone == 'france') echo "<img src='/images/btn-navigation-120x20.gif' alt='Naviguer dans la zone géographique' />"; ?>
 				</div>
 				<div id='localization'>
 					<?PHP if ($zone == 'france') make_fil_localisation($connexion, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $zone_ville, $typp, $P1, $P2, $P3, $P4, $P5, $sur_min, $prix_max); ?>
@@ -69,7 +69,6 @@ check_arg($connexion, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $z
 			<div id='droite'>
 				<?PHP
 				if ($zone_ville == 'Paris') print_keyword_search();
-				print_skyscraper_160_600();
 				?>
 				<div id='partners-onglet'></div>
 				<div id='partners-box'><?PHP print_partners($zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $zone_ville); ?></div>
@@ -82,7 +81,6 @@ check_arg($connexion, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $z
 				make_traking($connexion, $nba, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $zone_ville, $zone_ard, $dept_voisin, $typp, $P1, $P2, $P3, $P4, $P5, $sur_min, $prix_max);
 				if ($nbt <= 3) {
 					echo "<p>&nbsp;</p>";
-					print_adsense_336_280();
 				}
 				?>
 				<div id='clearboth'>&nbsp;</div>
@@ -97,7 +95,7 @@ check_arg($connexion, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $z
 //--------------------------------------------------------------------------------
 function check_arg($connexion, &$zone, &$zone_pays, &$zone_dom, &$zone_region, &$zone_dept, &$zone_ville, &$zone_ard, &$dept_voisin, &$typp, &$P1, &$P2, &$P3, &$P4, &$P5, &$sur_min, &$prix_max, &$ids, &$ref_type, &$keywords, &$ville_url, &$dept_url, &$ard_url) {
 
-	// Param�tres concernant la zone g�ographique
+	// Paramètres concernant la zone géographique
 	isset($_REQUEST['zone'])        ? $zone          = trim($_REQUEST['zone'])        : $zone        = '';
 	isset($_REQUEST['zone_pays'])   ? $zone_pays     = trim($_REQUEST['zone_pays'])   : $zone_pays   = '';
 	isset($_REQUEST['zone_dom'])    ? $zone_dom      = trim($_REQUEST['zone_dom'])    : $zone_dom    = '';
@@ -108,7 +106,7 @@ function check_arg($connexion, &$zone, &$zone_pays, &$zone_dom, &$zone_region, &
 	isset($_REQUEST['zone_dept'])   ? $zone_dept     = trim($_REQUEST['zone_dept'])   : $zone_dept   = '';
 	isset($_REQUEST['dept_voisin']) ? $dept_voisin   = trim($_REQUEST['dept_voisin']) : $dept_voisin = '';
 
-	// Param�tres concernant le produit
+	// Paramètres concernant le produit
 	isset($_REQUEST['typp'])      ? $typp     = trim($_REQUEST['typp']) : $typp     = '0';
 	isset($_REQUEST['P1'])        ? $P1       = trim($_REQUEST['P1'])   : $P1       = '0';
 	isset($_REQUEST['P2'])        ? $P2       = trim($_REQUEST['P2'])   : $P2       = '0';
@@ -118,14 +116,14 @@ function check_arg($connexion, &$zone, &$zone_pays, &$zone_dom, &$zone_region, &
 	isset($_REQUEST['sur_min'])   ? $sur_min  = $_REQUEST['sur_min']    : $sur_min  = '0';
 	isset($_REQUEST['prix_max'])  ? $prix_max = $_REQUEST['prix_max']   : $prix_max = '0';
 
-	// Param�tres concernant le r�f�rencement
+	// Paramètres concernant le référencement
 	isset($_REQUEST['ref_type'])  ? $ref_type   = trim($_REQUEST['ref_type'])  : $ref_type  = '';
 	isset($_REQUEST['keywords'])  ? $keywords   = trim($_REQUEST['keywords'])  : $keywords  = '';
 	isset($_REQUEST['ville_url']) ? $ville_url  = trim($_REQUEST['ville_url']) : $ville_url = '';
 	isset($_REQUEST['dept_url'])  ? $dept_url   = trim($_REQUEST['dept_url'])  : $dept_url  = '';
 	isset($_REQUEST['ard_url'])   ? $ard_url    = trim($_REQUEST['ard_url'])   : $ard_url   = '';
 
-	// Si il n'y a pas de tranches � s�lectionner on prend la premi�re
+	// Si il n'y a pas de tranches à sélectionner on prend la première
 	isset($_REQUEST['ids']) ? $ids = $_REQUEST['ids'] : $ids = '1';
 
 	//------------------------------------------------------------------------- 
@@ -304,31 +302,14 @@ function process_results($connexion, &$nba, &$nbt, $zone, $zone_pays, $zone_dom,
 	}
 }
 //-------------------------------------------------------------------------------------------------------------------
-function make_where_condition($connexion, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $zone_ville, $zone_ard, $dept_voisin, $typp, $P1, $P2, $P3, $P4, $P5, $sur_min, $prix_max) {
-
-	$zone        = mysqli_real_escape_string($connexion, $zone);
-	$zone_pays   = mysqli_real_escape_string($connexion, $zone_pays);
-	$zone_dom    = mysqli_real_escape_string($connexion, $zone_dom);
-	$zone_region = mysqli_real_escape_string($connexion, $zone_region);
-	$zone_dept   = mysqli_real_escape_string($connexion, $zone_dept);
-	$zone_ville  = mysqli_real_escape_string($connexion, $zone_ville);
-	$zone_ard    = mysqli_real_escape_string($connexion, $zone_ard);
-
-	$typp        = mysqli_real_escape_string($connexion, $typp);
-	$P1          = mysqli_real_escape_string($connexion, $P1);
-	$P2          = mysqli_real_escape_string($connexion, $P2);
-	$P3          = mysqli_real_escape_string($connexion, $P3);
-	$P4          = mysqli_real_escape_string($connexion, $P4);
-	$P5          = mysqli_real_escape_string($connexion, $P5);
-	$sur_min     = mysqli_real_escape_string($connexion, $sur_min);
-	$prix_max    = mysqli_real_escape_string($connexion, $prix_max);
+function make_where_condition($zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $zone_ville, $zone_ard, $dept_voisin, $typp, $P1, $P2, $P3, $P4, $P5, $sur_min, $prix_max) {
 
 	$where_condition = "etat='ligne'";
-	make_where_condition_with_zone($connexion, $where_condition, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $zone_ville, $zone_ard, $dept_voisin);
-	make_where_condition_with_typp($connexion, $where_condition, $typp);
-	make_where_condition_with_nbpi($connexion, $where_condition, $P1, $P2, $P3, $P4, $P5);
-	make_where_condition_with_sur_min($connexion, $where_condition, $sur_min);
-	make_where_condition_with_prix_max($connexion, $where_condition, $prix_max);
+	make_where_condition_with_zone($where_condition, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $zone_ville, $zone_ard, $dept_voisin);
+	make_where_condition_with_typp($where_condition, $typp);
+	make_where_condition_with_nbpi($where_condition, $P1, $P2, $P3, $P4, $P5);
+	make_where_condition_with_sur_min($where_condition, $sur_min);
+	make_where_condition_with_prix_max($where_condition, $prix_max);
 
 	$where_condition .= " ORDER BY hits DESC";
 	return $where_condition;
@@ -857,7 +838,7 @@ function print_selection_zone($connexion, $zone, $zone_pays, $zone_dom, $zone_re
 	$zone_ard = '';
 	$dept_voisin = '';
 
-	$where_condition = make_where_condition($connexion, $zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $zone_ville, $zone_ard, $dept_voisin, $typp, $P1, $P2, $P3, $P4, $P5, $sur_min, $prix_max);
+	$where_condition = make_where_condition($zone, $zone_pays, $zone_dom, $zone_region, $zone_dept, $zone_ville, $zone_ard, $dept_voisin, $typp, $P1, $P2, $P3, $P4, $P5, $sur_min, $prix_max);
 	$query = "SELECT typp,prix,surf FROM ano WHERE " . $where_condition;
 
 	tracking_dtb($connexion, $query, __FILE__, __LINE__);

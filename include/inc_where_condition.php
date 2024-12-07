@@ -12,7 +12,7 @@ function make_where_condition_with_date_positionnement(&$where_condition, $date_
 function make_where_condition_with_liste(&$where_condition, $liste) {
 
 	if ($liste != '') {
-		// On enl�ve le dernier s�parateur.
+		// On enlève le dernier séparateur.
 		$liste = substr($liste, 0, -1);
 		$annonce_tab = explode('|', $liste);
 		foreach ($annonce_tab as $tel_ins) $where_condition .= " AND tel_ins != '$tel_ins'";
@@ -41,14 +41,14 @@ function make_where_condition_with_zone(&$where_condition, $zone, $zone_pays, $z
 			// Faire la condition where pour la recherche sur la ville
 			$where_condition .= " AND ( ( zone_ville='$zone_ville' )";
 
-			// Si il y a la ville il y a le d�partement
+			// Si il y a la ville il y a le département
 			$where_condition .= " AND ( zone_dept='$zone_dept' )";
 
 			// Si il y a une recherche sur les arrondissements
 			if ($zone_ard != '') {
 
 				// Faire la condition where pour la recherche par arrondissement
-				$list_ard = split(",", mysqli_real_escape_string($zone_ard));
+				$list_ard = explode(",", $zone_ard);
 
 				$i = 0;
 				foreach ($list_ard as $zone_ard)
@@ -58,11 +58,11 @@ function make_where_condition_with_zone(&$where_condition, $zone, $zone_pays, $z
 				$where_condition .= " )";
 			}
 
-			// Si il y a une recherche sur les d�partements voisins
+			// Si il y a une recherche sur les départements voisins
 			if ($dept_voisin != '') {
 
 				// Faire la condition where pour la recherche par arrondissement
-				$list_dept = split(",", mysqli_real_escape_string($dept_voisin));
+				$list_dept = explode(",", $dept_voisin);
 
 				$i = 0;
 				foreach ($list_dept as $num_dept)
@@ -74,24 +74,24 @@ function make_where_condition_with_zone(&$where_condition, $zone, $zone_pays, $z
 
 			$where_condition .= " )";
 
-			// Si il y a une recherche sur les d�partements de m�tropole
+			// Si il y a une recherche sur les départements de métropole
 		} elseif ($zone_dept != "") {
 
-			// Faire la condition where pour la recherche sur ces d�partement
+			// Faire la condition where pour la recherche sur ces département
 			$where_condition .= " AND ( zone_dept='$zone_dept' )";
 
-			// Si il y a une recherche sur les r�gions de m�tropole
+			// Si il y a une recherche sur les régions de métropole
 		} elseif ($zone_region != "") {
 
-			// Faire la condition where pour la recherche sur ces d�partement
+			// Faire la condition where pour la recherche sur ces département
 			$where_condition .= " AND ( zone_region='$zone_region' )";
 		}
 
-		// Faire la condition where pour la recherche sur ces d�partement
+		// Faire la condition where pour la recherche sur ces département
 		$where_condition .= " AND ( zone='france' )";
 	} elseif ($zone == 'domtom') {
 
-		// Faire la condition where pour la recherche sur ces d�partement
+		// Faire la condition where pour la recherche sur ces département
 		$where_condition .= " AND zone_dom='$zone_dom' AND zone='domtom'";
 	} elseif ($zone == 'etranger') {
 

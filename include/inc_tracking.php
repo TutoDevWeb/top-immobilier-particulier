@@ -32,7 +32,7 @@ function tracking($connexion, $cop, $res, $comment, $file, $line) {
 
 	$comment = addslashes($comment);
 
-	$insert = "INSERT INTO tracking (dat,ip,tel_ins,cop,res,user_agent,referer,file,line,comment) 
+	$insert = "INSERT INTO tracking (dat,ip,tel_ins,cop,res,user_agent,referer,`file`,`line`,comment) 
              VALUES (now(),'$ip','$tel_ins','$cop','$res','$user_agent','$referer','$file','$line','$comment')";
 
 	mysqli_query($connexion, $insert);
@@ -49,7 +49,7 @@ function tracking_dtb($connexion, $query, $file, $line) {
 	$referer    = $_SERVER['HTTP_REFERER'];
 
 	$insert = "INSERT INTO tracking (dat,ip,tel_ins,cop,res,user_agent,referer,`file`,`line`,comment) 
-             VALUES (now(),'$ip','','DTB','OK','$user_agent','$referer','$file','$line','$comment')";
+             VALUES (now(),'$ip','0','DTB','OK','$user_agent','$referer','$file','$line','$comment')";
 
 	mysqli_query($connexion, $insert);
 }
@@ -71,7 +71,7 @@ function tracking_session_annonce($connexion, $cop, $res, $comment, $file, $line
 	if (is_connexion_admin())  $comment = addslashes("SESSION ANNONCE ADMIN<br/>ida => $ida::tel_ins =>$tel_ins<br/>" . $comment);
 	else                         $comment = addslashes("SESSION ANNONCE USERS<br/>ida => $ida::tel_ins =>$tel_ins<br/>" . $comment);
 
-	$insert = "INSERT INTO tracking (dat,ip,tel_ins,cop,res,file,line,comment) 
+	$insert = "INSERT INTO tracking (dat,ip,tel_ins,cop,res,`file`,`line`,comment) 
              VALUES (now(),'$ip','$tel_ins','$cop','$res','$file','$line','$comment')";
 
 	mysqli_query($connexion, $insert);
