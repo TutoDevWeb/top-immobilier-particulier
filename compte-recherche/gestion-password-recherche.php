@@ -17,8 +17,8 @@ include("../include/inc_tools.php");
 
 filtrer_les_entrees_request(__FILE__, __LINE__);
 
-dtb_connection();
-count_cnx();
+$connexion = dtb_connection();
+count_cnx($connexion);
 isset($_REQUEST['action']) ? $action = trim($_REQUEST['action']) : die;
 
 if ($action == 'demande_password_oublier') {
@@ -30,7 +30,7 @@ if ($action == 'demande_password_oublier') {
 <html lang="fr">
 
 <head>
-	<title>Vous avez oubli� votre mot de passe ?</title>
+	<title>Vous avez oublié votre mot de passe ?</title>
 	<meta charset="UTF-8">
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-gestion-connexion.css" rel="stylesheet" type="text/css" />
@@ -46,32 +46,32 @@ if ($action == 'demande_password_oublier') {
 		<div id='userpan'>
 			<div id='gauche'><?PHP print_cibleclick_120_600();  ?></div>
 			<div id='droite'><?PHP print_cibleclick_120_600();  ?></div>
-			<?PHP make_ariane_compte_recherche('Mot de passe oubli�'); ?>
+			<?PHP make_ariane_compte_recherche('Mot de passe oublié'); ?>
 			<?PHP
 			/* Les demandes de connexion qui arrivent ici sont des echecs */
 			if ($action == 'print_form_password_oublier') {
 
 				print_compte_recherche_password_oublier();
-				tracking(CODE_CTR, 'OK', "Affichage formulaire mot de passe oubli�", __FILE__, __LINE__);
+				tracking($connexion, CODE_CTR, 'OK', "Affichage formulaire mot de passe oublié", __FILE__, __LINE__);
 
 				/* Traitement de la demande d'envoie du mail de connexion */
 			} else if ($action == 'demande_password_oublier') {
 
-				if (compte_recherche_existe($compte_email, __FILE__, __LINE__)) {
+				if (compte_recherche_existe($connexion, $compte_email, __FILE__, __LINE__)) {
 
-					echo "<p class='allo_reponse'>Un email a �t� envoy� � $compte_email</p>\n";
-					mail_password_compte_recherche($compte_email);
-					tracking(CODE_CTR, 'OK', "$compte_email:demande_password_oublier:email envoy�", __FILE__, __LINE__);
+					echo "<p class='allo_reponse'>Un email a été envoyé à $compte_email</p>\n";
+					mail_password_compte_recherche($connexion, $compte_email);
+					tracking($connexion, CODE_CTR, 'OK', "$compte_email:demande_password_oublier:email envoyé", __FILE__, __LINE__);
 				} else {
 					echo "<p class='allo_reponse'>Nous ne retrouvons pas cet email dans notre base<br/>$compte_email</p>";
 					print_compte_recherche_password_oublier();
-					tracking(CODE_CTR, 'OK', "$compte_email:demande_password_oublier:email inconnu dans cette base", __FILE__, __LINE__);
+					tracking($connexion, CODE_CTR, 'OK', "$compte_email:demande_password_oublier:email inconnu dans cette base", __FILE__, __LINE__);
 				}
 			}
 
-			echo "<p><a href='/' class='nav_ico11' title=\"Pour aller � l'accueil cliquer sur ce lien\">Pour aller � l'accueil cliquer sur ce lien</a></p>\n";
+			echo "<p><a href='/' class='nav_ico11' title=\"Pour aller à l'accueil cliquer sur ce lien\">Pour aller à l'accueil cliquer sur ce lien</a></p>\n";
 
-			echo "<p><a href='/compte-recherche/gestion-connexion-recherche.php?action=accueil_compte_recherche' class='nav_ico11' title='Pour acc�der � votre compte recherche cliquer sur ce lien'>Pour acc�der � votre compte recherche cliquer sur ce lien</a></p>";
+			echo "<p><a href='/compte-recherche/gestion-connexion-recherche.php?action=accueil_compte_recherche' class='nav_ico11' title='Pour accéder à votre compte recherche cliquer sur ce lien'>Pour accéder à votre compte recherche cliquer sur ce lien</a></p>";
 
 			print_xiti_code("gestion-passsword-recherche");
 
@@ -91,7 +91,7 @@ function print_compte_recherche_password_oublier() {
 ?>
 	<form action="<?PHP echo $_SERVER['PHP_SELF'] ?>" method='get' onsubmit="return valid_form_password();">
 		<fieldset>
-			<legend>Vous avez oubli� votre mot de passe ?</legend>
+			<legend>Vous avez oublié votre mot de passe ?</legend>
 			<p><label for='password_compte_email'>Votre email</label>&nbsp;&nbsp;<input id='password_compte_email' name='compte_email' type='text' size="25" maxlength="128" /></p>
 			<input type='hidden' name='action' value='demande_password_oublier' />
 			<input class='but_input' type='submit' value="Retrouver mon mot de passe" />

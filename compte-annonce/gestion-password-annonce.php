@@ -16,8 +16,8 @@ include("../include/inc_tools.php");
 
 filtrer_les_entrees_request(__FILE__, __LINE__);
 
-dtb_connection();
-count_cnx();
+$connexion = dtb_connection();
+count_cnx($connexion);
 isset($_REQUEST['action']) ? $action = trim($_REQUEST['action']) : die;
 
 if ($action == 'demande_password_oublier') {
@@ -29,7 +29,7 @@ if ($action == 'demande_password_oublier') {
 <html lang="fr">
 
 <head>
-	<title>Vous avez oubli� votre mot de passe</title>
+	<title>Vous avez oublié votre mot de passe</title>
 	<meta charset="UTF-8">
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-gestion-connexion.css" rel="stylesheet" type="text/css" />
@@ -45,31 +45,31 @@ if ($action == 'demande_password_oublier') {
 		<div id='userpan'>
 			<div id='gauche'><?PHP print_cibleclick_120_600();  ?></div>
 			<div id='droite'><?PHP print_cibleclick_120_600();  ?></div>
-			<?PHP make_ariane_compte_annonce('Mot de passe oubli�'); ?>
+			<?PHP make_ariane_compte_annonce('Mot de passe oublié'); ?>
 			<?PHP
 			/* Traitement de la demande d'envoie du mail de connexion */
 			if ($action == 'print_form_password_oublier') {
 				print_compte_annonce_password_oublier();
-				tracking(CODE_CTA, 'OK', "Affichage formulaire mot de passe oubli�", __FILE__, __LINE__);
+				tracking($connexion, CODE_CTA, 'OK', "Affichage formulaire mot de passe oublié", __FILE__, __LINE__);
 
 				/* Traitement de la demande d'envoie du mail de connexion */
 			} else if ($action == 'demande_password_oublier') {
 
-				if (compte_annonce_existe($compte_tel_ins, __FILE__, __LINE__)) {
+				if (compte_annonce_existe($connexion, $compte_tel_ins, __FILE__, __LINE__)) {
 
-					echo "<p class='allo_reponse'>Un email a �t� envoy�</p>\n";
-					mail_password_compte_annonce($compte_tel_ins);
-					tracking(CODE_CTA, 'OK', "$compte_tel_ins:demande_password_oublier:email envoy�", __FILE__, __LINE__);
+					echo "<p class='allo_reponse'>Un email a été envoyé</p>\n";
+					mail_password_compte_annonce($connexion, $compte_tel_ins);
+					tracking($connexion, CODE_CTA, 'OK', "$compte_tel_ins:demande_password_oublier:email envoyé", __FILE__, __LINE__);
 				} else {
-					echo "<p class='allo_reponse'>Nous ne retrouvons pas d'annonce correspondant � ce num�ro de t�l�phone : $compte_tel_ins</p>";
+					echo "<p class='allo_reponse'>Nous ne retrouvons pas d'annonce correspondant à ce numéro de téléphone : $compte_tel_ins</p>";
 					print_compte_annonce_password_oublier();
-					tracking(CODE_CTA, 'OK', "$compte_tel_ins:demande_password_oublier:$compte_tel_ins inconnu dans cette base", __FILE__, __LINE__);
+					tracking($connexion, CODE_CTA, 'OK', "$compte_tel_ins:demande_password_oublier:$compte_tel_ins inconnu dans cette base", __FILE__, __LINE__);
 				}
 			}
 
-			echo "<p><a href='/' class='nav_ico11' title=\"Pour aller � l'accueil cliquer sur ce lien\">Pour aller � l'accueil cliquer sur ce lien</a></p>";
+			echo "<p><a href='/' class='nav_ico11' title=\"Pour aller à l'accueil cliquer sur ce lien\">Pour aller à l'accueil cliquer sur ce lien</a></p>";
 
-			echo "<p><a href='/compte-annonce/gestion-connexion-annonce.php?action=accueil_compte_annonce' class='nav_ico11' title='Pour acc�der � votre compte annonce cliquer sur ce lien'>Pour acc�der � votre compte annonce cliquer sur ce lien</a></p>";
+			echo "<p><a href='/compte-annonce/gestion-connexion-annonce.php?action=accueil_compte_annonce' class='nav_ico11' title='Pour accéder à votre compte annonce cliquer sur ce lien'>Pour accéder à votre compte annonce cliquer sur ce lien</a></p>";
 
 			print_xiti_code("gestion-password-annonce");
 
@@ -89,10 +89,10 @@ function print_compte_annonce_password_oublier() {
 ?>
 	<form action="<?PHP echo $_SERVER['PHP_SELF'] ?>" method='get' onsubmit="return valid_form_password();">
 		<fieldset>
-			<legend>Vous avez oubli� votre mot de passe ?</legend>
-			<p><label for='password_compte_tel_ins'>Votre t�l�phone</label>&nbsp;&nbsp;<input id='password_compte_tel_ins' name='compte_tel_ins' type='text' size="25" maxlength="128" /></p>
+			<legend>Vous avez oublié votre mot de passe ?</legend>
+			<p><label for='password_compte_tel_ins'>Votre téléphone</label>&nbsp;&nbsp;<input id='password_compte_tel_ins' name='compte_tel_ins' type='text' size="25" maxlength="128" /></p>
 			<input type='hidden' name='action' value='demande_password_oublier' />
-			<input class='but_input' type='submit' value="Vous avez oubli� votre mot de passe" />
+			<input class='but_input' type='submit' value="Vous avez oublié votre mot de passe" />
 		</fieldset>
 	</form>
 <?PHP

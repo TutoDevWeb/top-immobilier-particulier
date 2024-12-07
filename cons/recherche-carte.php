@@ -9,10 +9,10 @@ include("../include/inc_tracking.php");
 include("../include/inc_xiti.php");
 include("../include/inc_tools.php");
 
-dtb_connection();
-count_cnx();
+$connexion = dtb_connection();
+count_cnx($connexion);
 
-// Param�tres concernant la zone g�ographique
+// Paramètres concernant la zone géographique
 isset($_REQUEST['zone'])        ? $zone          = trim($_REQUEST['zone'])        : $zone        = '' ; 
 isset($_REQUEST['zone_pays'])   ? $zone_pays     = trim($_REQUEST['zone_pays'])   : $zone_pays   = '' ; 
 isset($_REQUEST['zone_dom'])    ? $zone_dom      = trim($_REQUEST['zone_dom'])    : $zone_dom    = '' ; 
@@ -22,7 +22,7 @@ isset($_REQUEST['zone_ville'])  ? $zone_ville    = trim($_REQUEST['zone_ville'])
 isset($_REQUEST['zone_ard'])    ? $zone_ard      = trim($_REQUEST['zone_ard'])    : $zone_ard    = '' ; 
 isset($_REQUEST['dept_voisin']) ? $dept_voisin   = trim($_REQUEST['dept_voisin']) : $dept_voisin    = '' ; 
 
-// Param�tres optionnel du filtrage
+// Paramètres optionnel du filtrage
 isset($_REQUEST['typp'])      ? $typp     = mysqli_real_escape_string(trim($_REQUEST['typp'])) : $typp     = '0' ;
 isset($_REQUEST['P1'])        ? $P1       = mysqli_real_escape_string(trim($_REQUEST['P1']))   : $P1       = '0' ;
 isset($_REQUEST['P2'])        ? $P2       = mysqli_real_escape_string(trim($_REQUEST['P2']))   : $P2       = '0' ;
