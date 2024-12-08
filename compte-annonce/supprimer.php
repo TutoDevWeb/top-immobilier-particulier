@@ -13,7 +13,7 @@ include("../include/inc_ano_sup.php");
 include("../include/inc_photo.php");
 include("../include/inc_cibleclick.php");
 
-dtb_connection();
+$connexion = dtb_connection();
 
 filtrer_les_entrees_post(__FILE__, __LINE__);
 
@@ -22,7 +22,7 @@ filtrer_les_entrees_post(__FILE__, __LINE__);
 <html lang="fr">
 
 <head>
-	<title>Immobilier Particuliers Paris - Annonces Immobili�res entre Particuliers Paris</title>
+	<title>Immobilier Particuliers Paris - Annonces Immobilières entre Particuliers Paris</title>
 	<meta charset="UTF-8">
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-compte-annonce.css" rel="stylesheet" type="text/css" />
@@ -40,22 +40,22 @@ filtrer_les_entrees_post(__FILE__, __LINE__);
 						<?PHP
 						print_deconnexion();
 						$tel_ins = $_SESSION['tel_ins'];
-						if (compte_annonce_existe($tel_ins, __FILE__, __LINE__)) {
-							$ida = get_ida($tel_ins, __FILE__, __LINE__);
+						if (compte_annonce_existe($connexion, $tel_ins, __FILE__, __LINE__)) {
+							$ida = get_ida($connexion, $tel_ins, __FILE__, __LINE__);
 							if ($ida == $_SESSION['ida']) {
 								echo "<p>&nbsp;</p>";
-								echo "<p class='allo_reponse'>Votre annonce r�f�rence $tel_ins a �t� supprim�e<br/>Nous vous remercions d'avoir utilis� notre site</p>";
+								echo "<p class='allo_reponse'>Votre annonce référence $tel_ins a été supprimée<br/>Nous vous remercions d'avoir utilisé notre site</p>";
 
-								tracking_session_annonce(CODE_CTA, 'OK', "Suppression de l'annonce $tel_ins", __FILE__, __LINE__);
+								tracking_session_annonce($connexion, CODE_CTA, 'OK', "Suppression de l'annonce $tel_ins", __FILE__, __LINE__);
 
 								ano_sup($tel_ins, __FILE__, __LINE__, $trace = false);
-							} else tracking_session_annonce(CODE_CTA, 'OK', "Tentative de suppression de $tel_ins par ida::$ida alors que $ida n'est pas le propri�taire", __FILE__, __LINE__);
+							} else tracking_session_annonce($connexion, CODE_CTA, 'OK', "Tentative de suppression de $tel_ins par ida::$ida alors que $ida n'est pas le propriétaire", __FILE__, __LINE__);
 						} else {
 
 							echo "<p>&nbsp;</p>";
-							echo "<p class='allo_reponse'>L'annonce r�f�rence $tel_ins a d�j� �t� supprim�e</p>";
+							echo "<p class='allo_reponse'>L'annonce référence $tel_ins a déjà été supprimée</p>";
 
-							tracking_session_annonce(CODE_CTA, 'OK', "L'annonce $tel_ins a d�j� �t� supprim�e", __FILE__, __LINE__);
+							tracking_session_annonce($connexion, CODE_CTA, 'OK', "L'annonce $tel_ins a déjà été supprimée", __FILE__, __LINE__);
 						}
 						echo "<p>&nbsp;</p>";
 

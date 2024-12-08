@@ -19,7 +19,7 @@ include("../include/inc_cibleclick.php");
 <html lang="fr">
 
 <head>
-	<title>Page de pr�paration de l'annonce</title>
+	<title>Page de préparation de l'annonce</title>
 	<meta charset="UTF-8">
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-compte-annonce.css" rel="stylesheet" type="text/css" />
@@ -45,7 +45,7 @@ include("../include/inc_cibleclick.php");
 			    */
 						$zone = $_SESSION['zone'];
 
-						dtb_connection();
+						$connexion = dtb_connection();
 
 						if (data_en_session_ok()) {
 
@@ -55,7 +55,7 @@ include("../include/inc_cibleclick.php");
 
 							print_bouton_maps_upload($zone, is_modif());
 
-							tracking_session_annonce(CODE_CTA, 'OK', "Visualisation de la fiche", __FILE__, __LINE__);
+							tracking_session_annonce($connexion, CODE_CTA, 'OK', "Visualisation de la fiche", __FILE__, __LINE__);
 
 							print_session_fiche();
 
@@ -92,7 +92,7 @@ function print_bouton_maps_upload($zone, $modif) {
 
 	if ($zone == 'france') {
 		if ($modif) echo "<p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Vous pouvez modifier vos photos ou repositionner votre logement sur une carte</p>\n";
-		else  echo "<p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Vous devez t�l�charger vos photos et positionner votre logement sur une carte</p>\n";
+		else  echo "<p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Vous devez télécharger vos photos et positionner votre logement sur une carte</p>\n";
 		echo "<p><em>(* L'ordre n'a pas d'importance)</em></p>\n";
 		echo "<p>";
 		echo "<a href='upload.php' title='Gestion des photos'><img src='/images/btn_cre_pho.gif' alt='Gestion des photos' /></a>\n";
@@ -101,7 +101,7 @@ function print_bouton_maps_upload($zone, $modif) {
 		echo "</p>";
 	} else {
 		if ($modif) echo "<p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Vous pouvez modifier vos photos</p>\n";
-		else  echo "<p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Vous devez t�l�charger vos photos</p>\n";
+		else  echo "<p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Vous devez télécharger vos photos</p>\n";
 		echo "<p><a href='upload.php' title='Gestion des photos'><img src='/images/btn_cre_pho.gif' alt='Gestion des photos' /></p></a>\n";
 	}
 
@@ -112,18 +112,18 @@ function print_bouton_reprendre_ligne($zone, $modif) {
 
 	echo "<div class='make'>";
 
-	if ($modif) echo "<p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Vous pouvez reprendre la r�daction de l'annonce ou la remettre en ligne</p>";
-	else  echo "<p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Vous pouvez reprendre la r�daction de l'annonce ou la mettre en ligne</p>";
+	if ($modif) echo "<p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Vous pouvez reprendre la rédaction de l'annonce ou la remettre en ligne</p>";
+	else  echo "<p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Vous pouvez reprendre la rédaction de l'annonce ou la mettre en ligne</p>";
 
 	echo "<p>";
 
 	// Reprendre
 	if ($zone == 'france')
-		echo "<a href='vente-france.php?action=print_form' title='Reprise de la r�daction'><img src='/images/btn_cre_rep.gif' alt='Reprise de la r�daction' /></a>\n";
+		echo "<a href='vente-france.php?action=print_form' title='Reprise de la rédaction'><img src='/images/btn_cre_rep.gif' alt='Reprise de la rédaction' /></a>\n";
 	if ($zone == 'domtom')
-		echo "<a href='vente-domtom.php?action=print_form' title='Reprise de la r�daction'><img src='/images/btn_cre_rep.gif' alt='Reprise de la r�daction' /></a>\n";
+		echo "<a href='vente-domtom.php?action=print_form' title='Reprise de la rédaction'><img src='/images/btn_cre_rep.gif' alt='Reprise de la rédaction' /></a>\n";
 	if ($zone == 'etranger')
-		echo "<a href='vente-etranger.php?action=print_form' title='Reprise de la r�daction'><img src='/images/btn_cre_rep.gif' alt='Reprise de la r�daction' /></a>\n";
+		echo "<a href='vente-etranger.php?action=print_form' title='Reprise de la rédaction'><img src='/images/btn_cre_rep.gif' alt='Reprise de la rédaction' /></a>\n";
 
 	echo "&nbsp;&nbsp;&nbsp;";
 

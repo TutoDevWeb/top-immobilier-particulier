@@ -21,8 +21,8 @@ filtrer_les_entrees_request(__FILE__, __LINE__);
 
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : die;
 
-dtb_connection();
-count_cnx();
+$connexion = dtb_connection();
+count_cnx($connexion);
 
 
 // Si c'est une reprise on ne met pas l'index
@@ -51,17 +51,17 @@ else $link_index = true;
 			<?PHP make_ariane_passer_annonce('domtom'); ?>
 			<div id='vente' style='background:  url(/images/fond-palmier-paillote.jpg) no-repeat bottom right'>
 				<h1>Entre particuliers dans les Dom-Tom</h1>
-				<div id='titre'>D�poser une offre de vente de studio, appartement, maison dans les Dom Tom</div>
+				<div id='titre'>Déposer une offre de vente de studio, appartement, maison dans les Dom Tom</div>
 				<?PHP
 				if ($action == 'print_form') {
 					print_ano_form('domtom');
-					tracking(CODE_CTA, 'OK', "Entr�e sur formulaire cr�ation vente domtom", __FILE__, __LINE__);
+					tracking($connexion, CODE_CTA, 'OK', "Entrée sur formulaire création vente domtom", __FILE__, __LINE__);
 					restore_session();
 				}
 				if ($action == 'store_session') {
-					if (!compte_annonce_existe($_POST['tel_ins'], __FILE__, __LINE__) || is_modif()) {
+					if (!compte_annonce_existe($connexion, $_POST['tel_ins'], __FILE__, __LINE__) || is_modif()) {
 
-						// V�rifier les codes
+						// Vérifier les codes
 						if ($_POST['code_set'] == $_POST['code_get']) {
 							store_session();
 							gotoo('fiche.php');

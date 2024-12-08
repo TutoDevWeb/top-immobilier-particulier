@@ -10,24 +10,26 @@ include("../include/inc_photo.php");
 include("../include/inc_nav.php");
 include("../include/inc_dtb_compte_annonce.php");
 
-// Si il n' a pas ou plus les donnÈes 'annonce' en session
-if ( !data_en_session_ok() )  { header('Location: /'); die; }  
+// Si il n' a pas ou plus les donnÔøΩes 'annonce' en session
+if (!data_en_session_ok()) {
+	header('Location: /');
+	die;
+}
 
-dtb_connection(__FILE__,__LINE__);
+$connexion = dtb_connection(__FILE__, __LINE__);
 
-if ( compte_annonce_existe($_SESSION['tel_ins'],__FILE__,__LINE__) === true ) { 
+if (compte_annonce_existe($connexion, $_SESSION['tel_ins'], __FILE__, __LINE__) === true) {
 
-  $ida = get_ida($_SESSION['tel_ins'],__FILE__,__LINE__);  
-  if ( $ida == $_SESSION['ida'] ) { 
+	$ida = get_ida($connexion, $_SESSION['tel_ins'], __FILE__, __LINE__);
+	if ($ida == $_SESSION['ida']) {
 
-    $etat = get_etat($_SESSION['tel_ins'],__FILE__,__LINE__);
+		$etat = get_etat($connexion, $_SESSION['tel_ins'], __FILE__, __LINE__);
 
-    if ( $etat == 'ligne' ) $etat = 'attente_validation';
+		if ($etat == 'ligne') $etat = 'attente_validation';
 
-    update_annonce($etat,__FILE__,__LINE__);
-	  renomage_photo($_SESSION['ida'],__FILE__,__LINE__);
-    purger_session();
-    header('Location: /compte-annonce/tableau-de-bord.php');
-  } else tracking_session_annonce(CODE_CTA,'OK',"Demande de mise ‡ jour de l'annonce $tel_ins par ida::$ida qui n'est pas son propriÈtaire",__FILE__,__LINE__);
-} else tracking_session_annonce(CODE_CTA,'OK',"Demande de mise ‡ jour d'une annonce qui n'existe plus",__FILE__,__LINE__);
-?>
+		update_annonce($connexion, $etat, __FILE__, __LINE__);
+		renomage_photo($_SESSION['ida'], __FILE__, __LINE__);
+		purger_session();
+		header('Location: /compte-annonce/tableau-de-bord.php');
+	} else tracking_session_annonce($connexion, CODE_CTA, 'OK', "Demande de mise √† jour de l'annonce $tel_ins par ida::$ida qui n'est pas son propri√©taire", __FILE__, __LINE__);
+} else tracking_session_annonce($connexion, CODE_CTA, 'OK', "Demande de mise √† jour d'une annonce qui n'existe plus", __FILE__, __LINE__);

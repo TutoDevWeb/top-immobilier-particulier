@@ -73,7 +73,7 @@ if ($action == 'demande_connexion') {
 			if ($action == 'demande_connexion') gestion_echec_connexion($code_refus);
 
 			/* Traitement d'une demande compte recherche depuis l'accueil */
-			/* On ne sait pas si l'internaute vient pour la premi�re fois ou s'il a d�j� un compte */
+			/* On ne sait pas si l'internaute vient pour la première fois ou s'il a déjà un compte */
 			else if ($action == 'accueil_compte_recherche') {
 
 				// Est ce qu'on peut récupérer un cookie.
@@ -89,7 +89,7 @@ if ($action == 'demande_connexion') {
 					tracking($connexion, CODE_CTR, 'OK', "Entrée sur Accueil compte recherche<br />ce visiteur n'a pas de cookie", __FILE__, __LINE__);
 				}
 
-				/* Traitement d'une demande de cr�ation d'un compte */
+				/* Traitement d'une demande de création d'un compte */
 			} else if ($action == 'compte_creation') {
 
 				if ($compte_email == '') {

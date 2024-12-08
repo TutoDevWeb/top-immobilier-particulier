@@ -19,7 +19,7 @@ set_time_limit(240);
 
 if (!filtrer_les_entrees_get(__FILE__, __LINE__)) die;
 if (!filtrer_les_entrees_post(__FILE__, __LINE__)) die;
-dtb_connection();
+$connexion = dtb_connection();
 
 ?>
 
@@ -43,7 +43,7 @@ dtb_connection();
 				<?PHP
 				if (data_en_session_ok()) {
 					make_ariane_upload($_SESSION['zone']);
-					tracking_session_annonce(CODE_CTA, 'OK', "Entr�e dans Gerer les Photos", __FILE__, __LINE__);
+					tracking_session_annonce($connexion, CODE_CTA, 'OK', "Entrée dans Gerer les Photos", __FILE__, __LINE__);
 
 				?>
 
@@ -52,14 +52,14 @@ dtb_connection();
 					<table id='gesph' width="600" border="1" align="center" cellpadding="10" cellspacing="0" bordercolor="#336699">
 						<tr>
 							<td>
-								<p class="text12g"><img src="/images/hand.gif" align="absmiddle">&nbsp;&nbsp;<font color="#336699">T�l�charger les photos</font>
+								<p class="text12g"><img src="/images/hand.gif" align="absmiddle">&nbsp;&nbsp;<font color="#336699">Télécharger les photos</font>
 								</p>
 								<p class="text12g">
 									<font color="#336699"></font> ( 5 photos de 4 M&eacute;ga octets maximum )
 								</p>
 								<p class="text12g">Conseils</p>
 								<ul>
-									<li>Mettre la photo num�ro 1 au format paysage.</li>
+									<li>Mettre la photo numéro 1 au format paysage.</li>
 									<li>Mettre un plan.</li>
 									<li>Mettre des photos de l'environnement ( rue, fa&ccedil;ade, vue sur l'ext&eacute;rieur ).</li>
 									<li>Si possible, choisir un jour clair et lumineux.</li>
@@ -92,9 +92,7 @@ dtb_connection();
 								</form>
 								<?PHP
 
-								dtb_connection(__FILE__, __LINE__);
-
-								// Si il n'y a pas de num�ro de 'session photo', qui est en fait un pr�fixe.
+								// Si il n'y a pas de numéro de 'session photo', qui est en fait un préfixe.
 								if (!isset($_SESSION['my_session'])) creation_prefixe();
 
 								if (isset($_POST['upload'])) upload_photo();
@@ -123,7 +121,7 @@ dtb_connection();
 					<?PHP if ($nbp == 0) print_cible_unifinance_300_250(); ?>
 					<p>&nbsp;</p>
 				<?PHP
-				} else print_if_no_data();
+				} else print_if_no_data($connexion);
 				?>
 			</div><!-- end upload -->
 		</div><!-- end userpan -->

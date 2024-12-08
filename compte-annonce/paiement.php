@@ -14,7 +14,7 @@ include("../include/inc_photo.php");
 include("../include/inc_mail_compte_annonce.php");
 include("../include/inc_cibleclick.php");
 
-// Si il n' a pas ou plus les donn�es 'annonce' en session
+// Si il n' a pas ou plus les données 'annonce' en session
 if (!data_en_session_ok()) {
 	header('Location: /');
 	die;
@@ -24,14 +24,14 @@ filtrer_les_entrees_post(__FILE__, __LINE__);
 filtrer_les_entrees_request(__FILE__, __LINE__);
 
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : die;
-dtb_connection();
+$connexion = dtb_connection();
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-	<title>Immobilier Particuliers Paris - Annonces Immobili�res entre Particuliers Paris</title>
+	<title>Immobilier Particuliers Paris - Annonces Immobilières entre Particuliers Paris</title>
 	<meta charset="UTF-8">
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-compte-annonce.css" rel="stylesheet" type="text/css" />
@@ -48,11 +48,11 @@ dtb_connection();
 					<td class='cell_b'><?PHP print_cibleclick_120_600();  ?></td>
 					<td class='cell_c'>
 						<?PHP
-						if (compte_annonce_existe($_SESSION['tel_ins'], __FILE__, __LINE__) === false) {
+						if (compte_annonce_existe($connexion, $_SESSION['tel_ins'], __FILE__, __LINE__) === false) {
 
-							go_attente_paiement();
-							tracking_session_annonce(CODE_CTA, 'OK', "Annonce mise en attente de paiement", __FILE__, __LINE__);
-						} else tracking_session_annonce(CODE_CTA, 'OK', "Annonce mise en attente de paiement alors que l'annonce existe d�j�", __FILE__, __LINE__);
+							go_attente_paiement($connexion);
+							tracking_session_annonce($connexion, CODE_CTA, 'OK', "Annonce mise en attente de paiement", __FILE__, __LINE__);
+						} else tracking_session_annonce($connexion, CODE_CTA, 'OK', "Annonce mise en attente de paiement alors que l'annonce existe déjà", __FILE__, __LINE__);
 						?>
 					</td>
 					<td class='cell_b'><?PHP print_cibleclick_120_600();  ?></td>
@@ -66,19 +66,19 @@ dtb_connection();
 </html>
 <?PHP
 //-------------------------------------------------------------------------------------
-function go_attente_paiement() {
+function go_attente_paiement($connexion) {
 
-	// G�n�rer un password
+	// Générer un password
 	$password = pass_generator();
 
-	// Ins�rer l'annonce
-	$_SESSION['ida'] = insert_annonce($password, __FILE__, __LINE__);
+	// Insérer l'annonce
+	$_SESSION['ida'] = insert_annonce($connexion, $password, __FILE__, __LINE__);
 
-	// R�cup�rer les photos session
+	// Récupérer les photos session
 	renomage_photo($_SESSION['ida'], __FILE__, __LINE__);
 
 	// Envoi d'un mail au moment de la cr�ation
-	mail_creation($_SESSION['tel_ins'], $password);
+	mail_creation($connexion, $_SESSION['tel_ins'], $password);
 
 	print_deconnexion();
 

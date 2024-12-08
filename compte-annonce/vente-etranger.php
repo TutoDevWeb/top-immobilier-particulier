@@ -21,8 +21,8 @@ filtrer_les_entrees_request(__FILE__, __LINE__);
 
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : die;
 
-dtb_connection();
-count_cnx();
+$connexion = dtb_connection();
+count_cnx($connexion);
 
 
 ?>
@@ -30,11 +30,11 @@ count_cnx();
 <html lang="fr">
 
 <head>
-	<title>Vendre entre particulier � l'�tranger</title>
+	<title>Vendre entre particulier à l'étranger</title>
 	<meta charset="UTF-8">
 	<link href="/styles/global-body.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/global-vente.css" rel="stylesheet" type="text/css" />
-	<meta name="Description" content="Vendre entre particulier � l'�tranger avec TOP-IMMOBILIER-PARTICULIER.FR" />
+	<meta name="Description" content="Vendre entre particulier à l'étranger avec TOP-IMMOBILIER-PARTICULIER.FR" />
 	<script type="text/javascript" src="/compte-annonce/jvscript/valid_field.js"></script>
 	<script type="text/javascript" src="/compte-annonce/jvscript/nbcar.js"></script>
 	<script type="text/javascript" src="/compte-annonce/jvscript/valid_form_ano.js"></script>
@@ -48,7 +48,7 @@ count_cnx();
 			<?PHP make_ariane_passer_annonce('etranger'); ?>
 			<div id='vente' style='background:  url(/images/fond-statue-liberte.jpg) no-repeat bottom right'>
 				<h1>Vendre entre particulier &agrave; l'&eacute;tranger</h1>
-				<div id='titre'>D�poser une offre de vente de studio, appartement, maison &agrave; l'&eacute;tranger</div>
+				<div id='titre'>Déposer une offre de vente de studio, appartement, maison &agrave; l'&eacute;tranger</div>
 				<?PHP
 				/*
                 print_r($_SESSION);
@@ -58,13 +58,13 @@ count_cnx();
                 */
 				if ($action == 'print_form') {
 					print_ano_form('etranger');
-					tracking(CODE_CTA, 'OK', "Entr�e sur formulaire cr�ation vente etranger", __FILE__, __LINE__);
+					tracking($connexion, CODE_CTA, 'OK', "Entrée sur formulaire création vente etranger", __FILE__, __LINE__);
 					restore_session();
 				}
 				if ($action == 'store_session') {
-					if (!compte_annonce_existe($_POST['tel_ins'], __FILE__, __LINE__) || is_modif()) {
+					if (!compte_annonce_existe($connexion, $_POST['tel_ins'], __FILE__, __LINE__) || is_modif()) {
 
-						// V�rifier les codes
+						// Vérifier les codes
 						if ($_POST['code_set'] == $_POST['code_get']) {
 							store_session();
 							gotoo('fiche.php');

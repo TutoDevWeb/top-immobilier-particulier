@@ -14,7 +14,7 @@ include("../include/inc_photo.php");
 include("../include/inc_format.php");
 include("../include/inc_cibleclick.php");
 
-dtb_connection();
+$connexion = dtb_connection();
 
 filtrer_les_entrees_post(__FILE__, __LINE__);
 
@@ -67,22 +67,22 @@ $tel_ins = $_SESSION['tel_ins'];
 
 							if (is_connexion_admin()) echo "<p class=text12cg>CONNEXION ADMIN</p>";
 							restore_session();
-							tracking_session_annonce(CODE_CTA, 'OK', "Appel Formulaire Modification", __FILE__, __LINE__);
+							tracking_session_annonce($connexion, CODE_CTA, 'OK', "Appel Formulaire Modification", __FILE__, __LINE__);
 						} else {
 
 							print_deconnexion();
 
 							// Lire l'�tat dans la base
-							$etat = get_etat($tel_ins, __FILE__, __LINE__);
+							$etat = get_etat($connexion, $tel_ins, __FILE__, __LINE__);
 
 							if (is_connexion_admin()) {
 								echo "<p class=text12cg>CONNEXION ADMIN</p>";
 								echo "<p class=text12cg>ETAT : $etat</p>";
 							}
 
-							if ($etat == 'attente_paiement') print_attente_paiement($tel_ins, $etat);
-							else if ($etat == 'attente_validation') print_attente_validation($tel_ins, $etat);
-							else if ($etat == 'ligne') print_ligne($tel_ins);
+							if ($etat == 'attente_paiement') print_attente_paiement($connexion, $tel_ins, $etat);
+							else if ($etat == 'attente_validation') print_attente_validation($connexion, $tel_ins, $etat);
+							else if ($etat == 'ligne') print_ligne($connexion, $tel_ins);
 						}
 
 						?>
@@ -98,16 +98,16 @@ $tel_ins = $_SESSION['tel_ins'];
 </html>
 <?PHP
 //----------------------------------------------------------------------------------------------------------
-function print_attente_paiement($tel_ins, $etat) {
+function print_attente_paiement($connexion, $tel_ins, $etat) {
 
 	print_info_attente_paiement($tel_ins);
 
-	tracking_session_annonce(CODE_CTA, 'OK', "Acc�s tableau de bord : attente_paiement", __FILE__, __LINE__);
+	tracking_session_annonce($connexion, CODE_CTA, 'OK', "Accès tableau de bord : attente_paiement", __FILE__, __LINE__);
 }
 //----------------------------------------------------------------------------------------------------------
-function print_attente_validation($tel_ins, $etat) {
+function print_attente_validation($connexion, $tel_ins, $etat) {
 
-	echo "<div class='make'><p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Nous allons remettre votre annonce en ligne dans les meilleurs d�lais</p></div>";
+	echo "<div class='make'><p><img src='/images/hp3.gif' align='absmiddle' />&nbsp;&nbsp;&nbsp;Nous allons remettre votre annonce en ligne dans les meilleurs délais</p></div>";
 	if (is_connexion_admin()) {
 		echo "<p class=text12cg>CONNEXION ADMIN</p>";
 		echo "<p class=text12cg>ETAT : $etat</p>";
@@ -118,21 +118,21 @@ function print_attente_validation($tel_ins, $etat) {
 	$photo = get_photo_from_dir($_SESSION['ida']);
 	print_galerie_photo($photo);
 
-	tracking_session_annonce(CODE_CTA, 'OK', "Acc�s tableau de bord : attente_validation", __FILE__, __LINE__);
+	tracking_session_annonce($connexion, CODE_CTA, 'OK', "Accès tableau de bord : attente_validation", __FILE__, __LINE__);
 }
 //----------------------------------------------------------------------------------------------------------
-function print_ligne($tel_ins) {
+function print_ligne($connexion, $tel_ins) {
 
 	$url_short_site = URL_SHORT_SITE;
-	$ctnblog = get_cntblog($tel_ins);
-	$dat_fin = to_full_dat(get_dat_fin($tel_ins));
+	$ctnblog = get_cntblog($connexion, $tel_ins);
+	$dat_fin = to_full_dat(get_dat_fin($connexion, $tel_ins));
 	print_modifier_supprimer();
 	echo "<p>Votre annonce est en ligne jusqu'au $dat_fin</p>\n";
-	if ($ctnblog !== false) echo "<p>Vous avez eu $ctnblog visites sur votre blog suite � des clicks sur $url_short_site</p>";
+	if ($ctnblog !== false) echo "<p>Vous avez eu $ctnblog visites sur votre blog suite à des clicks sur $url_short_site</p>";
 	print_dtb_fiche($tel_ins);
 	$photo = get_photo_from_dir($_SESSION['ida']);
 	print_galerie_photo($photo);
-	tracking_session_annonce(CODE_CTA, 'OK', "Acc�s tableau de bord : annonce en ligne", __FILE__, __LINE__);
+	tracking_session_annonce($connexion, CODE_CTA, 'OK', "Accès tableau de bord : annonce en ligne", __FILE__, __LINE__);
 }
 //------------------------------------------------------------------------
 function print_modifier_supprimer() {
