@@ -9,11 +9,11 @@ include("../include/inc_photo.php");
 
 isset($_GET['tel_ins']) ? $tel_ins = $_GET['tel_ins'] : die;
 
-dtb_connection(__FILE__, __LINE__);
+$connexion = dtb_connection(__FILE__, __LINE__);
 
-// Requ�te pour la carte
+// Requête pour la carte
 $query  = "SELECT maps_lat,maps_lng,maps_actif,maps_scale,quart FROM ano WHERE tel_ins='$tel_ins'";
-$result = dtb_query($query, __FILE__, __LINE__, 1);
+$result = dtb_query($connexion, $query, __FILE__, __LINE__, 1);
 if (mysqli_num_rows($result)) list($maps_lat, $maps_lng, $maps_actif, $maps_scale, $quart) = mysqli_fetch_row($result);
 else {
 	echo "<p>L'annonce n'existe pas : $tel_ins</p>";
@@ -89,15 +89,15 @@ else {
 				//$action = &new action();
 
 
-				$zone = get_zone($tel_ins, __FILE__, __LINE__);
+				$zone = get_zone($connexion, $tel_ins, __FILE__, __LINE__);
 
 				echo "<p><strong>zone => $zone</strong></p>";
 
-				// R�cup�rer l'�tat de l'annonce pour afficher les actions possibles
-				$etat = get_etat($tel_ins, __FILE__, __LINE__);
+				// Récupérer l'état de l'annonce pour afficher les actions possibles
+				$etat = get_etat($connexion, $tel_ins, __FILE__, __LINE__);
 
-				// R�cup�rer l'ida de l'annonce pour les photos
-				$ida     = get_ida($tel_ins, __FILE__, __LINE__);
+				// Récupérer l'ida de l'annonce pour les photos
+				$ida     = get_ida($connexion, $tel_ins, __FILE__, __LINE__);
 
 				print_dtb_fiche($tel_ins);
 				$photo = get_photo_from_dir($ida);
@@ -107,8 +107,8 @@ else {
 
 				if ($etat == 'attente_paiement') {
 
-					$dat_mod = get_date_modification($tel_ins, __FILE__, __LINE__);
-					echo "<p><strong>date debut derni�re modif => $dat_mod</strong></p>";
+					$dat_mod = get_date_modification($connexion, $tel_ins, __FILE__, __LINE__);
+					echo "<p><strong>date debut dernière modif => $dat_mod</strong></p>";
 
 					$action->go_ligne_sur_paiement($tel_ins);
 					$action->mailer($tel_ins);
@@ -131,9 +131,9 @@ else {
 				class action {
 
 					//------------------------------------------------------------------------------------------
-					function editer($tel_ins) {
+					function editer($connexion, $tel_ins) {
 
-						$password = get_password($tel_ins, __FILE__, __LINE__);
+						$password = get_password($connexion, $tel_ins, __FILE__, __LINE__);
 						echo "<a href='/compte-annonce/gestion-connexion-annonce.php?action=demande_connexion&compte_tel_ins=$tel_ins&compte_pass=$password&user=adminsag' target='_blank'>Editer</a><br/>\n";
 					}
 					//------------------------------------------------------------------------------------------
@@ -154,7 +154,7 @@ else {
 					}
 					//------------------------------------------------------------------------------------------
 					function go_ligne_sur_validation($tel_ins) {
-						echo "<a href='adm-compte-annonce-action.php?action=go_ligne_sur_validation&tel_ins=$tel_ins'>Valider l'annonce suite � modification</a><br/>";
+						echo "<a href='adm-compte-annonce-action.php?action=go_ligne_sur_validation&tel_ins=$tel_ins'>Valider l'annonce suite à modification</a><br/>";
 					}
 					//------------------------------------------------------------------------------------------
 					function go_ligne_silent($tel_ins) {

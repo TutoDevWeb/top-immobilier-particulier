@@ -8,43 +8,41 @@ include("/home/web/tip/tip-fr/include/inc_photo.php");
 
 $fp_dir = opendir(ABS_ROOT_PHOTO);
 
-echo "<p>Début du traitement</p>";
+echo "<p>DÃ©but du traitement</p>";
 
-while ( $file = readdir($fp_dir) ) {
-    
-  
-  if ( ereg("^tmp_([a-zA-Z0-9]*)_[1-5]_(photo|thumb).jpg",$file,$regs) ) {
+while ($file = readdir($fp_dir)) {
 
-    echo "<p>file : $file</p>";
-      
-    $fic_tmp = $regs[0];
-    echo "---------------------------------------<br>";
-    echo "$fic_tmp<br>";
 
-    $file_abs_path = ABS_ROOT_PHOTO.$file;
-    $time_fic = filemtime($file_abs_path);
+	if (ereg("^tmp_([a-zA-Z0-9]*)_[1-5]_(photo|thumb).jpg", $file, $regs)) {
 
-    echo "time_fic:$time_fic<br>";
+		echo "<p>file : $file</p>";
 
-    $time_act = mktime();
+		$fic_tmp = $regs[0];
+		echo "---------------------------------------<br>";
+		echo "$fic_tmp<br>";
 
-    echo "time_act:$time_act<br>";
-    
-    $age       = $time_act - $time_fic;
-    $age_heure = $age/3600;
-    
-    echo "age en secondes :$age<br>";
-    echo "age en heures   :$age_heure<br>";
+		$file_abs_path = ABS_ROOT_PHOTO . $file;
+		$time_fic = filemtime($file_abs_path);
 
-    if ( $age > 3600 * 12 ) {
-      echo "Attention encore en TEST => Effacer $file_abs_path<br>";
-      //if ( !unlink($file_abs_path) ) echo "<p>Echec suppression $file_abs_path</p>\n";
+		echo "time_fic:$time_fic<br>";
 
-    }
-    echo "---------------------------------------<br>";
+		$time_act = mktime();
 
-  }
+		echo "time_act:$time_act<br>";
 
+		$age       = $time_act - $time_fic;
+		$age_heure = $age / 3600;
+
+		echo "age en secondes :$age<br>";
+		echo "age en heures   :$age_heure<br>";
+
+		if ($age > 3600 * 12) {
+			echo "Attention encore en TEST => Effacer $file_abs_path<br>";
+			//if ( !unlink($file_abs_path) ) echo "<p>Echec suppression $file_abs_path</p>\n";
+
+		}
+		echo "---------------------------------------<br>";
+	}
 }
 closedir($fp_dir);
 ?>

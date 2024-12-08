@@ -23,28 +23,28 @@ include("../include/inc_format.php");
 <body>
 	<?PHP
 
-	dtb_connection();
-	monitoring_ano();
+	$connexion = dtb_connection();
+	monitoring_ano($connexion);
 
 	if (isset($_GET['action'])) $action  = trim($_GET['action']);
 
 	//------------------------------------------------------------------------------------------------
-	function monitoring_ano() {
+	function monitoring_ano($connexion) {
 
 		$select = "SELECT ida,tel_ins,ip_ins,email,etat,dat_ins,dat_fin,fin_parution,mail_relancer_paiement FROM ano WHERE ( etat != 'ligne' ) ORDER BY dat_ins DESC";
-		$result = dtb_query($select, __FILE__, __LINE__, DEBUG_ADM_ANO_MONIT);
+		$result = dtb_query($connexion, $select, __FILE__, __LINE__, DEBUG_ADM_ANO_MONIT);
 
 		echo "<table width=600 align=center border=1 cellpadding=3 cellspacing=0 bordercolor=#336633>\n";
 		while (list($ida, $tel_ins, $ip_ins, $email, $etat, $dat_ins, $dat_fin, $fin_parution, $mail_relancer_paiement)  = mysqli_fetch_row($result)) {
 
-			if ($etat == 'attente_paiement') print_attente($ida, $tel_ins, $ip_ins, $email, $etat, $dat_ins, $dat_fin, $fin_parution, $mail_relancer_paiement);
+			if ($etat == 'attente_paiement') print_attente($connexion, $ida, $tel_ins, $ip_ins, $email, $etat, $dat_ins, $dat_fin, $fin_parution, $mail_relancer_paiement);
 
-			else if ($etat == 'attente_validation') print_attente($ida, $tel_ins, $ip_ins, $email, $etat, $dat_ins, $dat_fin, $fin_parution, $mail_relancer_paiement);
+			else if ($etat == 'attente_validation') print_attente($connexion, $ida, $tel_ins, $ip_ins, $email, $etat, $dat_ins, $dat_fin, $fin_parution, $mail_relancer_paiement);
 		}
 		echo "</table>\n";
 	}
 	//----------------------------------------------------------------------------------------------------------------------------
-	function print_attente($ida, $tel_ins, $ip_ins, $email, $etat, $dat_ins, $dat_fin, $fin_parution, $mail_relancer_paiement) {
+	function print_attente($connexion, $ida, $tel_ins, $ip_ins, $email, $etat, $dat_ins, $dat_fin, $fin_parution, $mail_relancer_paiement) {
 
 		// Si l'annonce est en attente paiement
 		$str_paiement = '';
@@ -56,7 +56,7 @@ include("../include/inc_format.php");
 
 			// Calculer depuis combien de jours
 			$query = "SELECT (TO_DAYS(now()) - TO_DAYS(dat_ins)) FROM ano WHERE tel_ins='$tel_ins'";
-			$result = dtb_query($query, $file, $line, DEBUG_DTB_ANO);
+			$result = dtb_query($connexion, $query, __FILE__, __LINE__, DEBUG_DTB_ANO);
 			list($nbj_attente) = mysqli_fetch_row($result);
 
 			$str_paiement .= "<br/>attente paiement depuis $nbj_attente jours";

@@ -5,12 +5,12 @@ include("../include/inc_base.php");
 include("../include/inc_conf.php");
 include("../include/inc_format.php");
 
-dtb_connection();
+$connexion = dtb_connection();
 
 define('DEBUG_MAKE_THUMB', 1);
 
 $select = "SELECT ida FROM ano WHERE etat='ligne' ORDER BY dat_ins DESC";
-$result = dtb_query($select, __FILE__, __LINE__, 1);
+$result = dtb_query($connexion, $select, __FILE__, __LINE__, 1);
 
 while (list($ida) = mysqli_fetch_row($result)) {
 
@@ -24,7 +24,7 @@ while (list($ida) = mysqli_fetch_row($result)) {
 //--------------------------------------------------------------------------------------------
 // Fabrique les images
 // $src  : fichier source
-// $ida  : le num�ro de l'annonce
+// $ida  : le numéro de l'annonce
 // $xmax : Taille maxi en X
 //--------------------------------------------------------------------------------------------
 function make_thumb($src, $ida, $xmax) {
@@ -43,10 +43,10 @@ function make_thumb($src, $ida, $xmax) {
 	$X_src = $size[0];
 	$Y_src = $size[1];
 
-	// On ne r�duit que si n�cessaire
+	// On ne réduit que si nécessaire
 	if ($X_src > $xmax) {
 
-		// Nom de l'image � fabriquer
+		// Nom de l'image à fabriquer
 		$dst = $_SERVER['DOCUMENT_ROOT'] . "/images_fiches/a" . $ida . "_1_thumb.jpg";
 		if (DEBUG_MAKE_THUMB) echo "R�duction d'image  : $dst<br/>\n";
 
@@ -62,8 +62,8 @@ function make_thumb($src, $ida, $xmax) {
 		imagejpeg($fp_dst, $dst);
 	} else {
 
-		// Si il s'agit d'un thumb qui n'a pas besoin de r�duction il faut le cr�e par copie
-		if (DEBUG_MAKE_THUMB) echo "Cr�ation du thumb par Copy<br/>\n";
+		// Si il s'agit d'un thumb qui n'a pas besoin de réduction il faut le crée par copie
+		if (DEBUG_MAKE_THUMB) echo "Création du thumb par Copy<br/>\n";
 		$src = $_SERVER['DOCUMENT_ROOT'] . "/images_fiches/a" . $ida . "_1_photo.jpg";
 		$dst = $_SERVER['DOCUMENT_ROOT'] . "/images_fiches/a" . $ida . "_1_thumb.jpg";
 

@@ -21,7 +21,7 @@
 
 	isset($_GET['action']) ? $action = $_GET['action'] : die;
 
-	dtb_connection(__FILE__, __LINE__);
+	$connexion = dtb_connection(__FILE__, __LINE__);
 
 	if ($action == "examiner") {
 
@@ -35,7 +35,7 @@
 
 		if ($cmd == "print_form") print_examiner_form($nbj, $code, $dtb_trace, $IP_to_track);
 		if ($cmd == "process_tracking") {
-			process_examiner_tracking($nbj, $code, $dtb_trace, $IP_to_track);
+			process_examiner_tracking($connexion, $nbj, $code, $dtb_trace, $IP_to_track);
 			print_examiner_form($nbj, $code, $dtb_trace, $IP_to_track);
 		}
 	}
@@ -46,7 +46,7 @@
 
 		if ($cmd == "print_form") print_purger_form();
 		else {
-			process_purger_tracking($cmd);
+			process_purger_tracking($connexion, $cmd);
 			print_purger_form();
 		}
 	}
@@ -55,16 +55,16 @@
 
 	//-------------------------------------------------------------------------------------------------
 	//
-	function process_purger_tracking($cmd) {
+	function process_purger_tracking($connexion, $cmd) {
 
 		if ($cmd == "purger_tout") {
 			$query = "DELETE FROM tracking";
-			$result = dtb_query($query, __FILE__, __LINE__, 1);
+			$result = dtb_query($connexion, $query, __FILE__, __LINE__, 1);
 		}
 	}
 	//-------------------------------------------------------------------------------------------------
 	//
-	function process_examiner_tracking($nbj, $code, $dtb_trace, $IP_to_track) {
+	function process_examiner_tracking($connexion, $nbj, $code, $dtb_trace, $IP_to_track) {
 
 		$where = " ((TO_DAYS(NOW()) - TO_DAYS(dat)) < $nbj ) ";
 		if ($IP_to_track != '') $where .= " AND ip = '$IP_to_track'";
@@ -79,18 +79,18 @@
 			if ($code == 'RCL') $where .= " AND cop = 'RCL'";
 		}
 
-		// Code pour les entr�e sur le site
+		// Code pour les entrée sur le site
 		if ($code == 'NAV') $where .= " AND cop = 'NAV'";
 
 		// Code pour les actions administrateur Recherche ou Compte
 		if ($code == 'ADM') $where .= " AND cop = 'ADM'";
 
-		// Tracking pour une recherche avec acc�s � la fiche d�taill�e.
+		// Tracking pour une recherche avec accès à la fiche détaillée.
 		if ($code == 'RED') $where .= " AND cop = 'RED'";
 
-		// Code pour la tracabilit� des comptes annonce
+		// Code pour la tracabilité des comptes annonce
 		if ($code == 'CTA') $where .= " AND cop = 'CTA'";
-		// Code pour la tracabilit� des comptes recherche
+		// Code pour la tracabilité des comptes recherche
 		if ($code == 'CTR') $where .= " AND cop = 'CTR'";
 
 		//Code pour la tache cron des compte annonce
@@ -99,9 +99,9 @@
 		if ($code == 'CRR') $where .= " AND cop = 'CRR'";
 
 
-		// Tri en fonction des codes s�lectionner
+		// Tri en fonction des codes sélectionner
 		$query = "SELECT idk,dat,ip,tel_ins,cop,res,user_agent,referer,file,line,comment FROM tracking WHERE $where ORDER BY  idk DESC";
-		$result = dtb_query($query, __FILE__, __LINE__, 1);
+		$result = dtb_query($connexion, $query, __FILE__, __LINE__, 1);
 
 
 		echo "<table width='100%' border=1 align=center cellpadding=3 cellspacing=0 bordercolor=336633>";
@@ -117,7 +117,7 @@
 		$ir = 0;
 		while (list($idk, $dat, $ip, $tel_ins, $cop, $res, $user_agent, $referer, $file, $line, $comment)  = mysqli_fetch_row($result)) {
 
-			// L� on ajoute les infos $referer ou $user_agent qui peuvent nous int�resser selon le code.
+			// Là on ajoute les infos $referer ou $user_agent qui peuvent nous intéresser selon le code.
 
 			/* Dans ce cas on ne prend que les traces ou il y a le referer */
 			if ($code == 'REF') {
@@ -159,7 +159,7 @@
 		}
 
 		echo '</table>';
-		echo "Nombre de r�sultats $ir<br/>\n";
+		echo "Nombre de résultats $ir<br/>\n";
 	}
 	//-------------------------------------------------------------------------------------------------
 	//

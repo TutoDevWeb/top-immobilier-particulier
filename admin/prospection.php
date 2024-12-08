@@ -13,7 +13,7 @@ define('DEBUG_ANO_PROSPECTION', 1);
 
 check_arg($action, $tel_pro, $dialogue_pro, $etat_pro);
 
-dtb_connection(__FILE__, __LINE__);
+$connexion = dtb_connection(__FILE__, __LINE__);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -37,29 +37,29 @@ dtb_connection(__FILE__, __LINE__);
 		//-----------------------------------------------------------------------------------------
 		if ($action == 'tester_tel_pro') {
 
-			if (($etat_pro = get_tel_pro_etat($tel_pro, __FILE__, __LINE__)) === false) {
+			if (($etat_pro = get_tel_pro_etat($connexion, $tel_pro, __FILE__, __LINE__)) === false) {
 
-				echo "<p>Le num�ro n'existe pas il faut l'exploiter\n</p>";
+				echo "<p>Le numéro n'existe pas il faut l'exploiter\n</p>";
 				print_exploiter_numero_panel($tel_pro);
 			} else {
 
-				echo "<p>Le num�ro existe etat_pro => $etat_pro\n</p>";
+				echo "<p>Le numéro existe etat_pro => $etat_pro\n</p>";
 			}
 
 			//-----------------------------------------------------------------------------------------
-			// Examiner les num�ros selon  l'etat
+			// Examiner les numéros selon  l'etat
 		} else if ($action == 'examiner_tel_pro')
-			examiner_numero($etat_pro, __FILE__, __LINE__);
+			examiner_numero($connexion, $etat_pro, __FILE__, __LINE__);
 
 		//-----------------------------------------------------------------------------------------
-		// Insertion d'un num�ro de t�l�phone
+		// Insertion d'un numéro de téléphone
 		else if ($action == 'inserer_tel_pro')
-			inserer_numero($tel_pro, $dialogue_pro, $etat_pro, __FILE__, __LINE__);
+			inserer_numero($connexion, $tel_pro, $dialogue_pro, $etat_pro, __FILE__, __LINE__);
 
 		//-----------------------------------------------------------------------------------------
-		// Modification d'un num�ro de t�l�phone
+		// Modification d'un numéro de téléphone
 		else if ($action == 'modifier_tel_pro')
-			modifier_numero($tel_pro, $dialogue_pro, $etat_pro, __FILE__, __LINE__);
+			modifier_numero($connexion, $tel_pro, $dialogue_pro, $etat_pro, __FILE__, __LINE__);
 
 		//-----------------------------------------------------------------------------------------
 
@@ -71,8 +71,8 @@ dtb_connection(__FILE__, __LINE__);
 		<div id='tester_panel'>
 			<form action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method='get' autocomplete="off">
 				<fieldset>
-					<legend>Tester un num�ro</legend>
-					<p><label for='tel_pro'>T�l�phone � tester</label>&nbsp;&nbsp;<input id='tel_pro' name='tel_pro' type='text' size="25" maxlength="128" /></p>
+					<legend>Tester un numéro</legend>
+					<p><label for='tel_pro'>Téléphone à tester</label>&nbsp;&nbsp;<input id='tel_pro' name='tel_pro' type='text' size="25" maxlength="128" /></p>
 					<input type='hidden' name='action' value='tester_tel_pro' />
 					<input class='but_input' type='submit' value='Tester un num�ro' />
 				</fieldset>
@@ -86,7 +86,7 @@ dtb_connection(__FILE__, __LINE__);
 		<div id='examiner_panel'>
 			<form action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method='get' autocomplete="off">
 				<fieldset>
-					<legend>Examiner les num�ros</legend>
+					<legend>Examiner les numéros</legend>
 					<p><label for='etat_pro'>Etat</label><br />
 						<select id='etat_pro' name='etat_pro'>
 							<option value='ligne'>ligne</option>
@@ -109,11 +109,11 @@ dtb_connection(__FILE__, __LINE__);
 		<div id='exploiter_numero_panel'>
 			<form action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method='get' autocomplete="off">
 				<fieldset>
-					<legend>Rentrer les informations de dialogue et positionner un �tat</legend>
+					<legend>Rentrer les informations de dialogue et positionner un état</legend>
 					<p><label for='dialogue_pro'>Dialogue</label><br /><textarea id='dialogue_pro' name='dialogue_pro' rows='10' cols='80'></textarea></p>
 					<p><label for='etat_pro'>Etat</label><br />
 						<select id='etat_pro' name='etat_pro'>
-							<option value='D�cider'>D�cider de la suite</option>
+							<option value='Décider'>Décider de la suite</option>
 							<option value='ligne'>ligne</option>
 							<option value='refus'>refus</option>
 							<option value='inexploitable'>inexploitable</option>
@@ -135,7 +135,7 @@ dtb_connection(__FILE__, __LINE__);
 		<div id='modifier_numero_panel'>
 			<form action="<?PHP echo $_SERVER['PHP_SELF']; ?>" method='get' autocomplete="off">
 				<fieldset>
-					<legend>Mofifier le num�ro <?PHP echo "<b>$tel_pro</b>"; ?></legend>
+					<legend>Mofifier le numéro <?PHP echo "<b>$tel_pro</b>"; ?></legend>
 					<p><label for='dialogue_pro'>Dialogue</label><br /><textarea id='dialogue_pro' name='dialogue_pro' rows='10' cols='80'><?PHP echo $dialog_pro ?></textarea></p>
 					<p><label for='etat_pro'>Etat</label><br />
 						<select id='etat_pro' name='etat_pro'>
@@ -155,45 +155,45 @@ dtb_connection(__FILE__, __LINE__);
 	<?
 	}
 	//-----------------------------------------------------------------------------------------------
-	function inserer_numero($tel_pro, $dialogue_pro, $etat_pro, $file, $line) {
+	function inserer_numero($connexion, $tel_pro, $dialogue_pro, $etat_pro, $file, $line) {
 
-		$tel_pro      = mysqli_real_escape_string($tel_pro);
-		$dialogue_pro = mysqli_real_escape_string($dialogue_pro);
-		$etat_pro     = mysqli_real_escape_string($etat_pro);
+		$tel_pro      = mysqli_real_escape_string($connexion, $tel_pro);
+		$dialogue_pro = mysqli_real_escape_string($connexion, $dialogue_pro);
+		$etat_pro     = mysqli_real_escape_string($connexion, $etat_pro);
 
 		$query = "INSERT INTO ano_prospection (tel_pro,dialogue_pro,etat_pro) 
 	                      VALUES ('$tel_pro','$dialogue_pro','$etat_pro')";
 
-		if (dtb_query($query, $file, $line, DEBUG_ANO_PROSPECTION) !== false) {
+		if (dtb_query($connexion, $query, $file, $line, DEBUG_ANO_PROSPECTION) !== false) {
 
-			echo "<p>Le num�ro $tel_pro a �t� ins�rer correctement</p>";
+			echo "<p>Le numéro $tel_pro a été insérer correctement</p>";
 		}
 	}
 	//-----------------------------------------------------------------------------------------------
-	function modifier_numero($tel_pro, $dialogue_pro, $etat_pro, $file, $line) {
+	function modifier_numero($connexion, $tel_pro, $dialogue_pro, $etat_pro, $file, $line) {
 
-		$tel_pro      = mysqli_real_escape_string($tel_pro);
-		$dialogue_pro = mysqli_real_escape_string($dialogue_pro);
-		$etat_pro     = mysqli_real_escape_string($etat_pro);
+		$tel_pro      = mysqli_real_escape_string($connexion, $tel_pro);
+		$dialogue_pro = mysqli_real_escape_string($connexion, $dialogue_pro);
+		$etat_pro     = mysqli_real_escape_string($connexion, $etat_pro);
 
 		$query = "UPDATE ano_prospection SET dialogue_pro='$dialogue_pro',
 	                                     etat_pro='$etat_pro'
 														           WHERE tel_pro='$tel_pro' LIMIT 1";
 
-		if (dtb_query($query, $file, $line, DEBUG_ANO_PROSPECTION) !== false) {
+		if (dtb_query($connexion, $query, $file, $line, DEBUG_ANO_PROSPECTION) !== false) {
 
-			echo "<p>Le num�ro $tel_pro a �t� mis a jour correctement</p>";
+			echo "<p>Le numéro $tel_pro a été mis a jour correctement</p>";
 		}
 	}
 	//-----------------------------------------------------------------------------------------------
-	function examiner_numero($etat_pro, $file, $line) {
+	function examiner_numero($connexion, $etat_pro, $file, $line) {
 
-		$etat_pro = mysqli_real_escape_string($etat_pro);
+		$etat_pro = mysqli_real_escape_string($connexion, $etat_pro);
 
-		echo "<p>Liste des num�ro dans l'�tat => $etat_pro</p>";
+		echo "<p>Liste des numéro dans l'état => $etat_pro</p>";
 
 		$query = "SELECT tel_pro,dialogue_pro FROM ano_prospection WHERE etat_pro='$etat_pro'";
-		if (($result = dtb_query($query, $file, $line, DEBUG_ANO_PROSPECTION)) !== false) {
+		if (($result = dtb_query($connexion, $query, $file, $line, DEBUG_ANO_PROSPECTION)) !== false) {
 			while (list($tel_pro, $dialogue_pro) = mysqli_fetch_row($result)) {
 
 				print_modifier_numero_panel($tel_pro, $dialogue_pro, $etat_pro);
@@ -214,12 +214,12 @@ dtb_connection(__FILE__, __LINE__);
 </html>
 <?PHP
 //-----------------------------------------------------------------------------------------------
-// Si le num�ro n'existe pas la fonction retourne false.
-// Si le num�ro existe la fonction retourne l'etat.
-function get_tel_pro_etat($tel_pro, $file, $line) {
+// Si le numéro n'existe pas la fonction retourne false.
+// Si le numéro existe la fonction retourne l'etat.
+function get_tel_pro_etat($connexion, $tel_pro, $file, $line) {
 
 	$query  = "SELECT etat_pro FROM ano_prospection WHERE tel_pro='$tel_pro'";
-	$result = dtb_query($query, $file, $line, DEBUG_ANO_PROSPECTION);
+	$result = dtb_query($connexion, $query, $file, $line, DEBUG_ANO_PROSPECTION);
 
 	if (mysqli_num_rows($result)) {
 
@@ -228,35 +228,35 @@ function get_tel_pro_etat($tel_pro, $file, $line) {
 	} else return false;
 }
 //-----------------------------------------------------------------------------------------------
-// Test des arguments d'entr�e
+// Test des arguments d'entrée
 function check_arg(&$action, &$tel_pro, &$dialogue_pro, &$etat_pro) {
 
 	if (isset($_GET['action'])) $action = trim($_GET['action']);
 	else $action = "";
 
 	//-----------------------------------------------------------------------------------------------
-	// Si on doit tester un num�ro de t�l�phone il faut v�rifier qu'on l'a ET �ventuellement le formater
+	// Si on doit tester un numéro de téléphone il faut vérifier qu'on l'a ET éventuellement le formater
 	if ($action == 'tester_tel_pro') {
 
 		if (isset($_GET['tel_pro']) && trim($_GET['tel_pro']) != "") $tel_pro = trim($_GET['tel_pro']);
 		else {
-			echo "<p>Saisir un num�ro de t�l�phone</p>";
+			echo "<p>Saisir un numéro de téléphone</p>";
 			die;
 		}
 	}
 	//-----------------------------------------------------------------------------------------------
-	// Si on doit examiner les num�ro selon leur �tat
+	// Si on doit examiner les numéro selon leur état
 	if ($action == 'examiner_tel_pro') {
 
 		$etat_pro = trim($_GET['etat_pro']);
 	}
 	//-----------------------------------------------------------------------------------------------
-	// Si on doit inserer un num�ro de t�l�phone
+	// Si on doit inserer un numéro de téléphone
 	if ($action == 'inserer_tel_pro') {
 
 		if (isset($_GET['tel_pro']) && trim($_GET['tel_pro']) != "") $tel_pro = trim($_GET['tel_pro']);
 		else {
-			echo "<p>Il manque un num�ro de t�l�phone</p>";
+			echo "<p>Il manque un numéro de téléphone</p>";
 			die;
 		}
 
@@ -264,7 +264,7 @@ function check_arg(&$action, &$tel_pro, &$dialogue_pro, &$etat_pro) {
 		$etat_pro     = trim($_GET['etat_pro']);
 	}
 	//-----------------------------------------------------------------------------------------------
-	// Si on doit modifier un num�ro de t�l�phone
+	// Si on doit modifier un numéro de téléphone
 	if ($action == 'modifier_tel_pro') {
 
 		$tel_pro      = trim($_GET['tel_pro']);

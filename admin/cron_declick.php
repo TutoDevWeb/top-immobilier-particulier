@@ -12,19 +12,19 @@ define('DEBUG_DECLICK', 1);
 
 $nb_click = 10;
 
-dtb_connection(__FILE__, __LINE__);
+$connexion = dtb_connection(__FILE__, __LINE__);
 
-tracking(CODE_DBG, 'OK', "Cron DeClick $nb_click", __FILE__, __LINE__);
+tracking($connexion, CODE_DBG, 'OK', "Cron DeClick $nb_click", __FILE__, __LINE__);
 
-cron_click($nb_click);
+cron_click($connexion, $nb_click);
 
 //----------------------------------------------------------------------------------------------------
-function cron_click($nb_click) {
+function cron_click($connexion, $nb_click) {
 
 	$nb_click_min = 17 * $nb_click;
 
 	$query = "SELECT tel_ins,hits FROM ano WHERE etat='ligne' AND email='silver_immo@yahoo.fr' AND hits > $nb_click_min";
-	$result = dtb_query($query, __FILE__, __LINE__, DEBUG_CLICK);
+	$result = dtb_query($connexion, $query, __FILE__, __LINE__, DEBUG_CLICK);
 
 	while (list($tel_ins, $hits) = mysqli_fetch_row($result)) {
 
