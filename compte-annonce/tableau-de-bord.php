@@ -19,7 +19,7 @@ $connexion = dtb_connection();
 filtrer_les_entrees_post(__FILE__, __LINE__);
 
 if (isset($_POST['action']) && $_POST['action'] == 'store_session') {
-	store_session();
+	store_session($connexion);
 	gotoo("fiche.php");
 	//print_r($_SESSION);
 	die;

@@ -23,11 +23,11 @@ define('URL_SITE_LEXIQUE', 'http://lexique.top-immobilier-particulier.fr/');
 define('URL_SHORT_SITE_LEXIQUE', 'lexique.top-immobilier-particulier.fr');
 
 // Email du webmaster
-define('EMAIL_WEBMASTER', 'equipe@top-immobilier-particulier.fr');
+define('EMAIL_WEBMASTER', 'top.immobilier.particulier@gmail.com');
 
 
 // Email sur lequel est envoyé un Carbon Copy
-define('EMAIL_CC_WEBMASTER', 'webtlon@neuf.fr');
+define('EMAIL_CC_WEBMASTER', 'jl.fondacci@gmail.com');
 
 //-----------------------------------------------------------------------------
 // Définitions relatives aux comptes de recherche

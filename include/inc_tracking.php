@@ -28,7 +28,8 @@ function tracking($connexion, $cop, $res, $comment, $file, $line) {
 	$tel_ins    = isset($_SESSION['tel_ins']) ? $_SESSION['tel_ins'] : 0;
 	$file       = basename($file);
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
-	$referer     = $_SERVER['HTTP_REFERER'];
+	//$referer     = $_SERVER['HTTP_REFERER']; // Il arrive que la clé n'y soit pas !!
+	$referer     = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 
 	$comment = addslashes($comment);
 
@@ -46,7 +47,8 @@ function tracking_dtb($connexion, $query, $file, $line) {
 	$comment    = addslashes($query);
 	$ip         = $_SERVER['REMOTE_ADDR'];
 	$user_agent = $_SERVER['HTTP_USER_AGENT'];
-	$referer    = $_SERVER['HTTP_REFERER'];
+	// $referer    = $_SERVER['HTTP_REFERER'];
+	$referer     = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 
 	$insert = "INSERT INTO tracking (dat,ip,tel_ins,cop,res,user_agent,referer,`file`,`line`,comment) 
              VALUES (now(),'$ip','0','DTB','OK','$user_agent','$referer','$file','$line','$comment')";

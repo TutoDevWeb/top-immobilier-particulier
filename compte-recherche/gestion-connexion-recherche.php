@@ -108,7 +108,7 @@ if ($action == 'demande_connexion') {
 					echo "<p class='reponse_commentaire'>Vous allez recevoir un email de confirmation avec un lien d'activation.<br />";
 					echo "Vous devez cliquer sur ce lien pour activer votre compte.<br />";
 					echo "Pendant 24 heures vous pouvez continuer à utiliser votre compte sans l'avoir activé.";
-					mail_creation_compte_recherche($compte_email, __FILE__, __LINE__, true);
+					mail_creation_compte_recherche($connexion, $compte_email, __FILE__, __LINE__, true);
 					tracking($connexion, CODE_CTR, 'OK', "$compte_email:compte_creation:création du compte", __FILE__, __LINE__);
 				}
 

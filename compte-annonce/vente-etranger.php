@@ -66,7 +66,7 @@ count_cnx($connexion);
 
 						// Vérifier les codes
 						if ($_POST['code_set'] == $_POST['code_get']) {
-							store_session();
+							store_session($connexion);
 							gotoo('fiche.php');
 						}
 					} else deja_annonce();

@@ -12,7 +12,7 @@ function mail_alerte_recherche($connexion, $compte_email, $list_alerte) {
 
 	$subject = "$url_short_site : $compte_email : Alerte recherche";
 
-	$message  = "Ce mail vous informe de la pr�sence de nouveaux produits correspondant � votre recherche.\r\n";
+	$message  = "Ce mail vous informe de la présence de nouveaux produits correspondant à votre recherche.\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
 	$message .= "Vous pouvez voir les produits en cliquant sur les liens suivants\r\n";
 	foreach ($list_tab as $tel_ins)
@@ -21,7 +21,7 @@ function mail_alerte_recherche($connexion, $compte_email, $list_alerte) {
 	$message .= "Vous pouvez demander de rentrer en contact avec les vendeurs\r\n";
 	$message .= "{$url_site}connexion-compte-recherche,$compte_email,$compte_pass.htm#fragment-1\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
-	$message .= "Vous pouvez voir les d�tails de l'alerte en cliquant sur le lien suivant\r\n";
+	$message .= "Vous pouvez voir les détails de l'alerte en cliquant sur le lien suivant\r\n";
 	$message .= "{$url_site}connexion-compte-recherche,$compte_email,$compte_pass.htm#fragment-2\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
 	$message .= "Si votre logiciel de messagerie ne vous permet pas de cliquer sur ce lien,\r\n";
@@ -64,18 +64,18 @@ function mail_creation_compte_recherche($connexion, $compte_email) {
 
 	$subject = "$url_short_site : $compte_email : Veuillez activer votre compte de recherche SVP";
 
-	$message  = "Vous avez cr�� un compte de recherche sur $url_short_site,\r\n";
+	$message  = "Vous avez créé un compte de recherche sur $url_short_site,\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
 	$message .= "Vos identifiants de connexion sont : \r\n";
 	$message .= "Votre email : $compte_email\r\n";
 	$message .= "Votre mot de passe : $compte_pass\r\n";
-	$message .= "Ce mot de passe vous est attribu� de mani�re al�atoire.\r\n\r\n";
+	$message .= "Ce mot de passe vous est attribué de manière aléatoire.\r\n\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
 	$message .= "Vous devez cliquer sur le lien suivant pour activer votre compte.\r\n";
 	$message .= "Pendant 24 heures vous pouvez utiliser votre compte sans l'avoir activ�.\r\n";
 	$message .= "{$url_site}activer-compte-recherche,$compte_email,$compte_pass.htm\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
-	$message .= "Pour acc�der � votre compte vous devez cliquer sur ce lien.\r\n";
+	$message .= "Pour accéder à votre compte vous devez cliquer sur ce lien.\r\n";
 	$message .= "{$url_site}connexion-compte-recherche,$compte_email,$compte_pass.htm\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
 	$message .= "Si votre logiciel de messagerie ne vous permet pas de cliquer sur ces liens,\r\n";
@@ -84,7 +84,7 @@ function mail_creation_compte_recherche($connexion, $compte_email) {
 
 	$message .= "-----------------------------------\r\n";
 	$message .= "Adresse de connexion : $compte_ip\r\n";
-	$message .= "Date de cr�ation du compte : $compte_date ( GMT $compte_index_GMT )\r\n";
+	$message .= "Date de création du compte : $compte_date ( GMT $compte_index_GMT )\r\n";
 	$message .= "-----------------------------------\r\n";
 
 	compte_send_mail($compte_email, $subject, $message, false);
@@ -102,21 +102,21 @@ function mail_relancer_activation_compte_recherche($connexion, $compte_email) {
 
 	$subject = "$url_short_site : $compte_email : Veuillez activer votre compte de recherche SVP";
 
-	$message  = "Vous avez cr�� un compte de recherche sur $url_short_site,\r\n";
+	$message  = "Vous avez créé un compte de recherche sur $url_short_site,\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
-	$message .= "Ce compte de recherche n'est pas activ� depuis plus de $relancer_compte_recherche_inactif jours \r\n";
+	$message .= "Ce compte de recherche n'est pas activé depuis plus de $relancer_compte_recherche_inactif jours \r\n";
 	$message .= "--------------------------------------------------------------\r\n";
-	$message .= "Ce compte doit �tre activ� pour vous permettre :\r\n";
-	$message .= "  - de recevoir des alertes mail au moment de la mise en ligne de nouveaux produits selon vos crit�res enregistr�s.\r\n";
-	$message .= "  - de recevoir des alertes mail au moment ou le prix des produits que vous avez s�lectionn�s est � la baisse.\r\n";
-	$message .= "  - de voir imm�diatement les mensualit�s de votre cr�dit en m�morisant votre capacit� de financement.\r\n";
+	$message .= "Ce compte doit être activé pour vous permettre :\r\n";
+	$message .= "  - de recevoir des alertes mail au moment de la mise en ligne de nouveaux produits selon vos critères enregistrés.\r\n";
+	$message .= "  - de recevoir des alertes mail au moment ou le prix des produits que vous avez sélectionnés est à la baisse.\r\n";
+	$message .= "  - de voir immédiatement les mensualités de votre crédit en mémorisant votre capacité de financement.\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
 	$message .= "Il vous reste moins de $duree_restant jours pour activer ce compte\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
 	$message .= "Vous devez cliquer sur le lien suivant pour activer votre compte.\r\n";
 	$message .= "{$url_site}activer-compte-recherche,$compte_email,$compte_pass.htm\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
-	$message .= "Pour acc�der � votre compte vous devez cliquer sur ce lien.\r\n";
+	$message .= "Pour accéder à votre compte vous devez cliquer sur ce lien.\r\n";
 	$message .= "{$url_site}connexion-compte-recherche,$compte_email,$compte_pass.htm\r\n";
 	$message .= "--------------------------------------------------------------\r\n";
 	$message .= "Si votre logiciel de messagerie ne vous permet pas de cliquer sur ces liens,\r\n";
@@ -125,7 +125,7 @@ function mail_relancer_activation_compte_recherche($connexion, $compte_email) {
 
 	$message .= "-----------------------------------\r\n";
 	$message .= "Adresse de connexion : $compte_ip\r\n";
-	$message .= "Date de cr�ation du compte : $compte_date ( GMT $compte_index_GMT )\r\n";
+	$message .= "Date de création du compte : $compte_date ( GMT $compte_index_GMT )\r\n";
 	$message .= "-----------------------------------\r\n";
 
 	compte_send_mail($compte_email, $subject, $message, false);
@@ -167,7 +167,7 @@ function compte_send_mail($compte_email, $subject, $message, $trace = false) {
 
 	$mess  = "Bonjour,\r\n\r\n\r\n";
 	$mess .= $message;
-	$mess .= "\r\n\r\nTr�s Cordialement. A bient�t sur $url_site\r\n";
+	$mess .= "\r\n\r\nTrès Cordialement. A bientôt sur $url_site\r\n";
 
 	$headers  = "From: $email_master\r\n";
 	$headers .= "BCC: $email_cc_webmaster\r\n";

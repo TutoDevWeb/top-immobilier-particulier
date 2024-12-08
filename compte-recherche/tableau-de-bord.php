@@ -23,9 +23,9 @@ isset($_SESSION['from'])       ? $from       = $_SESSION['from']       : $from  
 isset($_SESSION['my_referer']) ? $my_referer = $_SESSION['my_referer'] : $my_referer = '';
 
 if ($from != '' && $my_referer != '')
-	tracking($connexion, CODE_CTR, 'OK', "Entrée dans Interface Utilisateur:$compte_email:$idc<br/>$from => $my_referer", __FILE__, __LINE__);
+	tracking($connexion, CODE_CTR, 'OK', "Entrée dans Interface Utilisateur:$compte_email<br/>$from => $my_referer", __FILE__, __LINE__);
 else
-	tracking($connexion, CODE_CTR, 'OK', "Entrée dans Interface Utilisateur:$compte_email:$idc", __FILE__, __LINE__);
+	tracking($connexion, CODE_CTR, 'OK', "Entrée dans Interface Utilisateur:$compte_email", __FILE__, __LINE__);
 
 isset($_REQUEST['action'])  ? $action = trim($_REQUEST['action']) : '';
 

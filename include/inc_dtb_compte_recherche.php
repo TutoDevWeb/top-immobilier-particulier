@@ -5,12 +5,12 @@ function creation_compte_recherche($connexion, $compte_email, &$compte_pass, $fi
 	$compte_email = mysqli_real_escape_string($connexion, $compte_email);
 	$compte_ip = $_SERVER['REMOTE_ADDR'];
 
-	// G�n�rer un password
+	// Générer un password
 	$compte_pass = pass_generator();
 
 	$compte_index_GMT = date("O", time());
 
-	/* On ins�re une date connexion pour que la tache cron ne supprime pas le compte imm�diatement */
+	/* On insère une date connexion pour que la tache cron ne supprime pas le compte immédiatement */
 	$query = "INSERT INTO compte_recherche (compte_ip,compte_email,compte_pass,compte_date,compte_index_GMT,compte_date_connexion) VALUES ('$compte_ip','$compte_email','$compte_pass',now(),'$compte_index_GMT',now())";
 	dtb_query($connexion, $query, $file, $line, DEBUG_DTB_COMPTE);
 
