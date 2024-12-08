@@ -18,11 +18,11 @@ function Localization() {
 
 		zone_pays = 'France';
 
-		var lien_ville = (zone_ville != '') ? " &raquo; <a href='#' title=\"Voir les r�sultats sur : " + zone_ville + "\" onClick='switchzone.ville(\"encodeURI(e(zone_dept)+"\",\"encodeURI(e(zone_ville)+"\");return false;'>" + zone_ville + "</a>"    : '';
-		var lien_dept = (zone_dept != '') ? " &raquo; <a href='#' title=\"Voir les r�sultats sur : " + zone_dept + "\" onClick='switchzone.dept(\"encodeURI(e(zone_dept)+"\");return false;'>" + zone_dept + "</a>"       : '';
-		var lien_region = (zone_region != '') ? " &raquo; <a href='#' title=\"Voir les r�sultats sur : " + zone_region + "\" onClick='switchzone.region(\"encodeURI(e(zone_region)+"\");return false;'>" + zone_region + "</a>" : '';
-		var lien_pays = (zone_pays != '') ? " :: <a href='#' title=\"Voir les r�sultats sur : " + zone_pays + "\" onClick='switchzone.pays(\"encodeURI(e(zone_pays)+"\");return false;'>" + zone_pays + "</a>"            : '';
-		var lien_accueil = " <a href='/' title=\"Retour � l'accueil\" >Accueil</a>";
+		var lien_ville = (zone_ville != '') ? " &raquo; <a href='#' title=\"Voir les résultats sur : " + zone_ville + "\" onClick='switchzone.ville(\"encodeURI(zone_dept)+"\",\"encodeURI(zone_ville)+"\");return false;'>" + zone_ville + "</a>"    : '';
+		var lien_dept = (zone_dept != '') ? " &raquo; <a href='#' title=\"Voir les résultats sur : " + zone_dept + "\" onClick='switchzone.dept(\"encodeURI(zone_dept)+"\");return false;'>" + zone_dept + "</a>"       : '';
+		var lien_region = (zone_region != '') ? " &raquo; <a href='#' title=\"Voir les résultats sur : " + zone_region + "\" onClick='switchzone.region(\"encodeURI(zone_region)+"\");return false;'>" + zone_region + "</a>" : '';
+		var lien_pays = (zone_pays != '') ? " :: <a href='#' title=\"Voir les r�sultats sur : " + zone_pays + "\" onClick='switchzone.pays(\"encodeURI(zone_pays)+"\");return false;'>" + zone_pays + "</a>"            : '';
+		var lien_accueil = " <a href='/' title=\"Retour à l'accueil\" >Accueil</a>";
 
 		document.getElementById('localization').innerHTML = lien_accueil + lien_pays + lien_region + lien_dept + lien_ville;
 
