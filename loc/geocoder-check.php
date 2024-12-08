@@ -227,7 +227,7 @@ if ($action == 'get_map_ville') {
 
 			xhr.open("POST", "/loc/geocoder-check.php", true);
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xhr.send('action=get_dept_in_region&zone_region=' + escape(zone_region));
+			xhr.send('action=get_dept_in_region&zone_region=' + encodeURI(zone_region));
 
 		}
 		//---------------------------------------------------------------------------------
@@ -264,7 +264,7 @@ if ($action == 'get_map_ville') {
 
 			xhr.open("POST", "/loc/geocoder-check.php", true);
 			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xhr.send('action=get_ville_in_dept&zone_dept=' + escape(zone_dept));
+			xhr.send('action=get_ville_in_dept&zone_dept=' + encodeURI(zone_dept));
 
 		}
 		//---------------------------------------------------------------------------------
@@ -310,7 +310,7 @@ if ($action == 'get_map_ville') {
 
 				xhr.open("POST", "/loc/geocoder-check.php", false);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xhr.send('action=get_map_region&zone_region=' + escape(zone_region));
+				xhr.send('action=get_map_region&zone_region=' + encodeURI(zone_region));
 
 			}
 
@@ -350,7 +350,7 @@ if ($action == 'get_map_ville') {
 
 				xhr.open("POST", "/loc/geocoder-check.php", false);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xhr.send('action=get_map_dept&zone_dept=' + escape(zone_dept) + '&zone_region=' + escape(zone_region));
+				xhr.send('action=get_map_dept&zone_dept=' + encodeURI(zone_dept) + '&zone_region=' + encodeURI(zone_region));
 
 			}
 
@@ -381,7 +381,7 @@ if ($action == 'get_map_ville') {
 
 				xhr.open("POST", "/loc/geocoder-check.php", false);
 				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				xhr.send('action=get_map_ville&zone_ville=' + escape(zone_ville) + '&zone_dept=' + escape(zone_dept) + '&zone_region=' + escape(zone_region));
+				xhr.send('action=get_map_ville&zone_ville=' + encodeURI(zone_ville) + '&zone_dept=' + encodeURI(zone_dept) + '&zone_region=' + encodeURI(zone_region));
 
 			}
 		}

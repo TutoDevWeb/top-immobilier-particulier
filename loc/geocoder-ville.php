@@ -194,7 +194,7 @@ function addAddressToMap(response) {
 
   xhr.open( "POST", "/loc/geocoder-ville.php",  false); 
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
-	xhr.send('action=set_ville'+'&idv='+data_for_search.idv+'+&ville='+escape(data_for_search.ville)+'&dept='+escape(data_for_search.dept)+'&region='+escape(data_for_search.region)+'&lat='+lat+'&lng='+lng+'&maps_code='+maps_code+'&address_GG='+address_GG); 
+	xhr.send('action=set_ville'+'&idv='+data_for_search.idv+'+&ville='+encodeURI(data_for_search.ville)+'&dept='+encodeURI(data_for_search.dept)+'&region='+encodeURI(data_for_search.region)+'&lat='+lat+'&lng='+lng+'&maps_code='+maps_code+'&address_GG='+address_GG); 
 
 }
 //------------------------------------------------------------------------------------------------

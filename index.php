@@ -98,7 +98,7 @@ $connexion = dtb_connection();
 		}
 
 		function show_data(town) {
-			var arg = "zone=france" + "&zone_region=" + escape(town.region) + "&zone_dept=" + escape(town.dept) + "&zone_ville=" + escape(town.ville);
+			var arg = "zone=france" + "&zone_region=" + encodeURI(town.region) + "&zone_dept=" + encodeURI(town.dept) + "&zone_ville=" + encodeURI(town.ville);
 			var info = "<div id='saginfo'>top-immobilier-particulier.fr</div>";
 			if (town.nb_appartement) info += town.nb_appartement + ((town.nb_appartement == 1) ? " Appartement<br/>" : " Appartements<br/>");
 			if (town.nb_maison) info += town.nb_maison + ((town.nb_maison == 1) ? " Maison<br/>" : " Maisons<br/>");
