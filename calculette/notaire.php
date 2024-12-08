@@ -10,7 +10,7 @@
 	<?PHP
 
 	if (($frais = calcul_frais($prix = 2230000.0)) !== false) echo "$frais<br>";
-	else echo "Hors Bar�me<br>";
+	else echo "Hors Barème<br>";
 
 	function calcul_frais($prix) {
 
@@ -40,7 +40,7 @@
 		echo "frais_a => $frais_a<br>";
 		echo "frais_b => $frais_b<br>";
 
-		// On fait une interpol lin�aire
+		// On fait une interpol linéaire
 		$A = ($frais_a - $frais_b) / ($prix_a - $prix_b);
 		$B = $frais_a - ($A * $prix_a);
 

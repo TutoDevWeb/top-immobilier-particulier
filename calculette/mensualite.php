@@ -20,7 +20,7 @@
 /*---*/
 	function calcul_mensualite($Capital, $NbAn, $TxAn) {
 
-		// Le nombre d'�ch�ances par an
+		// Le nombre d'échéances par an
 		$EchAn = 12.0;
 
 		// Calcul du Taux Periodique
@@ -28,12 +28,12 @@
 
 		echo "TxPer => $TxPer<br>";
 
-		// Le Nombre d'�chance total
+		// Le Nombre d'échance total
 		$NbEch = $EchAn * $NbAn;
 
 		echo "NbEch => $NbEch<br>";
 
-		// Caucul interm�diare de la puissance
+		// Caucul intermédiare de la puissance
 		$PxPer = pow((1.0 + $TxPer), $NbEch);
 
 		echo "PxPer => $PxPer<br>";
