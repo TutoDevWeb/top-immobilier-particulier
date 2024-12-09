@@ -1,26 +1,26 @@
 <?PHP
 // -------------------------------------------------------------------------------------------     
-// Fonctions utilis�es pour l'affichage de la fiche � partir des donn�es de la database
+// Fonctions utilisées pour l'affichage de la fiche à partir des données de la database
 // -------------------------------------------------------------------------------------------     
-function print_dtb_fiche($tel_ins) {
+function print_dtb_fiche($connexion, $tel_ins) {
 
-	$data  = get_data_from_dtb($tel_ins);
+	$data  = get_data_from_dtb($connexion, $tel_ins);
 
 	print_fiche($data);
 }
 //--------------------------------------------------------------------------------------------
-function get_data_from_dtb($tel_ins) {
+function get_data_from_dtb($connexion, $tel_ins) {
 
 	$query = "SELECT zone,zone_pays,zone_dept,zone_ville,zone_ard,zone_dom,ok_email,prix,typp,nbpi,surf,tel_bis,blabla,quart,tel_ins,wwwblog FROM ano WHERE tel_ins='$tel_ins'";
-	$result = dtb_query($query, __FILE__, __LINE__, DEBUG_FICHE);
-	$data  = mysqli_fetch_array($result, mysqli_ASSOC);
+	$result = dtb_query($connexion, $query, __FILE__, __LINE__, DEBUG_FICHE);
+	$data  = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
 	$data["typp"] = typp_from_dtb_to_num($data["typp"]);
 
 	return $data;
 }
 // -------------------------------------------------------------------------------------------     
-// Fonctions utilis�es pour l'affichage de la fiche � partir des donn�es de session
+// Fonctions utilisées pour l'affichage de la fiche à partir des données de session
 // -------------------------------------------------------------------------------------------     
 function print_session_fiche() {
 
@@ -32,30 +32,30 @@ function print_session_fiche() {
 function get_data_from_session() {
 
 	$data = array(
-		"zone"        => $_SESSION['zone'],
-		"zone_pays"   => $_SESSION['zone_pays'],
-		"zone_region" => $_SESSION['zone_region'],
-		"zone_dept"   => $_SESSION['zone_dept'],
-		"zone_ville"  => $_SESSION['zone_ville'],
-		"zone_ard"    => $_SESSION['zone_ard'],
-		"zone_dom"    => $_SESSION['zone_dom'],
-		"num_dept"    => $_SESSION['num_dept'],
-		"ok_email"    => $_SESSION['ok_email'],
-		"prix"        => $_SESSION['prix'],
-		"typp"        => $_SESSION['typp'],
-		"nbpi"        => $_SESSION['nbpi'],
-		"surf"        => $_SESSION['surf'],
-		"tel_ins"     => $_SESSION['tel_ins'],
-		"tel_bis"     => $_SESSION['tel_bis'],
-		"wwwblog"     => $_SESSION['wwwblog'],
-		"blabla"      => $_SESSION['blabla'],
-		"quart"       => $_SESSION['quart']
+		"zone"        => $_SESSION['zone'] ?? '',
+		"zone_pays"   => $_SESSION['zone_pays'] ?? '',
+		"zone_region" => $_SESSION['zone_region'] ?? '',
+		"zone_dept"   => $_SESSION['zone_dept'] ?? '',
+		"zone_ville"  => $_SESSION['zone_ville'] ?? '',
+		"zone_ard"    => $_SESSION['zone_ard'] ?? '',
+		"zone_dom"    => $_SESSION['zone_dom'] ?? '',
+		"num_dept"    => $_SESSION['num_dept'] ?? '',
+		"ok_email"    => $_SESSION['ok_email'] ?? '',
+		"prix"        => $_SESSION['prix'] ?? '',
+		"typp"        => $_SESSION['typp'] ?? '',
+		"nbpi"        => $_SESSION['nbpi'] ?? '',
+		"surf"        => $_SESSION['surf'] ?? '',
+		"tel_ins"     => $_SESSION['tel_ins'] ?? '',
+		"tel_bis"     => $_SESSION['tel_bis'] ?? '',
+		"wwwblog"     => $_SESSION['wwwblog'] ?? '',
+		"blabla"      => $_SESSION['blabla'] ?? '',
+		"quart"       => $_SESSION['quart'] ?? ''
 	);
 
 	return $data;
 }
 // -------------------------------------------------------------------------------------------     
-// Fonctions utilis�es pour l'affichage de la fiche � partir des donn�es du tableau data
+// Fonctions utilisées pour l'affichage de la fiche à partir des données du tableau data
 // -------------------------------------------------------------------------------------------     
 function print_fiche($data) {
 
@@ -146,16 +146,16 @@ function print_fiche($data) {
 <?PHP
 }
 // -------------------------------------------------------------------------------------------     
-// Cette fonction est utilis�e dans le cas d'une modification d'une annonce qui existe d�j�
+// Cette fonction est utilisée dans le cas d'une modification d'une annonce qui existe déjà
 // Elle permet de recharger les variables de Session sur lesquelles on travaille pendant la
-// cr�ation de l'annonce.
-function restore_from_base($tel_ins) {
+// création de l'annonce.
+function restore_from_base($connexion, $tel_ins) {
 
 	dtb_connection(__FILE__, __LINE__);
 
 	$query = "SELECT zone,zone_pays,zone_region,zone_dept,zone_ville,zone_ard,zone_dom,num_dept,email,ok_email,quart,typp,nbpi,surf,prix,blabla,tel_bis,maps_lat,maps_lng,maps_actif,wwwblog,cntblog
             FROM ano WHERE tel_ins='$tel_ins'";
-	$result = dtb_query($query, __FILE__, __LINE__, DEBUG_MODIFIER);
+	$result = dtb_query($connexion, $query, __FILE__, __LINE__, DEBUG_MODIFIER);
 	list($zone, $zone_pays, $zone_region, $zone_dept, $zone_ville, $zone_ard, $zone_dom, $num_dept, $email, $ok_email, $quart, $typp, $nbpi, $surf, $prix, $blabla, $tel_bis, $maps_lat, $maps_lng, $maps_actif, $wwwblog, $cntblog) = mysqli_fetch_row($result);
 
 	$_SESSION['zone']        = $zone;
@@ -182,6 +182,6 @@ function restore_from_base($tel_ins) {
 	$_SESSION['maps_actif'] = $maps_actif;
 
 	$_SESSION['wwwblog'] = $wwwblog;
-	$_SESSION['cntblog'] = $ctnblog;
+	$_SESSION['cntblog'] = $cntblog;
 }
 ?>
