@@ -61,7 +61,7 @@ include("../include/inc_cibleclick.php");
 
 							$photo = get_photo_from_session();
 
-							print_galerie_photo($photo);
+							// print_galerie_photo($photo);
 
 							print_bouton_reprendre_ligne($zone, is_modif());
 

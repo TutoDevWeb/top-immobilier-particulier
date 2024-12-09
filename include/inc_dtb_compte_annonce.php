@@ -3,34 +3,34 @@
 //--------------------------------------------------------------------------------------------------------
 function insert_annonce($connexion, $password, $file, $line) {
 
-	$zone        = mysqli_real_escape_string($connexion, $_SESSION['zone']);
-	$zone_pays   = mysqli_real_escape_string($connexion, $_SESSION['zone_pays']);
-	$zone_region = mysqli_real_escape_string($connexion, $_SESSION['zone_region']);
-	$zone_dept   = mysqli_real_escape_string($connexion, $_SESSION['zone_dept']);
-	$zone_ville  = mysqli_real_escape_string($connexion, $_SESSION['zone_ville']);
-	$zone_ard    = mysqli_real_escape_string($connexion, $_SESSION['zone_ard']);
-	$zone_dom    = mysqli_real_escape_string($connexion, $_SESSION['zone_dom']);
-	$num_dept    = mysqli_real_escape_string($connexion, $_SESSION['num_dept']);
+	$zone        = mysqli_real_escape_string($connexion, $_SESSION['zone'] ?? '');
+	$zone_pays   = mysqli_real_escape_string($connexion, $_SESSION['zone_pays'] ?? '');
+	$zone_region = mysqli_real_escape_string($connexion, $_SESSION['zone_region'] ?? '');
+	$zone_dept   = mysqli_real_escape_string($connexion, $_SESSION['zone_dept'] ?? '');
+	$zone_ville  = mysqli_real_escape_string($connexion, $_SESSION['zone_ville'] ?? '');
+	$zone_ard    = mysqli_real_escape_string($connexion, $_SESSION['zone_ard'] ?? '');
+	$zone_dom    = mysqli_real_escape_string($connexion, $_SESSION['zone_dom'] ?? '');
+	$num_dept    = mysqli_real_escape_string($connexion, $_SESSION['num_dept'] ?? '');
 
-	$tel_ins    = mysqli_real_escape_string($connexion, $_SESSION['tel_ins']);
-	$email      = mysqli_real_escape_string($connexion, $_SESSION['sagmail']);
-	$ok_email   = mysqli_real_escape_string($connexion, $_SESSION['ok_email']);
-	$tel_bis    = mysqli_real_escape_string($connexion, $_SESSION['tel_bis']);
+	$tel_ins    = mysqli_real_escape_string($connexion, $_SESSION['tel_ins'] ?? '');
+	$email      = mysqli_real_escape_string($connexion, $_SESSION['sagmail'] ?? '');
+	$ok_email   = mysqli_real_escape_string($connexion, $_SESSION['ok_email'] ?? '');
+	$tel_bis    = mysqli_real_escape_string($connexion, $_SESSION['tel_bis'] ?? '');
 	$etat       = 'attente_paiement';
 
 
-	$typp     = mysqli_real_escape_string($connexion, $_SESSION['typp']);
-	$nbpi     = mysqli_real_escape_string($connexion, $_SESSION['nbpi']);
-	$surf     = mysqli_real_escape_string($connexion, $_SESSION['surf']);
-	$prix     = mysqli_real_escape_string($connexion, $_SESSION['prix']);
-	$quart_s  = mysqli_real_escape_string($connexion, $_SESSION['quart']);
-	$blabla_s = mysqli_real_escape_string($connexion, $_SESSION['blabla']);
+	$typp     = mysqli_real_escape_string($connexion, $_SESSION['typp'] ?? '');
+	$nbpi     = mysqli_real_escape_string($connexion, $_SESSION['nbpi'] ?? '');
+	$surf     = mysqli_real_escape_string($connexion, $_SESSION['surf'] ?? '');
+	$prix     = mysqli_real_escape_string($connexion, $_SESSION['prix'] ?? '');
+	$quart_s  = mysqli_real_escape_string($connexion, $_SESSION['quart'] ?? '');
+	$blabla_s = mysqli_real_escape_string($connexion, $_SESSION['blabla'] ?? '');
 
 	$maps_lat   = $_SESSION['maps_lat'];
 	$maps_lng   = $_SESSION['maps_lng'];
 	$maps_actif = $_SESSION['maps_actif'];
 
-	$wwwblog    = mysqli_real_escape_string($connexion, $_SESSION['wwwblog']);
+	$wwwblog    = mysqli_real_escape_string($connexion, $_SESSION['wwwblog'] ?? '');
 
 	$ip_ins = $_SERVER['REMOTE_ADDR'];
 
@@ -54,31 +54,31 @@ function insert_annonce($connexion, $password, $file, $line) {
 //--------------------------------------------------------------------------------------------------------
 function update_annonce($connexion, $etat, $file, $line) {
 
-	$tel_ins  = mysqli_real_escape_string($connexion, $_SESSION['tel_ins']);
-	$ok_email = mysqli_real_escape_string($connexion, $_SESSION['ok_email']);
-	$tel_bis  = mysqli_real_escape_string($connexion, $_SESSION['tel_bis']);
+	$tel_ins  = mysqli_real_escape_string($connexion, $_SESSION['tel_ins'] ?? '');
+	$ok_email = mysqli_real_escape_string($connexion, $_SESSION['ok_email'] ?? '');
+	$tel_bis  = mysqli_real_escape_string($connexion, $_SESSION['tel_bis'] ?? '');
 
-	$zone        = mysqli_real_escape_string($connexion, $_SESSION['zone']);
-	$zone_pays   = mysqli_real_escape_string($connexion, $_SESSION['zone_pays']);
-	$zone_region = mysqli_real_escape_string($connexion, $_SESSION['zone_region']);
-	$zone_dept   = mysqli_real_escape_string($connexion, $_SESSION['zone_dept']);
-	$zone_ville  = mysqli_real_escape_string($connexion, $_SESSION['zone_ville']);
-	$zone_ard    = mysqli_real_escape_string($connexion, $_SESSION['zone_ard']);
-	$zone_dom    = mysqli_real_escape_string($connexion, $_SESSION['zone_dom']);
-	$num_dept    = mysqli_real_escape_string($connexion, $_SESSION['num_dept']);
+	$zone        = mysqli_real_escape_string($connexion, $_SESSION['zone'] ?? '');
+	$zone_pays   = mysqli_real_escape_string($connexion, $_SESSION['zone_pays'] ?? '');
+	$zone_region = mysqli_real_escape_string($connexion, $_SESSION['zone_region'] ?? '');
+	$zone_dept   = mysqli_real_escape_string($connexion, $_SESSION['zone_dept'] ?? '');
+	$zone_ville  = mysqli_real_escape_string($connexion, $_SESSION['zone_ville'] ?? '');
+	$zone_ard    = mysqli_real_escape_string($connexion, $_SESSION['zone_ard'] ?? '');
+	$zone_dom    = mysqli_real_escape_string($connexion, $_SESSION['zone_dom'] ?? '');
+	$num_dept    = mysqli_real_escape_string($connexion, $_SESSION['num_dept'] ?? '');
 
-	$typp       = mysqli_real_escape_string($connexion, $_SESSION['typp']);
-	$nbpi       = mysqli_real_escape_string($connexion, $_SESSION['nbpi']);
-	$surf       = mysqli_real_escape_string($connexion, $_SESSION['surf']);
-	$prix       = mysqli_real_escape_string($connexion, $_SESSION['prix']);
-	$quart_s    = mysqli_real_escape_string($connexion, $_SESSION['quart']);
-	$blabla_s   = mysqli_real_escape_string($connexion, $_SESSION['blabla']);
+	$typp       = mysqli_real_escape_string($connexion, $_SESSION['typp'] ?? '');
+	$nbpi       = mysqli_real_escape_string($connexion, $_SESSION['nbpi'] ?? '');
+	$surf       = mysqli_real_escape_string($connexion, $_SESSION['surf'] ?? '');
+	$prix       = mysqli_real_escape_string($connexion, $_SESSION['prix'] ?? '');
+	$quart_s    = mysqli_real_escape_string($connexion, $_SESSION['quart'] ?? '');
+	$blabla_s   = mysqli_real_escape_string($connexion, $_SESSION['blabla'] ?? '');
 
 	$maps_lat   = $_SESSION['maps_lat'];
 	$maps_lng   = $_SESSION['maps_lng'];
 	$maps_actif = $_SESSION['maps_actif'];
 
-	$wwwblog    = mysqli_real_escape_string($connexion, $_SESSION['wwwblog']);
+	$wwwblog    = mysqli_real_escape_string($connexion, $_SESSION['wwwblog'] ?? '');
 
 	$update = "UPDATE ano SET ok_email='$ok_email',
                             tel_bis='$tel_bis',
@@ -465,7 +465,7 @@ function demande_connexion_annonce($connexion, $compte_tel_ins, $compte_pass, &$
 		if (isset($_REQUEST['user']) && ($_REQUEST['user'] == 'adminsag')) {
 
 			$_SESSION['user'] = 'adminsag';
-			tracking($connexion, CODE_CTA, 'OK', "CONNEXION ADMIN: Compte Annonce : Connexion Accept�e<br/>$compte_tel_ins:$compte_pass:$ida", $file, $line);
+			tracking($connexion, CODE_CTA, 'OK', "CONNEXION ADMIN: Compte Annonce : Connexion Acceptée<br/>$compte_tel_ins:$compte_pass:$ida", $file, $line);
 		} else {
 
 			$sag_version = VERSION_SAG;
@@ -474,10 +474,11 @@ function demande_connexion_annonce($connexion, $compte_tel_ins, $compte_pass, &$
 			setcookie("connexion_compte_annonce", $sag_version . '|' . $compte_tel_ins . '|' . $compte_pass, time() + 7776000, "/");
 
 			/*
-      // Mettre à jour la date de la dernière connexion
-      $query  = "UPDATE compte_recherche SET compte_date_connexion=now() WHERE idc='$idc' LIMIT 1";
-      dtb_query($query,$file,$line,DEBUG_DTB_COMPTE);
-      */
+			// Mettre à jour la date de la dernière connexion
+			$query  = "UPDATE compte_recherche SET compte_date_connexion=now() WHERE idc='$idc' LIMIT 1";
+			dtb_query($query,$file,$line,DEBUG_DTB_COMPTE);
+			*/
+
 			tracking($connexion, CODE_CTA, 'OK', "CONNEXION USER: Compte Annonce : Connexion Acceptée<br/>$compte_tel_ins:$compte_pass:$ida", $file, $line);
 		}
 		return $ida;

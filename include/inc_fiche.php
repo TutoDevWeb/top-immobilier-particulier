@@ -90,7 +90,7 @@ function print_fiche($data) {
 					if ($zone == 'etranger') echo "$zone_pays - $zone_ville";
 					?>
 				</td>
-				<td class='textrwb'><?PHP echo "$prix_str"; ?> �</td>
+				<td class='textrwb'><?PHP echo "$prix_str"; ?> €</td>
 			</tr>
 			<tr>
 				<td colspan='2' class='textlwb'>
@@ -101,7 +101,7 @@ function print_fiche($data) {
 				</td>
 			</tr>
 			<tr>
-				<td colspan='2' class='textlwb'><?PHP echo "$typp_str de $nbpi Pi�ces de $surf m� environ" ?></td>
+				<td colspan='2' class='textlwb'><?PHP echo "$typp_str de $nbpi Pièces de $surf m2 environ" ?></td>
 			</tr>
 		</table>
 		<br />
@@ -117,12 +117,12 @@ function print_fiche($data) {
 			<?PHP
 			if ($ok_email) {
 				echo "<tr>\n";
-				echo "<td colspan='2' class='textwb'>Vous serez contact� par mail&nbsp;&nbsp;<img src='/images/email_ano.jpg' width='26' height='17' hspace='40' align='absmiddle' border='0' /></td>\n";
+				echo "<td colspan='2' class='textwb'>Vous serez contacté par mail&nbsp;&nbsp;<img src='/images/email_ano.jpg' width='26' height='17' hspace='40' align='absmiddle' border='0' /></td>\n";
 				echo "</tr>\n";
 			}
 			?>
 			<tr>
-				<td class='textwb'>T�l�phone</td>
+				<td class='textwb'>Téléphone</td>
 				<td class='textwb'>
 					<?PHP
 					$tel_ins_str = format_telephone($tel_ins);
